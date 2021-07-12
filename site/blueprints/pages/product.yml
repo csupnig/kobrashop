@@ -1,0 +1,24 @@
+title: Product
+
+options:
+  changeSlug: false
+  changeTemplate: false
+  delete: false
+
+fields:
+  price:
+    label: Price
+    type: number
+    required: true
+    step: .01
+    after: €
+    width: 1/2
+  tax:
+    label: Tax
+    type: number
+    required: true
+    step: 1
+    min: 0
+    max: 100
+    after: %
+    width: 1/2
