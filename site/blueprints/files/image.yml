@@ -1,0 +1,15 @@
+title: Image
+sortable: true
+
+accept: image/jpeg, image/png
+
+fields:
+  title:
+    label: Name
+    type: text
+    width: 2/3
+
+  credits:
+    label: Credits
+    type: text
+

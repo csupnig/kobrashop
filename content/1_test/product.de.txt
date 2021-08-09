@@ -1,0 +1,75 @@
+Title: Test
+
+----
+
+Name: Testprodukt
+
+----
+
+Articleid: 123456
+
+----
+
+Price: 10
+
+----
+
+Packagingunit: 6
+
+----
+
+Cover:
+
+- 547136-2.png
+
+----
+
+Colors: color2, color5, color1, color3, color4
+
+----
+
+Dimensions: true
+
+----
+
+Length: 500
+
+----
+
+Width: 50
+
+----
+
+Bristles: true
+
+----
+
+Bristlelength: 55
+
+----
+
+Bristlewidth: 0,60
+
+----
+
+Usage: sweeping
+
+----
+
+Sweeping: sweeping1, sweeping2
+
+----
+
+Brushing: 
+
+----
+
+Surfaces: brushing1
+
+----
+
+Properties: phb
+
+----
+
+Color1: false

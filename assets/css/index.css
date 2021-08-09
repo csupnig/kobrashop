@@ -1,0 +1,75 @@
+/*=================================== Custom fonts ===================================*/
+@font-face { font-family:'Archer-Book'; src:url(/assets/fonts/Archer-Book.otf); font-weight:normal; }
+@font-face { font-family:'Archer-Light'; src:url(/assets/fonts/Archer-Light.otf); font-weight:normal; }
+@font-face { font-family:'Archer-ExtraLight'; src:url(/assets/fonts/Archer-ExtraLight.otf); font-weight:normal; }
+@font-face { font-family:'Geomanist-Black'; src:url(/assets/fonts/Geomanist-Black.otf); font-weight:normal; }
+@font-face { font-family:'Geomanist-Bold'; src:url(/assets/fonts/Geomanist-Bold.otf); font-weight:normal; }
+@font-face { font-family:'Geomanist-ExtraLight'; src:url(/assets/fonts/Geomanist-ExtraLight.otf); font-weight:normal; }
+@font-face { font-family:'Geomanist-Light'; src:url(/assets/fonts/Geomanist-Light.otf); font-weight:normal; }
+@font-face { font-family:'Geomanist-Medium'; src:url(/assets/fonts/Geomanist-Medium.otf); font-weight:normal; }
+@font-face { font-family:'Geomanist-Regular'; src:url(/assets/fonts/Geomanist-Regular.otf); font-weight:normal; }
+@font-face { font-family:'Geomanist-Thin'; src:url(/assets/fonts/Geomanist-Thin.otf); font-weight:normal; }
+
+/*=================================== Initialization & General ===================================*/
+
+
+/*=================================== Site-specific Framework & Snippets ===================================*/
+
+/*Site-specific grids, widths & heights*/
+/*Site-specific medium paddings*/
+/*Site-specific large paddings*/
+/*Site-specific small & extra small paddings*/
+/*Site-specific padding exceptions*/
+/*Site-specific medium margins*/
+/*Site-specific large margins*/
+/*Site-specific small margins*/
+/*Site-specific framework: Backgrounds*/
+/*Site-specific framework: Borders*/
+/*Site-specific framework: Buttons & icons*/
+
+/*Text spacing*/
+
+
+/*Colors*/
+
+
+/*Snippets*/
+
+
+/*=================================== Templates ===================================*/
+
+
+
+/*=================================== Texts ===================================*/
+
+/*Default types*/
+nav, span, h3 { font:1.2rem/1.6rem 'DM-Sans', sans-serif; }
+button, h2, footer span, button span { font:400 0.9rem/1.5rem ballinger-mono, sans-serif; text-transform:uppercase; letter-spacing:0.1rem; }
+span.large { font:2.0rem/2.8rem 'DM-Sans', sans-serif; }
+
+/*Type colors*/
+.blue, .blue a, .project.producer .white.text, .work footer, button.direct:not(.active):hover { color:#3267ed; }
+.black, .black a { color:#000; }
+.white, .white a, .project.producer:hover .white.text { color:#fff; }
+input.white::placeholder { color:#000; opacity:0.3; }
+
+/*Type styles*/
+.italic { font-style:italic !important; }
+.uppercase { text-transform:uppercase; letter-spacing:0.07rem; }
+.strong { font-weight:bold !important; }
+.strikethrough, button.publication { text-decoration:line-through; }
+button.strikethrough.active, a.strikethrough:hover { text-decoration:none !important; }
+ol { list-style-position:inside; }
+
+/*Link styles*/
+.blue.hoverUnderline a:hover, .blue.hoverUnderline a:visited, nav a.active, nav a.open, .blue.alwaysUnderline a:link, .blue.alwaysUnderline a:visited, .blue.alwaysUnderline a:hover, .blue.alwaysUnderline a:active, button.direct:not(.active):hover span { text-decoration:none; border-bottom:0.08rem solid #3267ed !important; }
+.white.hoverUnderline a:hover, .white.hoverUnderline a:visited, button.direct.active span { text-decoration:none; border-bottom:0.05rem solid #fff !important; }
+.noUnderline, .noUnderline a:link, .noUnderline a:visited, .noUnderline a:hover, .noUnderline a:active, .hoverUnderline a:link, .hoverUnderline a:visited { text-decoration:none; border-bottom:none; }
+a.hoverItalic:hover, .hoverItalic a:hover { font-style:italic !important; }
+a.hoverBold:hover, .hoverBold a:hover { font-weight:bold; }
+
+/*=================================== Mobile Styles ===================================*/
+
+@media all and (max-width:600px) {
+
+}

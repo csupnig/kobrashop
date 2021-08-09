@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/*=================================== Initialization & General ===================================*/
+
+/*Universal initialization*/
+* { margin:0; padding:0; border:none; box-sizing:border-box; }
+html { font-size:1vw; }
+body { width:100%; overflow-x:hidden; }
+h1, h2, h3, h4, h5, h6, p { border:0; font-size:inherit; font-weight:inherit; }
+button { background-color:transparent; background-repeat:no-repeat; cursor:pointer; overflow: hidden; outline:none; }
+input:focus, select:focus, textarea:focus, button:focus { outline:none; }
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration { display:none; }
+
+/*=================================== Universal Framework ===================================*/
+
+/*--Universal framework--*/
+/*Content alignment*/
+.leftText { text-align:left; }
+.rightText { text-align:right; }
+.centeredText { text-align:center; }
+.floatLeft { float:left; }
+.floatRight { float:right; }
+.alignStart { align-self:start; }
+.alignEnd { align-self:end; }
+.alignFlexEnd { align-self:flex-end; }
+.hCentered { text-align:center; }
+.vCentered { display:flex; align-items:center; flex-direction:column; justify-content:center; }
+.vEnd { display:flex; flex-direction:column; justify-content:flex-end; }
+.autoTopMargin { margin-top:auto; }
+.autoBottomMargin { margin-bottom:auto; }
+/*Position properties*/
+.relative { position:relative; }
+.absolute { position:absolute; }
+.absolute.top, .fixed.top { top: 0; }
+.absolute.bottom, .fixed.bottom { bottom: 0; }
+.absolute.left, .fixed.left { left: 0; }
+.absolute.right, .fixed.right { right: 0; }
+.fixed { position:fixed; }
+/*Display properties*/
+.flex { display:flex; }
+.flexEnd { align-self:flex-end; }
+.flexGrow { flex-grow:1; }
+.flexShrink { flex-shrink:1; }
+.flexFixed { flex-shrink:0; }
+.hFlex { display:flex; flex-direction:row; }
+.vFlex { display:flex; flex-direction:column; }
+.inline { display:inline; }
+.inlineBlock { display:inline-block; }
+.inlineFlex { display:inline-flex; }
+.block { display:block; }
+/*Standard dimensions*/
+.width10 { width:10%; }
+.width15 { width:15%; }
+.width20 { width:20%; }
+.width25 { width:25%; }
+.width30 { width:30%; }
+.width33 { width:33.333%; }
+.width35 { width:35%; }
+.width40 { width:40%; }
+.width45 { width:45%; }
+.width50 { width:50%; }
+.width55 { width:55%; }
+.width60 { width:60%; }
+.width65 { width:65%; }
+.width66 { width:66%; }
+.width70 { width:70%; }
+.width75 { width:75%; }
+.width85 { width:85%; }
+.width90 { width:90%; }
+.width100 { width:100%; }
+.height100 { height:100%; }
+.height100vh { min-height:100vh; }
+/*Visual styles*/
+.blankList { list-style:none; }
+.circle { border-radius:50%; }
+.monochrome { -webkit-filter:grayscale(100%); /* Safari 6.0 - 9.0 */ filter:grayscale(100%); }
+.multiply { mix-blend-mode:multiply; }
+.vertical { transform:rotate(270deg); }
+.noWrap { white-space:nowrap; }
+/*Other*/
+.clickable { cursor:pointer; }
+.cover { object-fit:cover; }
+.contain { object-fit:contain; }
+.scaleDown { object-fit:scale-down; }
+.doubleColumns { column-count:2; }
+*:disabled { opacity:0.3; cursor:default; }
+
+/*=================================== Universal Snippets ===================================*/
+
+/*Direct access carousel*/
+.carousel.directAccess .item:first-child { display:block; }
+.carousel.directAccess .item { display:none; }
+
+/*Slide Carousel*/
+.carousel.slide, .carousel.multiSlide { overflow:hidden; }
+.carousel.slide .items, .carousel.multiSlide .items { display:flex; flex-direction:row; position:relative; }
+.carousel.slide .items .item, .carousel.multiSlide .items .item { flex:none; }
+
+/*Cycle Carousel*/
+.carousel.cycle .items { overflow:hidden; display:flex; flex-direction:row; position:relative; }
+.carousel.cycle .items .item { flex:none; }
+
+/*Lightbox*/
+.lightbox { cursor:pointer; }
+.lightbox.active { width:100vw !important; height:100vh !important; left:0; top:0; margin:0 !important; padding:3rem; object-fit:contain !important; position:fixed; background:url(/assets/images/icon-close.png) rgba(255, 255, 255, 0.90) no-repeat top 1rem right 3rem; background-size:1rem; }
+.lightbox.active img { height:auto !important; }
