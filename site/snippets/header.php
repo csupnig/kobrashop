@@ -1,5 +1,5 @@
 <header id="header" class="width100 smallHPadding verySmallVPadding whitebackground relative">
-    <a class="width20 floatLeft noUnderline" href="<?= $site->url() ?>"><img class="logo width100" src="/assets/images/logo-black.png" alt="<?= $site->name()->html() ?>"/></a>
+    <a class="width20 floatLeft noUnderline" href="<?= $site->url() ?>"><img class="logo width100" src="/assets/images/logo-shop-black.png" alt="<?= $site->name()->html() ?>"/></a>
     <nav class="primary floatLeft noUnderline">
       <a class="overlay" href="<?= $site->url() ?>" data-overlay="products"><?= t("products") ?></a>
       <form action="<?= $site->children()->findBy("intendedTemplate", "search")->url() ?>">

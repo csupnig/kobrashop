@@ -6,32 +6,9 @@ if (!(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|ela
 
 $(document).ready(function () {
 	if (mobile == true) {
-		setTimeout(function() {
-			$("#header .logo").attr("src", "/assets/images/logo.gif");
-		}, 1000);
+
 	} else {
-		$("#header .logo").hover(
-	        function() {
-	            $(this).attr("src", "/assets/images/logo.gif");
-	        },
-	        function() {
-	            $(this).attr("src", "/assets/images/logo.png");
-	        }                         
-	    );		
+	
 	}
 
-
-	if ($("section.features").length) {
-
-		var animationLength = 4;
-		if (mobile == true) animationLength = 2;
-		if ($("section.features .carousel.slide .item").length > animationLength) {
-			setInterval(function() {
-				$("section.features .carousel.slide").find(".items").animate({left: "-="+$("section.features .carousel.slide").find(".items .item:first-of-type").outerWidth(true)}, function() {
-					$("section.features .carousel.slide").find(".items .item:first-of-type").insertAfter($("section.features .carousel.slide").find(".items .item:last-of-type"));
-					$("section.features .carousel.slide").find(".items").css({left: 0});
-				});
-			}, 5000);
-		}
-	}
 });
