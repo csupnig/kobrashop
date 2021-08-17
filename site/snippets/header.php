@@ -1,16 +1,16 @@
-<header id="header" class="width100 smallHPadding verySmallVPadding whitebackground relative">
+<header id="header" class="width100 smallHPadding verySmallVPadding black whitebackground relative">
     <a class="width20 floatLeft noUnderline" href="<?= $site->url() ?>"><img class="logo width100" src="/assets/images/logo-shop-black.png" alt="<?= $site->name()->html() ?>"/></a>
     <nav class="primary floatLeft noUnderline">
-      <a class="overlay" href="<?= $site->url() ?>" data-overlay="products"><?= t("products") ?></a>
-      <form action="<?= $site->children()->findBy("intendedTemplate", "search")->url() ?>">
-        <input id="searchInput" class="black floatRight" type="search" name="q" placeholder="<?= t('search') ?>">
+      <a class="overlay floatLeft smallLeftMargin" href="<?= $site->url() ?>" data-overlay="products"><?= t("products") ?></a>
+      <form class="floatLeft smallLeftMargin" action="<?= $site->children()->findBy("intendedTemplate", "search")->url() ?>">
+        <input id="searchInput" class="search black" type="search" name="q" placeholder="<?= t('productSearch') ?>">
       </form>
   	</nav>
     <nav class="secondary floatRight noUnderline">
       <!--USER LOGIN STATUS NEEDS TO BE CHECKED HERE. DISPLAY LOGIN BUTTON (account) IS NOT LOGGED IN, ACCOUNT BUTTON (account.active) IF LOGGED IN-->
       <a class="overlay relative"><button class="account"></button><div class="tooltip absolute"><?= t("account") ?></div><a>
       <a class="relative" href="<?= $site->contactPage()->url() ?>"><button class="contact"></button><div class="tooltip white absolute">Information</div></a>
-      <a class="relative" href="https://www.kobra.at"><button class="mainSite"></button><div class="tooltip white absolute">kobra.at</div></a>
+      <a class="relative" href="https://www.kobra.at"><button class="website"></button><div class="tooltip white absolute">kobra.at</div></a>
     </nav>
     <nav class="overlay products smallPadding absolute">
       <div class="width25 floatLeft">

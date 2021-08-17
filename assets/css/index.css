@@ -19,14 +19,21 @@
 /*Site-specific medium paddings*/
 /*Site-specific large paddings*/
 /*Site-specific small & extra small paddings*/
+.verySmallVPadding { padding-top:1.5rem; padding-bottom:1.5rem; }
+.smallPadding { padding:3rem; }
+.smallHPadding { padding-left:3rem; padding-right:3rem; }
 /*Site-specific padding exceptions*/
 /*Site-specific medium margins*/
 /*Site-specific large margins*/
 /*Site-specific small margins*/
+.smallLeftMargin { margin-left:3rem; }
 /*Site-specific framework: Backgrounds*/
 /*Site-specific framework: Borders*/
 /*Site-specific framework: Buttons & icons*/
-
+button.account { width:2rem; height:2rem; background:url(/assets/images/icon-account-black.svg) no-repeat left center; background-size:2rem; }
+button.contact { width:2rem; height:2rem; background:url(/assets/images/icon-contact-black.svg) no-repeat left center; background-size:2rem; }
+button.website { width:2rem; height:2rem; background:url(/assets/images/icon-website-black.svg) no-repeat left center; background-size:2rem; }
+input.search { height:3rem; padding-left:3rem; background:url(/assets/images/icon-search-black.svg) no-repeat left center; background-size:2rem; }
 /*Text spacing*/
 
 
@@ -34,7 +41,7 @@
 
 
 /*Snippets*/
-
+div.tooltip { display:none; }
 
 /*=================================== Templates ===================================*/
 
@@ -43,15 +50,13 @@
 /*=================================== Texts ===================================*/
 
 /*Default types*/
-nav, span, h3 { font:1.2rem/1.6rem 'DM-Sans', sans-serif; }
-button, h2, footer span, button span { font:400 0.9rem/1.5rem ballinger-mono, sans-serif; text-transform:uppercase; letter-spacing:0.1rem; }
-span.large { font:2.0rem/2.8rem 'DM-Sans', sans-serif; }
+nav { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
+button {  }
+input.search { font:1.9rem/3rem 'Geomanist-Light', sans-serif }
 
 /*Type colors*/
-.blue, .blue a, .project.producer .white.text, .work footer, button.direct:not(.active):hover { color:#3267ed; }
 .black, .black a { color:#000; }
-.white, .white a, .project.producer:hover .white.text { color:#fff; }
-input.white::placeholder { color:#000; opacity:0.3; }
+.white, .white a { color:#fff; }
 
 /*Type styles*/
 .italic { font-style:italic !important; }
