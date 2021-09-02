@@ -45,6 +45,7 @@ div.tooltip { display:none; }
 
 /*=================================== Templates ===================================*/
 
+header .overlay { display:none; }
 
 
 /*=================================== Texts ===================================*/
@@ -52,7 +53,9 @@ div.tooltip { display:none; }
 /*Default types*/
 nav { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
 button {  }
-input.search { font:1.9rem/3rem 'Geomanist-Light', sans-serif }
+input.search { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
+h4 { font:1.4rem/1.4rem 'Geomanist-Bold', sans-serif; }
+h5 { font:1.4rem/1.4rem 'Geomanist-Light', sans-serif; }
 
 /*Type colors*/
 .black, .black a { color:#000; }

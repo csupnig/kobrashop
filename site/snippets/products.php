@@ -23,8 +23,8 @@
     else if ($product->usage() == "sweeping") $productBackground = $sweepingUsages[0];
     else if ($product->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
     <div class="product floatLeft relative <?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
-      <h4 class="floatLeft"><?= $product->name() ?></h4>
-      <h5 class="floatLeft"><?= $product->articleId() ?></h5>
+      <h4 class="productName floatLeft"><?= $product->name() ?></h4>
+      <h5 class="productId floatLeft"><?= $product->articleId() ?></h5>
       <span class="price floatRight"><?= formatPrice($product->price()->toFloat()) ?></span>
       <?php if ($cover = $product->cover()->toFile()) { ?>
         <img class="width100 cover" src="<?= $cover->url() ?>"/>
