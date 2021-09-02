@@ -14,6 +14,7 @@
     'properties' => 'Eigenschaften',
     /*Product usages*/
     'for' => 'Für',
+    'to' => 'bis',
     'special' => 'spezielle',
     'usages' => 'Anwendungen',
     'dirt' => 'Verschmutzungen',

@@ -18,13 +18,49 @@ Packagingunit: 6
 
 ----
 
-Cover:
+Picturecolor1: 
+
+----
+
+Picturecolor2:
 
 - 547136-2.png
 
 ----
 
-Colors: color2, color5, color1, color3, color4
+Picturecolor3: 
+
+----
+
+Picturecolor4: 
+
+----
+
+Picturecolor5: 
+
+----
+
+Picturecolor6: 
+
+----
+
+Picturecolor7: 
+
+----
+
+Picturecolor8: 
+
+----
+
+Picturecolor9: 
+
+----
+
+Picturecolor11: 
+
+----
+
+Picturecolor12: 
 
 ----
 
@@ -64,11 +100,19 @@ Brushing:
 
 ----
 
-Surfaces: brushing1
+Surfaces: surface1
 
 ----
 
 Properties: phb
+
+----
+
+Cover: - 547136-2.png
+
+----
+
+Colors: color2, color5, color1, color3, color4
 
 ----
 

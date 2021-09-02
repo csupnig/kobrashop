@@ -14,6 +14,7 @@
     'properties' => 'properties',
     /*Product usages*/
     'for' => 'For',
+    'to' => 'to',
     'special' => 'special',
     'usages' => 'usages',
     'dirt' => 'dirt',

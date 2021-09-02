@@ -1,14 +1,19 @@
-<section class="products">
+<section class="products inlineBlock width100">
   <?php $products = $site->index()->filterBy("intendedTemplate", "product")->listed();
   foreach ($products as $product) {
     //Determine random product color
     $productColors = [];
-    foreach ($product->colors() as $productColor) {
-      $productColors [] = $productColor;
+    for($colorNumber = 1; $colorNumber <= 12; $colorNumber++) {
+      if ($colorNumber != 10) {
+        $pictureName = "pictureColor".$colorNumber;
+        if ($product->{$pictureName}()->toFile()) {
+          $productColors [] = "color".$colorNumber;
+        }
+      }
     }
-    $productColor = array_rand($productColors, 1); 
-
+    $productColor = $productColors[array_rand($productColors, 1)];
     //Determine product background
+
     $productBackground = "";
     $sweepingUsages = [];
     foreach ($product->sweeping() as $sweepingUsage) {
@@ -22,14 +27,16 @@
     else if ($product->usage() == "liquids") $productbackground = "liquids";
     else if ($product->usage() == "sweeping") $productBackground = $sweepingUsages[0];
     else if ($product->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
-    <div class="product floatLeft relative <?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
-      <h4 class="productName floatLeft"><?= $product->name() ?></h4>
-      <h5 class="productId floatLeft"><?= $product->articleId() ?></h5>
+    <div class="product floatLeft relative verySmallPadding <?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
+      <div class="floatLeft">
+        <h4 class="productName"><?= $product->name() ?></h4>
+        <h5 class="productId tinyTopMargin"><?= $product->articleId() ?></h5>
+      </div>
       <span class="price floatRight"><?= formatPrice($product->price()->toFloat()) ?></span>
       <?php if ($cover = $product->cover()->toFile()) { ?>
         <img class="width100 cover" src="<?= $cover->url() ?>"/>
       <?php } ?>
-      <div class="width100 absolute">
+      <div class="overlay width100 absolute left bottom centeredText verySmallPadding">
         <div class="dimensions">
           <?php if ($product->dimensions() == "yes") { ?>
             <div class="body floatLeft">
@@ -42,7 +49,7 @@
             </div>
           <?php } ?>
         </div>
-        <div class="details">
+        <div class="details <?= $productBackground ?>">
           <div class="usage">
             <?php snippet("usage", ["product" => $product]); ?>
           </div>
