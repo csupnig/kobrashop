@@ -21,7 +21,6 @@
 /*Site-specific small & extra small paddings*/
 .verySmallPadding { padding:1.5rem; }
 .verySmallVPadding { padding-top:1.5rem; padding-bottom:1.5rem; }
-.verySmallHPadding { padding-left:1.5rem; padding-right:1.5rem; }
 .smallPadding { padding:3rem; }
 .smallHPadding { padding-left:3rem; padding-right:3rem; }
 /*Site-specific padding exceptions*/
@@ -29,6 +28,7 @@
 /*Site-specific large margins*/
 /*Site-specific small margins*/
 .tinyTopMargin { margin-top:0.5rem; }
+.verySmallHMargin { margin-left:1.5rem; margin-right:1.5rem; }
 .smallLeftMargin { margin-left:3rem; }
 /*Site-specific framework: Backgrounds*/
 /*Site-specific framework: Borders*/
@@ -38,19 +38,23 @@ button.contact { width:2rem; height:2rem; background:url(/assets/images/icon-con
 button.website { width:2rem; height:2rem; background:url(/assets/images/icon-website-black.svg) no-repeat left center; background-size:2rem; }
 input.search { height:3rem; padding-left:3rem; background:url(/assets/images/icon-search-black.svg) no-repeat left center; background-size:2rem; }
 
-.icon.dirt, .icon.surface { width:3.5rem; height:3.5rem; margin:0.4rem 0.2rem; background-size:contain; }
-.icon.surface1 { background:url(/assets/images/icon-surface1.svg) no-repeat left center; }
-.icon.surface2 { background:url(/assets/images/icon-surface2.svg) no-repeat left center; }
-.icon.surface3 { background:url(/assets/images/icon-surface3.svg) no-repeat left center; }
-.icon.surface4 { background:url(/assets/images/icon-surface4.svg) no-repeat left center; }
-.icon.sweeping1 { background:url(/assets/images/icon-dirt-grain1.svg) no-repeat left center; }
-.icon.sweeping2 { background:url(/assets/images/icon-dirt-grain2.svg) no-repeat left center; }
-.icon.sweeping3 { background:url(/assets/images/icon-dirt-grain3.svg) no-repeat left center; }
-.icon.sweeping4 { background:url(/assets/images/icon-dirt-grain4.svg) no-repeat left center; }
-.icon.brushing1 { background:url(/assets/images/icon-dirt-tenacity1.svg) no-repeat left center; }
-.icon.brushing2 { background:url(/assets/images/icon-dirt-tenacity2.svg) no-repeat left center; }
-.icon.brushing3 { background:url(/assets/images/icon-dirt-tenacity3.svg) no-repeat left center; }
-.icon.brushing4 { background:url(/assets/images/icon-dirt-tenacity4.svg) no-repeat left center; }
+.icon.dirt, .icon.surface { width:3.5rem; height:3.5rem; margin:0.4rem 0.2rem; opacity:0.2; }
+.icon.dirt.active, .icon.surface.active { opacity:1; }
+.icon.surface1 { background:url(/assets/images/icon-surface1.svg) no-repeat left center; background-size:contain; }
+.icon.surface2 { background:url(/assets/images/icon-surface2.svg) no-repeat left center; background-size:contain; }
+.icon.surface3 { background:url(/assets/images/icon-surface3.svg) no-repeat left center; background-size:contain; }
+.icon.surface4 { background:url(/assets/images/icon-surface4.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping1 { background:url(/assets/images/icon-dirt-grain1.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping2 { background:url(/assets/images/icon-dirt-grain2.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping3 { background:url(/assets/images/icon-dirt-grain3.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping4 { background:url(/assets/images/icon-dirt-grain4.svg) no-repeat left center; background-size:contain; }
+.icon.brushing1 { background:url(/assets/images/icon-dirt-tenacity1.svg) no-repeat left center; background-size:contain; }
+.icon.brushing2 { background:url(/assets/images/icon-dirt-tenacity2.svg) no-repeat left center; background-size:contain; }
+.icon.brushing3 { background:url(/assets/images/icon-dirt-tenacity3.svg) no-repeat left center; background-size:contain; }
+.icon.brushing4 { background:url(/assets/images/icon-dirt-tenacity4.svg) no-repeat left center; background-size:contain; }
+.icon.body { height:4rem; padding-left:6.3rem; background:url(/assets/images/icon-dimensions2.svg) no-repeat left center; background-size:5.3rem; }
+.icon.bristles { height:3.8rem; padding-left:4rem; background:url(/assets/images/icon-bristles.svg) no-repeat left center; background-size:3rem; }
+.icon.phb { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-phb.svg) no-repeat left center; background-size:contain; }
 
 /*Text spacing*/
 
@@ -69,23 +73,33 @@ input.search { height:3rem; padding-left:3rem; background:url(/assets/images/ico
 .color12 { background-color:brown; }
 
 /*Snippets*/
-div.tooltip { display:none; }
+div.tooltip { height:2.5rem; padding:0.5rem; white-space:nowrap; display:none; z-index:1000; }
+div.tooltip.leftArrow { padding-left:2rem; left:1.5rem; }
+div.tooltip.rightArrow { padding-right:2rem; right:1.5rem; }
+div.tooltip.black.rightArrow { background:url(/assets/images/background-tooltip-left-white.svg) no-repeat left center; background-size:cover; }
+div.tooltip.black.leftArrow { background:url(/assets/images/background-tooltip-right-white.svg) no-repeat left center; background-size:cover; }
+div.tooltip.white.rightArrow { background:url(/assets/images/background-tooltip-left-black.svg) no-repeat left center; background-size:cover; }
+div.tooltip.white.leftArrow { background:url(/assets/images/background-tooltip-right-black.svg) no-repeat left center; background-size:cover; }
+div:hover > div.tooltip { display:block; }
 
 /*=================================== Templates ===================================*/
 
 header .overlay { display:none; }
 
-section.products .product { width:50vw; }
-section.products .product .overlay {  }
-/*section.products .product .details .usage { display:none; }*/
+section.products .product { width:50rem; height:25rem; }
+section.products .product .overlay .details { display:none; }
+section.products .product:hover .overlay .details { display:block; }
+section.products .product:hover .overlay .dimensions { display:none; }
+
 
 /*=================================== Texts ===================================*/
 
 /*Default types*/
 nav { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
+span, .tooltip { font:1.3rem/1.5rem 'Geomanist-Light', sans-serif; }
 span.small { font:1rem/1.3rem 'Geomanist-Light', sans-serif; }
 span.small.bold { font:1rem/1.3rem 'Geomanist-Bold', sans-serif; }
-span { font:1.3rem/1.5rem 'Geomanist-Light', sans-serif; }
+span.veryLarge { font:3rem/3.6rem 'Geomanist-Light', sans-serif; }
 button {  }
 input.search { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
 h4 { font:1.4rem/1.4rem 'Geomanist-Bold', sans-serif; }
