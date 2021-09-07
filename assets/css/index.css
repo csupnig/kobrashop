@@ -44,14 +44,14 @@ input.search { height:3rem; padding-left:3rem; background:url(/assets/images/ico
 .icon.surface2 { background:url(/assets/images/icon-surface2.svg) no-repeat left center; background-size:contain; }
 .icon.surface3 { background:url(/assets/images/icon-surface3.svg) no-repeat left center; background-size:contain; }
 .icon.surface4 { background:url(/assets/images/icon-surface4.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping1 { background:url(/assets/images/icon-dirt-grain1.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping2 { background:url(/assets/images/icon-dirt-grain2.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping3 { background:url(/assets/images/icon-dirt-grain3.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping4 { background:url(/assets/images/icon-dirt-grain4.svg) no-repeat left center; background-size:contain; }
-.icon.brushing1 { background:url(/assets/images/icon-dirt-tenacity1.svg) no-repeat left center; background-size:contain; }
-.icon.brushing2 { background:url(/assets/images/icon-dirt-tenacity2.svg) no-repeat left center; background-size:contain; }
-.icon.brushing3 { background:url(/assets/images/icon-dirt-tenacity3.svg) no-repeat left center; background-size:contain; }
-.icon.brushing4 { background:url(/assets/images/icon-dirt-tenacity4.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping1 { background:url(/assets/images/icon-dirt-sweeping1.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping2 { background:url(/assets/images/icon-dirt-sweeping2.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping3 { background:url(/assets/images/icon-dirt-sweeping3.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping4 { background:url(/assets/images/icon-dirt-sweeping4.svg) no-repeat left center; background-size:contain; }
+.icon.brushing1 { background:url(/assets/images/icon-dirt-brushing1.svg) no-repeat left center; background-size:contain; }
+.icon.brushing2 { background:url(/assets/images/icon-dirt-brushing2.svg) no-repeat left center; background-size:contain; }
+.icon.brushing3 { background:url(/assets/images/icon-dirt-brushing3.svg) no-repeat left center; background-size:contain; }
+.icon.brushing4 { background:url(/assets/images/icon-dirt-brushing4.svg) no-repeat left center; background-size:contain; }
 .icon.body { height:4rem; padding-left:6.3rem; background:url(/assets/images/icon-dimensions2.svg) no-repeat left center; background-size:5.3rem; }
 .icon.bristles { height:3.8rem; padding-left:4rem; background:url(/assets/images/icon-bristles.svg) no-repeat left center; background-size:3rem; }
 .icon.phb { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-phb.svg) no-repeat left center; background-size:contain; }
@@ -59,18 +59,32 @@ input.search { height:3rem; padding-left:3rem; background:url(/assets/images/ico
 /*Text spacing*/
 
 
-/*Colors*/
-.color1 { background-color:white; }
-.color2 { background-color:blue; }
-.color3 { background-color:red; }
-.color4 { background-color:yellow; }
-.color5 { background-color:green; }
-.color6 { background-color:black; }
-.color7 { background-color:orange; }
-.color8 { background-color:purple; }
-.color9 { background-color:pink; }
-.color11 { background-color:grey; }
-.color12 { background-color:brown; }
+/*Colors & patterns*/
+.color1 { background-color:#448de9; } /*white*/
+.color2 { background-color:#ffd400; } /*blue*/
+.color3 { background-color:#2e3192; } /*red*/
+.color4 { background-color:#00ad66; } /*yellow*/
+.color5 { background-color:#ff9ac1; } /*green*/
+.color6 { background-color:#ede7da; } /*black*/
+.color7 { background-color:#9bdbdb; } /*orange*/
+.color8 { background-color:#ffa020; } /*purple*/
+.color9 { background-color:#ef3e23; } /*pink*/
+.color11 { background-color:#9b65aa; } /*grey*/
+.color12 { background-color:#59caec; } /*brown*/
+.product { background-repeat:no-repeat; background-position:center center; background-size:cover; }
+.product.sweeping1, .product.brushing1 { background-image:url(/assets/images/background-dirt1.svg); }
+.product.sweeping2, .product.brushing2 { background-image:url(/assets/images/background-dirt2.svg); }
+.product.sweeping3, .product.brushing3 { background-image:url(/assets/images/background-dirt3.svg); }
+.product.sweeping4, .product.brushing4 { background-image:url(/assets/images/background-dirt4.svg); }
+.product.special { background-image:url(/assets/images/background-special.svg); }
+.product.water { background-image:url(/assets/images/background-water.svg); }
+.product.sweeping1.detect, .product.brushing1.detect { background-image:url(/assets/images/background-dirt1-detect.svg); }
+.product.sweeping2.detect, .product.brushing2.detect { background-image:url(/assets/images/background-dirt2-detect.svg); }
+.product.sweeping3.detect, .product.brushing3.detect { background-image:url(/assets/images/background-dirt3-detect.svg); }
+.product.sweeping4.detect, .product.brushing4.detect { background-image:url(/assets/images/background-dirt4-detect.svg); }
+.product.special.detect { background-image:url(/assets/images/background-special-detect.svg); }
+.product.water.detect { background-image:url(/assets/images/background-water-detect.svg); }
+
 
 /*Snippets*/
 div.tooltip { height:2.5rem; padding:0.5rem; white-space:nowrap; display:none; z-index:1000; }

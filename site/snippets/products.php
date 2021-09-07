@@ -11,29 +11,33 @@
         }
       }
     }
-    $productColor = $productColors[array_rand($productColors, 1)];
-    //Determine product background
 
+    //Determine product color
+    $productColor = $productColors[array_rand($productColors, 1)];
+    $productPicture = "picture".$productColor;
+
+    //Determine product background
     $productBackground = "";
     $sweepingUsages = [];
-    foreach ($product->sweeping() as $sweepingUsage) {
+    foreach ($product->sweeping()->split() as $sweepingUsage) {
       $sweepingUsages [] = $sweepingUsage;
     }
     $brushingUsages = [];
-    foreach ($product->brushing() as $brushingUsage) {
+    foreach ($product->brushing()->split() as $brushingUsage) {
       $brushingUsages [] = $brushingUsage;
     }
     if ($product->usage() == "special") $productBackground = "special";
     else if ($product->usage() == "liquids") $productbackground = "liquids";
     else if ($product->usage() == "sweeping") $productBackground = $sweepingUsages[0];
     else if ($product->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
+
     <div class="product floatLeft relative verySmallPadding <?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
       <div class="absolute">
         <h4 class="productName"><?= $product->name() ?></h4>
         <h5 class="productId tinyTopMargin"><?= $product->articleId() ?></h5>
       </div>
       <span class="price floatRight"><?= formatPrice($product->price()->toFloat()) ?></span>
-      <?php if ($cover = $product->cover()->toFile()) { ?>
+      <?php if ($cover = $product->{$productPicture}()->toFile()) { ?>
         <img class="width100 cover" src="<?= $cover->url() ?>"/>
       <?php } ?>
       <div class="overlay width100 absolute left bottom centeredText verySmallPadding">
