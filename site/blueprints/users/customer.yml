@@ -1,0 +1,9 @@
+title: Customer
+description: Can shop in the shop
+
+permissions:
+  access:
+    settings: false
+    users: false
+    panel: false
+    site: true

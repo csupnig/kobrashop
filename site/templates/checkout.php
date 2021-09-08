@@ -30,3 +30,8 @@
     <button>buy</button>
   </p>
 </form>
+
+<label>Users:</label><input disabled="true" value="<?=$kirby->users()->count() ?>">
+<?php
+var_dump($kirby->user())
+?>
