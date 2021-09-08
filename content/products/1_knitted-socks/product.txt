@@ -1,9 +1,0 @@
-Title: Knitted socks
-
-----
-
-Price: 14.99
-
-----
-
-Tax: 19

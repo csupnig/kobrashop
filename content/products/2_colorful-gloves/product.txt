@@ -1,9 +1,0 @@
-Title: Colorful Gloves
-
-----
-
-Price: 19.95
-
-----
-
-Tax: 19
