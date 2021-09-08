@@ -64,10 +64,10 @@ foreach ($product->surfaces() as $surface) {
 } ?>
 <div class="surface inlineBlock centeredText verySmallHMargin">
   <div class="width100">
-    <div class="icon surface surface1 floatLeft <?php if (in_array('surface1', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
-    <div class="icon surface surface2 floatLeft <?php if (in_array('surface2', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
-    <div class="icon surface surface3 floatLeft <?php if (in_array('surface3', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
-    <div class="icon surface surface4 floatLeft <?php if (in_array('surface4', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
+    <div class="icon surface surface1 floatLeft relative <?php if (in_array('surface1', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
+    <div class="icon surface surface2 floatLeft relative <?php if (in_array('surface2', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
+    <div class="icon surface surface3 floatLeft relative <?php if (in_array('surface3', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
+    <div class="icon surface surface4 floatLeft relative <?php if (in_array('surface4', $surfaces)) echo 'active'; ?>"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaceExamples1")." ".t("surfaces"); ?></div></div>
   </div>
   <div class="width100">
     <?php $lowestSurfaceGrade = $surfaces[0];

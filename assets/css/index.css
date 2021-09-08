@@ -86,15 +86,17 @@ input.search { height:3rem; padding-left:3rem; background:url(/assets/images/ico
 .product.water.detect { background-image:url(/assets/images/background-water-detect.svg); }
 
 
-/*Snippets*/
+/*Tooltips*/
 div.tooltip { height:2.5rem; padding:0.5rem; white-space:nowrap; display:none; z-index:1000; }
-div.tooltip.leftArrow { padding-left:2rem; left:1.5rem; }
-div.tooltip.rightArrow { padding-right:2rem; right:1.5rem; }
-div.tooltip.black.rightArrow { background:url(/assets/images/background-tooltip-left-white.svg) no-repeat left center; background-size:cover; }
+div.tooltip.black.rightArrow { background:url(/assets/images/background-tooltip-left-white.svg) no-repeat right center; background-size:cover; }
 div.tooltip.black.leftArrow { background:url(/assets/images/background-tooltip-right-white.svg) no-repeat left center; background-size:cover; }
-div.tooltip.white.rightArrow { background:url(/assets/images/background-tooltip-left-black.svg) no-repeat left center; background-size:cover; }
+div.tooltip.white.rightArrow { background:url(/assets/images/background-tooltip-left-black.svg) no-repeat right center; background-size:cover; }
 div.tooltip.white.leftArrow { background:url(/assets/images/background-tooltip-right-black.svg) no-repeat left center; background-size:cover; }
+/*Element-specific tooltip properties*/
 div:hover > div.tooltip { display:block; }
+.product div:not(.active):hover > div.tooltip { display:none; }
+.product div.tooltip.leftArrow { padding-left:2rem; left:4.5rem; top:0.5rem; }
+.product div.tooltip.rightArrow { padding-right:2rem; right:4.5rem; top:0.5rem; }
 
 /*=================================== Templates ===================================*/
 
@@ -102,8 +104,8 @@ header .overlay { display:none; }
 
 section.products .product { width:50rem; height:25rem; }
 section.products .product .overlay .details { display:none; }
-section.products .product:hover .overlay .details { display:block; }
-section.products .product:hover .overlay .dimensions { display:none; }
+section.products .product .overlay:hover .details { display:block; }
+section.products .product .overlay:hover .dimensions { display:none; }
 
 
 /*=================================== Texts ===================================*/
