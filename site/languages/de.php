@@ -8,6 +8,7 @@
     'account' => 'Konto',
     'color' => 'Farbe',
     'dirtAndSurface' => 'Verschmutzung & Oberfläche',
+    'fieldOfApplication' => 'Einsatzgebiet',
     'filterProductsBy' => 'Produkte filtern nach',
     'products' => 'Produkte',
     'productSearch' => 'Produktsuche',

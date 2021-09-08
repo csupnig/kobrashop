@@ -1,14 +1,12 @@
 <section class="products inlineBlock width100">
   <?php $products = $site->index()->filterBy("intendedTemplate", "product")->listed();
   foreach ($products as $product) {
-    //Determine random product color
+    //Determine available product colors
     $productColors = [];
     for($colorNumber = 1; $colorNumber <= 12; $colorNumber++) {
-      if ($colorNumber != 10) {
-        $pictureName = "pictureColor".$colorNumber;
-        if ($product->{$pictureName}()->toFile()) {
-          $productColors [] = "color".$colorNumber;
-        }
+      $pictureName = "pictureColor".$colorNumber;
+      if ($product->{$pictureName}()->toFile()) {
+        $productColors [] = "color".$colorNumber;
       }
     }
 
@@ -30,8 +28,9 @@
     else if ($product->usage() == "liquids") $productbackground = "liquids";
     else if ($product->usage() == "sweeping") $productBackground = $sweepingUsages[0];
     else if ($product->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
-
-    <div class="product floatLeft relative verySmallPadding <?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
+    
+    <a href="<?= $product->url() ?>?productColor=<?= $productColor ?>">
+    <div class="product black floatLeft relative verySmallPadding <?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
       <div class="absolute">
         <h4 class="productName"><?= $product->name() ?></h4>
         <h5 class="productId tinyTopMargin"><?= $product->articleId() ?></h5>
@@ -42,37 +41,19 @@
       <?php } ?>
       <div class="overlay width100 absolute left bottom centeredText verySmallPadding">
         <div class="dimensions">
-          <?php if ($product->dimensions() == "true") { ?>
-            <div class="icon body inlineBlock verySmallHMargin">
-              <span class="veryLarge"><?= $product->length()->html() ?> x <?= $product->width()->html() ?></span><span>mm</span>
-            </div>
-          <?php } ?>
-          <?php if ($product->bristles() == "true") { ?>
-            <div class="icon bristles inlineBlock verySmallHMargin">
-              <span class="veryLarge"><strong><?= $product->bristleType()->html() ?></strong> <?= $product->bristleLength()->html() ?> x <?= $product->bristleWidth()->html() ?></span><span>mm</span>
-            </div>
-          <?php } ?>
+          <?php snippet("productdimensions", ["product" => $product, "temperature" => false]); ?>
         </div>
         <div class="details <?= $productBackground ?>">
           <div class="usage">
-            <?php snippet("usage", ["product" => $product]); ?>
+            <?php snippet("productusage", ["product" => $product]); ?>
           </div>
           <div class="properties absolute bottom right verySmallPadding">
-            <?php $properties = [];
-            foreach ($product->properties() as $property) {
-              $properties [] = $property;
-            }
-            if (in_array("phb", $properties)) { ?> <div class="icon phb floatLeft tinyLeftMargin relative"><div class="tooltip leftArrow black absolute"><?= t("phb") ?></div></div> <?php }
-            if (in_array("stainless", $properties)) { ?> <div class="icon stainless floatLeft tinyLeftMargin relative"><div class="tooltip leftArrow black absolute"><?= t("stainless") ?></div></div> <?php }
-            if (in_array("alcalics", $properties)) { ?> <div class="icon alcalics floatLeft tinyLeftMargin relative"><div class="tooltip leftArrow black absolute"><?= t("alcalics") ?></div></div> <?php }
-            if (in_array("acids", $properties)) { ?> <div class="icon acids floatLeft tinyLeftMargin relative"><div class="tooltip leftArrow black absolute"><?= t("acids") ?></div></div> <?php }
-            if (in_array("waterFlow", $properties)) { ?> <div class="icon waterFlow floatLeft tinyLeftMargin relative"><div class="tooltip leftArrow black absolute"><?= t("waterFlow") ?></div></div> <?php }
-            if (in_array("partiallyDetectable", $properties)) { ?> <div class="icon partiallyDetectable floatLeft tinyLeftMargin relative"><div class="tooltip leftArrow black absolute"><?= t("partiallyDetectable") ?></div></div> <?php }
-            if (in_array("fullyDetectable", $properties)) { ?> <div class="icon fullyDetectable floatLeft tinyLeftMargin relative"><div class="tooltip leftArrow black absolute"><?= t("fullyDetectable") ?></div></div> <?php } ?>
+            <?php snippet("productproperties", ["product" => $product]); ?>
           </div>
         </div>
       </div>
     </div>
+  </a>
   <?php } ?>
 </section>
 

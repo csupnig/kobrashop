@@ -1,4 +1,3 @@
-
 <?php if ($product->usage() == "special") { ?>
   <div class="specialUsage width100 centeredText">
     <span class="small bold inlineBlock"><?= t("for")." ".t("special") ?></span>

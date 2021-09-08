@@ -8,6 +8,7 @@
     'account' => 'Account',
     'color' => 'Color',
     'dirtAndSurface' => 'dirt & surface',
+    'fieldOfApplication' => 'field of application',
     'filterProductsBy' => 'Filter products by',
     'products' => 'Products',
     'productSearch' => 'Product search',

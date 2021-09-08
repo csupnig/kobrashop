@@ -52,8 +52,9 @@ input.search { height:3rem; padding-left:3rem; background:url(/assets/images/ico
 .icon.brushing2 { background:url(/assets/images/icon-dirt-brushing2.svg) no-repeat left center; background-size:contain; }
 .icon.brushing3 { background:url(/assets/images/icon-dirt-brushing3.svg) no-repeat left center; background-size:contain; }
 .icon.brushing4 { background:url(/assets/images/icon-dirt-brushing4.svg) no-repeat left center; background-size:contain; }
-.icon.body { height:4rem; padding-left:6.3rem; background:url(/assets/images/icon-dimensions2.svg) no-repeat left center; background-size:5.3rem; }
-.icon.bristles { height:3.8rem; padding-left:4rem; background:url(/assets/images/icon-bristles.svg) no-repeat left center; background-size:3rem; }
+.icon.body { height:4rem; padding-left:6.4rem; background:url(/assets/images/icon-dimensions2.svg) no-repeat left center; background-size:5.7rem; }
+.icon.bristles { height:3.8rem; padding-left:4rem; background:url(/assets/images/icon-bristles.svg) no-repeat left center; background-size:3.2rem; }
+.icon.temperature { height:3.8rem; padding-left:4.6rem; background:url(/assets/images/icon-temperature.svg) no-repeat left center; background-size:4rem; }
 .icon.phb { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-phb.svg) no-repeat left center; background-size:contain; }
 
 /*Text spacing*/
@@ -94,9 +95,10 @@ div.tooltip.white.rightArrow { background:url(/assets/images/background-tooltip-
 div.tooltip.white.leftArrow { background:url(/assets/images/background-tooltip-right-black.svg) no-repeat left center; background-size:cover; }
 /*Element-specific tooltip properties*/
 div:hover > div.tooltip { display:block; }
-.product div:not(.active):hover > div.tooltip { display:none; }
-.product div.tooltip.leftArrow { padding-left:2rem; left:4.5rem; top:0.5rem; }
-.product div.tooltip.rightArrow { padding-right:2rem; right:4.5rem; top:0.5rem; }
+.usage div:not(.active):hover > div.tooltip { display:none; }
+.usage div.tooltip.leftArrow { padding-left:2rem; left:4.5rem; top:0.5rem; }
+.usage div.tooltip.rightArrow { padding-right:2rem; right:4.5rem; top:0.5rem; }
+.properties div.tooltip.rightArrow { padding-right:2rem; right:3rem; top:-0.5rem; }
 
 /*=================================== Templates ===================================*/
 
@@ -106,7 +108,6 @@ section.products .product { width:50rem; height:25rem; }
 section.products .product .overlay .details { display:none; }
 section.products .product .overlay:hover .details { display:block; }
 section.products .product .overlay:hover .dimensions { display:none; }
-
 
 /*=================================== Texts ===================================*/
 
@@ -118,6 +119,9 @@ span.small.bold { font:1rem/1.3rem 'Geomanist-Bold', sans-serif; }
 span.veryLarge { font:3rem/3.6rem 'Geomanist-Light', sans-serif; }
 button {  }
 input.search { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
+h1 { font:2.6rem/3.4rem 'Geomanist-Bold', sans-serif; }
+h2 { font:1.6rem/2.2rem 'Geomanist-Light', sans-serif; }
+h3 { font:2.2rem/3.1rem 'Geomanist-Bold', sans-serif; }
 h4 { font:1.4rem/1.4rem 'Geomanist-Bold', sans-serif; }
 h5 { font:1.4rem/1.4rem 'Geomanist-Light', sans-serif; }
 
