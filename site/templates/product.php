@@ -16,7 +16,6 @@ if (isset($_GET["productColor"])) {
   //Determine random product color if not set
   $productColor = $productColors[array_rand($productColors, 1)];
 } 
-$productPicture = "picture".$productColor;
 
 //Determine product background
 $productBackground = "";
@@ -33,19 +32,22 @@ else if ($page->usage() == "liquids") $productBackground = "liquids";
 else if ($page->usage() == "sweeping") $productBackground = $sweepingUsages[0];
 else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
 
-<body class="product <?= $productColor ?>">
+<body class="product <?= $productColor ?>" data-color="<?= $productColor ?>">
   <?php snippet("header"); ?>
   <section class="product inlineBlock width100 smallPadding">
     <div class="width100 floatLeft">
       <div class="product width75 floatLeft <?= $productBackground ?>">
         <h1 class="productName"><?= $page->name() ?></h1>
         <h2 class="productId"><?= $page->articleId() ?></h2>
-        <?php if ($cover = $page->{$productPicture}()->toFile()) { ?>
-          <img class="width100 cover" src="<?= $cover->url() ?>"/>
-        <?php } ?>
+        <?php foreach ($productColors as $pictureColor) {
+          $productPicture = "picture".$pictureColor;
+          if ($picture = $page->{$productPicture}()->toFile()) { ?>
+            <img class="productPicture width100 cover <?= $pictureColor ?>" src="<?= $picture->url() ?>"/>
+          <?php }
+        } ?>
       </div>
       <div class="usage width25 floatLeft smallLeftPadding">
-        <h3 class="smallBottomMargin"><?= t("fieldOfApplication") ?></h3>
+        <h3 class="smallBottomMargin verySmallRightPadding centeredText"><?= t("fieldOfApplication") ?></h3>
         <?php snippet("productusage", ["product" => $page]); ?>
       </div>
     </div>
@@ -74,7 +76,7 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
           <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
         </div>
         <?php foreach ($productColors as $productColor) { ?>
-          <button class="colorSelector floatRight height100 <?= $productColor; ?>"></button>
+          <button class="colorSelector floatRight height100 <?= $productColor; ?>" data-color="<?= $productColor; ?>"></button>
         <?php } ?>
       </div>
     </div>

@@ -71,17 +71,17 @@ input.quantity { width:6rem; height:100%; background:none; }
 /*Background colors & patterns*/
 .whiteBackground { background-color:#fff; }
 .whiteBackground.transparentBackground { background-color:#ffffff50; }
-.color1 { background-color:#448de9; } /*white*/
-.color2 { background-color:#ffd400; } /*blue*/
-.color3 { background-color:#2e3192; } /*red*/
-.color4 { background-color:#00ad66; } /*yellow*/
-.color5 { background-color:#ff9ac1; } /*green*/
-.color6 { background-color:#ede7da; } /*black*/
-.color7 { background-color:#9bdbdb; } /*orange*/
-.color8 { background-color:#ffa020; } /*purple*/
-.color9 { background-color:#ef3e23; } /*pink*/
-.color11 { background-color:#9b65aa; } /*grey*/
-.color12 { background-color:#59caec; } /*brown*/
+.product.color1 { background-color:#448de9; } /*white*/
+.product.color2 { background-color:#ffd400; } /*blue*/
+.product.color3 { background-color:#2e3192; } /*red*/
+.product.color4 { background-color:#00ad66; } /*yellow*/
+.product.color5 { background-color:#ff9ac1; } /*green*/
+.product.color6 { background-color:#ede7da; } /*black*/
+.product.color7 { background-color:#9bdbdb; } /*orange*/
+.product.color8 { background-color:#ffa020; } /*purple*/
+.product.color9 { background-color:#ef3e23; } /*pink*/
+.product.color11 { background-color:#9b65aa; } /*grey*/
+.product.color12 { background-color:#59caec; } /*brown*/
 button.color1 { background-color:#ede7da; } /*white*/
 button.color2 { background-color:#2e3192; } /*blue*/
 button.color3 { background-color:#ef3e23; } /*red*/
@@ -138,6 +138,8 @@ div:hover > div.tooltip { display:block; }
 
 /*=================================== Templates ===================================*/
 
+body { transition: background-color 0.75s ease; }
+
 header .overlay { display:none; }
 
 section.products .product { width:50rem; height:25rem; }
@@ -150,6 +152,8 @@ section.product .controls { height:6rem; }
 section.product .controls .colorSelector { width:1rem;  }
 section.product .controls .price { min-width:18rem; }
 section.product .controls .pcs { margin-top:1.7rem; }
+section.product .productPicture { display:none; }
+body.color1 .productPicture.color1, body.color2 .productPicture.color2, body.color3 .productPicture.color3, body.color4 .productPicture.color4, body.color5 .productPicture.color5, body.color6 .productPicture.color6, body.color7 .productPicture.color7, body.color8 .productPicture.color8, body.color9 .productPicture.color9, body.color11 .productPicture.color11, body.color12 .productPicture.color12 { display:block; }
 
 /*=================================== Texts ===================================*/
 
