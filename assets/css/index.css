@@ -177,7 +177,7 @@ h5 { font:1.4rem/1.4rem 'Geomanist-Light', sans-serif; }
 .controls span.huge.bold { line-height:6rem; }
 
 /*Type colors*/
-.black, .black a { color:#000; }
+.black, .black a, input.black::placeholder { color:#000; }
 .white, .white a { color:#fff; }
 span.color1, button.color1, input.color1 { color:#ede7da; } /*white*/
 span.color2, button.color2, input.color2 { color:#2e3192; } /*blue*/
