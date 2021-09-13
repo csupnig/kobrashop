@@ -10,6 +10,7 @@
     'dirtAndSurface' => 'Verschmutzung & Oberfläche',
     'fieldOfApplication' => 'Einsatzgebiet',
     'filterProductsBy' => 'Produkte filtern nach',
+    'pcs.' => 'Stk.',
     'products' => 'Produkte',
     'productSearch' => 'Produktsuche',
     'properties' => 'Eigenschaften',

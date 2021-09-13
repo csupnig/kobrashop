@@ -37,27 +37,46 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
   <?php snippet("header"); ?>
   <section class="product inlineBlock width100 smallPadding">
     <div class="width100 floatLeft">
-      <div class="width75 floatLeft">
+      <div class="product width75 floatLeft <?= $productBackground ?>">
         <h1 class="productName"><?= $page->name() ?></h1>
         <h2 class="productId"><?= $page->articleId() ?></h2>
         <?php if ($cover = $page->{$productPicture}()->toFile()) { ?>
           <img class="width100 cover" src="<?= $cover->url() ?>"/>
         <?php } ?>
       </div>
-      <div class="usage width25 floatLeft">
-        <h3><?= t("fieldOfApplication") ?></h3>
+      <div class="usage width25 floatLeft smallLeftPadding">
+        <h3 class="smallBottomMargin"><?= t("fieldOfApplication") ?></h3>
         <?php snippet("productusage", ["product" => $page]); ?>
       </div>
     </div>
     <div class="width100 floatLeft">
-      <div class="width75 floatLeft">
+      <div class="width75 floatLeft centeredText">
         <?php snippet("productdimensions", ["product" => $page, "temperature" => true]); ?>
       </div>
-      <div class="properties width25 floatLeft">
+      <div class="properties width25 floatLeft smallLeftPadding verySmallTopPadding centeredText">
         <?php snippet("productproperties", ["product" => $page]); ?>
       </div>
     </div>
-    <div class="controls width100">
+    <div class="controls flex width100 floatLeft topMargin">
+      <div class="filler flexGrow height100 floatLeft border <?= $productColor; ?> <?= $productBackground ?>"></div>
+      <div class="buttons height100 floatLeft tinyLeftMargin">
+        <button class="addToCart black <?= $productColor; ?> floatRight tinyLeftMargin">
+        </button>
+        <div class="quantity floatRight tinyLeftMargin border <?= $productColor; ?>">
+          <div class="floatLeft tinyLeftPadding tinyTopPadding centeredText">
+            <button class="quantity increase large"><span class="<?= $productColor; ?>">+</span></button><br/>
+            <button class="quantity decrease large"><span class="<?= $productColor; ?>">-</span></button>
+          </div>
+          <form class="floatLeft smallLeftMargin" action="">
+            <input class="quantity <?= $productColor; ?> rightText" type="quantity" name="q" value="1">
+          </form>
+          <span class="pcs veryLarge <?= $productColor; ?> floatLeft bold tinyLeftMargin"><?= t("pcs.") ?></span>
+          <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
+        </div>
+        <?php foreach ($productColors as $productColor) { ?>
+          <button class="colorSelector floatRight height100 <?= $productColor; ?>"></button>
+        <?php } ?>
+      </div>
     </div>
   </section>
   <?php /*snippet("products", ["product" => $page]);*/ ?>

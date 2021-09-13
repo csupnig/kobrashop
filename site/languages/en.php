@@ -10,6 +10,7 @@
     'dirtAndSurface' => 'dirt & surface',
     'fieldOfApplication' => 'field of application',
     'filterProductsBy' => 'Filter products by',
+    'pcs.' => 'pcs.',
     'products' => 'Products',
     'productSearch' => 'Product search',
     'properties' => 'properties',
