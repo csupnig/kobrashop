@@ -62,19 +62,22 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
     <div class="controls flex width100 floatLeft topMargin">
       <div class="filler flexGrow height100 floatLeft border <?= $productColor; ?> <?= $productBackground ?>"></div>
       <div class="buttons height100 floatLeft tinyLeftMargin">
-        <button class="addToCart black <?= $productColor; ?> floatRight tinyLeftMargin">
-        </button>
-        <div class="quantity floatRight tinyLeftMargin border <?= $productColor; ?>">
-          <div class="floatLeft tinyLeftPadding tinyTopPadding centeredText">
-            <button class="quantity increase large"><span class="<?= $productColor; ?>">+</span></button><br/>
-            <button class="quantity decrease large"><span class="<?= $productColor; ?>">-</span></button>
+        <form class="productToCart floatRight" action="<?= url('add') ?>" method="post">
+          <input type="hidden" name="id" value="<?= $page->id() ?>">
+          <button class="addToCart black <?= $productColor; ?> floatRight tinyLeftMargin" type="submit">
+          </button>
+          <div class="quantity floatRight tinyLeftMargin border <?= $productColor; ?>">
+            <div class="floatLeft tinyLeftPadding tinyTopPadding centeredText">
+              <button class="quantity increase large"><span class="<?= $productColor; ?>">+</span></button><br/>
+              <button class="quantity decrease large"><span class="<?= $productColor; ?>">-</span></button>
+            </div>
+            <div class="floatLeft smallLeftMargin" action="">
+              <input class="quantity <?= $productColor; ?> rightText" type="number" name="quantity" value="1" min="1">
+            </div>
+            <span class="pcs veryLarge <?= $productColor; ?> floatLeft bold tinyLeftMargin"><?= t("pcs.") ?></span>
+            <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
           </div>
-          <form class="floatLeft smallLeftMargin" action="">
-            <input class="quantity <?= $productColor; ?> rightText" type="quantity" name="q" value="1">
-          </form>
-          <span class="pcs veryLarge <?= $productColor; ?> floatLeft bold tinyLeftMargin"><?= t("pcs.") ?></span>
-          <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
-        </div>
+        </form>
         <?php foreach ($productColors as $productColor) { ?>
           <button class="colorSelector floatRight height100 <?= $productColor; ?>" data-color="<?= $productColor; ?>"></button>
         <?php } ?>
@@ -85,17 +88,3 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
   <?php snippet("footer"); ?>
 </body>
 
-
-
-
-
-
-
-<?php /*<h1><?= $page->title() ?></h1>
-<form action="<?= url('add') ?>" method="post">
-  Price: <?= formatPrice($page->price()->toFloat()) ?><br>
-  Tax: <?= formatPrice(calculateTax($page->price()->toFloat(), $page->tax()->toFloat())) ?><br>
-  <input type="hidden" name="id" value="<?= $page->id() ?>">
-  <input type="number" name="quantity" value="1" min="1">
-  <button>add to cart</button>
-</form>*/ ?>

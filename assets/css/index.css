@@ -47,6 +47,8 @@ button.addToCart { width:6rem; height:100%; background:url(/assets/images/icon-c
 input.search { height:3rem; padding-left:3rem; background:url(/assets/images/icon-search-black.svg) no-repeat left center; background-size:2rem; }
 input.quantity { width:6rem; height:100%; background:none; }
 
+form.productToCart { height: 100%; }
+
 .icon.dirt, .icon.surface { width:3.5rem; height:3.5rem; margin:0.4rem 0.2rem; opacity:0.2; }
 .icon.dirt.active, .icon.surface.active { opacity:1; }
 .icon.surface1 { background:url(/assets/images/icon-surface1.svg) no-repeat left center; background-size:contain; }
