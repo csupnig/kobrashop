@@ -90,6 +90,10 @@ Bristlewidth: 0,60
 
 ----
 
+Maxtemperature: 134
+
+----
+
 Usage: sweeping
 
 ----

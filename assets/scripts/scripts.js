@@ -11,4 +11,16 @@ $(document).ready(function () {
 	
 	}
 
+	if ($("body.product").length > 0) {
+		$(".controls button.colorSelector").click(function(){ 
+			//Get current color body
+			newColor = $(this).data("color");
+			//Get new color from button
+			oldColor = $("body").data("color");
+			//Set new color
+			$("body").data("color", newColor); 
+			$("body, .border." + oldColor + ", span." + oldColor + ", input." + oldColor + ", .addToCart." + oldColor).removeClass(oldColor).addClass(newColor);
+		});
+	}
+
 });

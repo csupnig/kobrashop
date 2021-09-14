@@ -1,4 +1,4 @@
-<header id="header" class="width100 smallHPadding verySmallVPadding black whitebackground relative">
+<header id="header" class="width100 inlineBlock smallHPadding verySmallVPadding black relative">
     <a class="width20 floatLeft noUnderline" href="<?= $site->url() ?>"><img class="logo width100" src="/assets/images/logo-shop-black.png" alt="<?= $site->name()->html() ?>"/></a>
     <nav class="primary floatLeft noUnderline">
       <a class="overlay floatLeft smallLeftMargin" href="<?= $site->url() ?>" data-overlay="products"><?= t("products") ?></a>
