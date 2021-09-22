@@ -140,7 +140,7 @@ header div.tooltip.rightArrow { padding-right:2rem; left:auto; right:2.5rem; top
 .properties div.tooltip.rightArrow { padding-right:2rem; right:3rem; top:-0.5rem; }
 
 /*Overlay*/
-.overlay { display:none; }
+header .overlay, body.product .overlay { display:none; }
 .overlay.active { display:block; }
 
 /*=================================== Templates ===================================*/
