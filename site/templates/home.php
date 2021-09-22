@@ -5,6 +5,3 @@
 	<?php snippet("footer"); ?>
 	<?php snippet("overlayaccount"); ?>
 </body>
-
-<?php snippet('cart', ['cart' => merx()->cart()]); ?>
-<a href="<?= url('checkout') ?>">Checkout</a>

@@ -13,12 +13,17 @@ return [
       'action'  => function () {
         $id = get('id');
         $quantity = get('quantity');
+        $url = get('url');
         try {
           cart()->add([
             'id' => $id,
             'quantity' => $quantity,
           ]);
-          go('/');
+          if (isset($url)) {
+              go($url."#cartopen");
+          } else {
+            go('/');
+          }
         } catch (Exception $ex) {
           return $ex->getMessage();
         }

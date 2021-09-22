@@ -8,7 +8,7 @@ $(document).ready(function () {
 	if (mobile == true) {
 
 	} else {
-	
+
 	}
 
 	//Account overlay
@@ -28,23 +28,27 @@ $(document).ready(function () {
 	function hideCartOverlay() {
 		$("div.overlay.cart").removeClass("active");
 	}
-	$("button.addToCart").click(function() {
+	/*$("button.addToCart").click(function() {
 		showCartOverlay();
-	});
+	});*/
 	$("div.overlay.cart button.close").click(function() {
 		hideCartOverlay();
 	});
 
+	// Open cart after something has been added
+	if (window.location.hash == '#cartopen') {
+	  showCartOverlay();
+  }
 
 
 	if ($("body.product").length > 0) {
-		$(".controls button.colorSelector").click(function(){ 
+		$(".controls button.colorSelector").click(function(){
 			//Get current color body
 			newColor = $(this).data("color");
 			//Get new color from button
 			oldColor = $("body").data("color");
 			//Set new color
-			$("body").data("color", newColor); 
+			$("body").data("color", newColor);
 			$("body, .border." + oldColor + ", span." + oldColor + ", input." + oldColor + ", .addToCart." + oldColor).removeClass(oldColor).addClass(newColor);
 		});
 	}
