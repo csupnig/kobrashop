@@ -35,6 +35,7 @@
 /*Site-specific small margins*/
 .tinyTopMargin { margin-top:0.5rem; }
 .tinyLeftMargin { margin-left:0.5rem; }
+.verySmallLeftMargin { margin-left:1.5rem; }
 .verySmallHMargin { margin-left:1.5rem; margin-right:1.5rem; }
 .smallBottomMargin { margin-bottom:3rem; }
 .smallLeftMargin { margin-left:3rem; }
@@ -44,10 +45,9 @@ button.account { width:2rem; height:2rem; background:url(/assets/images/icon-acc
 button.contact { width:2rem; height:2rem; background:url(/assets/images/icon-contact-black.svg) no-repeat left center; background-size:2rem; }
 button.website { width:2rem; height:2rem; background:url(/assets/images/icon-website-black.svg) no-repeat left center; background-size:2rem; }
 button.addToCart { width:6rem; height:100%; background:url(/assets/images/icon-cart-black.svg) no-repeat center center; background-size:3rem; }
+button.close { width:1.25rem; height:1.25rem; background:url(/assets/images/icon-close-black.svg) no-repeat center center; background-size:contain; }
 input.search { height:3rem; padding-left:3rem; background:url(/assets/images/icon-search-black.svg) no-repeat left center; background-size:2rem; }
 input.quantity { width:6rem; height:100%; background:none; }
-
-form.productToCart { height: 100%; }
 
 .icon.dirt, .icon.surface { width:3.5rem; height:3.5rem; margin:0.4rem 0.2rem; opacity:0.2; }
 .icon.dirt.active, .icon.surface.active { opacity:1; }
@@ -132,17 +132,20 @@ div.tooltip.black.leftArrow { background:url(/assets/images/background-tooltip-r
 div.tooltip.white.rightArrow, body.product div.tooltip.white.leftArrow { background:url(/assets/images/background-tooltip-left-black.svg) no-repeat right center; background-size:cover; }
 div.tooltip.white.leftArrow { background:url(/assets/images/background-tooltip-right-black.svg) no-repeat left center; background-size:cover; }
 /*Element-specific tooltip properties*/
-div:hover > div.tooltip { display:block; }
+*:hover > div.tooltip { display:block; }
+header div.tooltip.rightArrow { padding-right:2rem; left:auto; right:2.5rem; top:0.25rem; }
 .usage div:not(.active):hover > div.tooltip { display:none; }
 .usage div.tooltip.leftArrow { padding-left:2rem; left:4.5rem; top:0.5rem; }
-.usage div.tooltip.rightArrow, body.product .usage div.tooltip.leftArrow { padding-right:2rem; padding-left:0; left:auto; right:4.5rem; top:0.5rem; }
+.usage div.tooltip.rightArrow, body.product .usage div.tooltip.leftArrow { padding-right:2rem; left:auto; right:4.5rem; top:0.5rem; }
 .properties div.tooltip.rightArrow { padding-right:2rem; right:3rem; top:-0.5rem; }
+
+/*Overlay*/
+.overlay { display:none; }
+.overlay.active { display:block; }
 
 /*=================================== Templates ===================================*/
 
 body { transition: background-color 0.75s ease; }
-
-header .overlay { display:none; }
 
 section.products .product { width:50rem; height:25rem; }
 section.products .product .overlay .details { display:none; }

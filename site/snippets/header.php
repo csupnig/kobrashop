@@ -8,9 +8,9 @@
   	</nav>
     <nav class="secondary floatRight noUnderline">
       <!--USER LOGIN STATUS NEEDS TO BE CHECKED HERE. DISPLAY LOGIN BUTTON (account) IS NOT LOGGED IN, ACCOUNT BUTTON (account.active) IF LOGGED IN-->
-      <a class="overlay relative"><button class="account"></button><div class="tooltip absolute"><?= t("account") ?></div><a>
-      <a class="relative" href="<?= $site->contactPage()->url() ?>"><button class="contact"></button><div class="tooltip white absolute">Information</div></a>
-      <a class="relative" href="https://www.kobra.at"><button class="website"></button><div class="tooltip white absolute">kobra.at</div></a>
+      <div class="floatLeft relative"><button class="account"></button><div class="tooltip rightArrow white absolute"><?= t("account") ?></div></div>
+      <a class="floatLeft relative verySmallLeftMargin" href="<?= $site->contactPage()->url() ?>"><button class="contact"></button><div class="tooltip rightArrow white absolute">Information</div></a>
+      <a class="floatLeft relative verySmallLeftMargin" href="https://www.kobra.at"><button class="website"></button><div class="tooltip rightArrow white absolute">kobra.at</div></a>
     </nav>
     <nav class="overlay products smallPadding absolute">
       <div class="width25 floatLeft">

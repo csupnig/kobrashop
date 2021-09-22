@@ -62,9 +62,8 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
     <div class="controls flex width100 floatLeft topMargin">
       <div class="filler flexGrow height100 floatLeft border <?= $productColor; ?> <?= $productBackground ?>"></div>
       <div class="buttons height100 floatLeft tinyLeftMargin">
-        <form class="productToCart floatRight" action="<?= url('add') ?>" method="post">
-          <input type="hidden" name="id" value="<?= $page->id() ?>">
-          <button class="addToCart black <?= $productColor; ?> floatRight tinyLeftMargin" type="submit">
+        <div class="productToCart height100 floatRight">
+          <button class="addToCart black <?= $productColor; ?> floatRight tinyLeftMargin">
           </button>
           <div class="quantity floatRight tinyLeftMargin border <?= $productColor; ?>">
             <div class="floatLeft tinyLeftPadding tinyTopPadding centeredText">
@@ -77,7 +76,7 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
             <span class="pcs veryLarge <?= $productColor; ?> floatLeft bold tinyLeftMargin"><?= t("pcs.") ?></span>
             <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
           </div>
-        </form>
+        </div>
         <?php foreach ($productColors as $productColor) { ?>
           <button class="colorSelector floatRight height100 <?= $productColor; ?>" data-color="<?= $productColor; ?>"></button>
         <?php } ?>
@@ -86,5 +85,7 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
   </section>
   <?php /*snippet("products", ["product" => $page]);*/ ?>
   <?php snippet("footer"); ?>
+  <?php snippet("overlayaccount"); ?>
+  <?php snippet("overlaycart"); ?>
 </body>
 

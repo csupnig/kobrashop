@@ -11,6 +11,32 @@ $(document).ready(function () {
 	
 	}
 
+	//Account overlay
+	function toggleAccountOverlay() {
+		$("div.overlay.cart").removeClass("active");
+		$("div.overlay.account").toggleClass("active");
+	}
+	$("button.account, div.overlay.account button.close").click(function() {
+		toggleAccountOverlay();
+	});
+
+	//Cart overlay
+	function showCartOverlay() {
+		$("div.overlay.account").removeClass("active");
+		$("div.overlay.cart").addClass("active");
+	}
+	function hideCartOverlay() {
+		$("div.overlay.cart").removeClass("active");
+	}
+	$("button.addToCart").click(function() {
+		showCartOverlay();
+	});
+	$("div.overlay.cart button.close").click(function() {
+		hideCartOverlay();
+	});
+
+
+
 	if ($("body.product").length > 0) {
 		$(".controls button.colorSelector").click(function(){ 
 			//Get current color body
