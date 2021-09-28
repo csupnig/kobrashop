@@ -1,0 +1,44 @@
+Name: test
+
+----
+
+Email: myorder@bla.com
+
+----
+
+Paymentmethod: empty-gateway
+
+----
+
+Items:
+
+- 
+  id: zweites
+  quantity: 3
+  price: 10
+  tax: 0
+  color: color1
+  articleid: 123-222
+  title: Zweites
+  taxrate: 0
+  sum: 30
+  sumtax: 0
+- 
+  id: test
+  quantity: 1
+  price: 10
+  tax: 0
+  color: color2
+  articleid: "123456"
+  title: Test
+  taxrate: 0
+  sum: 10
+  sumtax: 0
+
+----
+
+Invoicedate: 2021-09-28T17:04:04+00:00
+
+----
+
+Paymentcomplete: false
