@@ -8,6 +8,7 @@ if (kirby()->request()->method() === 'POST') {
     $redirect = merx()->initializePayment($data);
     go($redirect);
   } catch (Exception $ex) {
+
     echo $ex->getMessage();
     dump($ex->getDetails());
   }

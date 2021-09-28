@@ -1,4 +1,4 @@
-<?php snippet('cart', ['cart' => merx()->cart()]) ?>
+
 <form method="post">
   <h3>Customer Data</h3>
   <p>
@@ -30,8 +30,3 @@
     <button>buy</button>
   </p>
 </form>
-
-<label>Users:</label><input disabled="true" value="<?=$kirby->users()->count() ?>">
-<?php
-var_dump($kirby->user())
-?>

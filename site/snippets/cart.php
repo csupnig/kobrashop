@@ -26,7 +26,7 @@
         <a href="{{ this.id }}"><span class="txt-product-name">{{ this.title }}</span></a><br><span class="txt-overlay-sku">{{this.articleid}}</span>-<span class="product-color-icon color{{this.color}}">{{this.color}}</span>					</td>
 
       <td class="product-total">
-        <span class="amount">{{ this.sum }}</span>
+        <span class="amount">{{formatCurrency this.sum }}</span>
         <div class="product-remove">
           <a href="" class="remove">×</a>					    </div>
       </td>
@@ -37,8 +37,8 @@
 </table>
 
 <p>
-  <strong>Tax:</strong> {{tax}}<br>
-  <strong>Sum:</strong> {{sum}}
+  <strong>Tax:</strong> {{formatCurrency tax}}<br>
+  <strong>Sum:</strong> {{formatCurrency sum}}
 </p>
 
 </script>

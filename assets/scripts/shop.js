@@ -62,26 +62,30 @@ class Cart {
     $('#overlay-cart .close').click(() => {
       this.hide();
     });
-    $('#cartcontainer').on('click', '.increase', (event) => {
+    const $cartcontainer = $('#cartcontainer');
+    $cartcontainer.on('click', '.increase', (event) => {
       const id = this.getProductIdFromEventTarget(event);
       const q = this.getCartQuantityForId(id);
       this.setQuantityForId(id, q + 1);
     });
-    $('#cartcontainer').on('click', '.decrease', (event) => {
+    $cartcontainer.on('click', '.decrease', (event) => {
       const id = this.getProductIdFromEventTarget(event);
       const q = this.getCartQuantityForId(id);
       this.setQuantityForId(id, q - 1);
     });
-    $('#cartcontainer').on('blur', '[name="quantity"]', (event) => {
+    $cartcontainer.on('blur', '[name="quantity"]', (event) => {
       const id = this.getProductIdFromEventTarget(event);
       const q = this.getCartQuantityForId(id);
       this.setQuantityForId(id, q);
     });
-    $('#cartcontainer').on('click', '.remove', (event) => {
+    $cartcontainer.on('click', '.remove', (event) => {
       this.remove(this.getProductIdFromEventTarget(event));
       event.preventDefault();
     });
     const template = $('#carttemplate').html();
+    Handlebars.registerHelper('formatCurrency', (value) => {
+      return '€ ' + (+value).toFixed(2).toLocaleString();
+    });
     this.template = Handlebars.compile(template);
     this.refresh();
   }
