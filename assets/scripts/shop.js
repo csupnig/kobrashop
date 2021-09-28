@@ -56,6 +56,12 @@ class Cart {
   template = undefined;
 
   bind() {
+    $('button.cart').click(() => {
+      this.show();
+    });
+    $('#overlay-cart .close').click(() => {
+      this.hide();
+    });
     $('#cartcontainer').on('click', '.increase', (event) => {
       const id = this.getProductIdFromEventTarget(event);
       const q = this.getCartQuantityForId(id);
@@ -78,7 +84,6 @@ class Cart {
     const template = $('#carttemplate').html();
     this.template = Handlebars.compile(template);
     this.refresh();
-    this.show();
   }
 
   remove(id) {

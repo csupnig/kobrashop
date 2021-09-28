@@ -6,6 +6,7 @@
   'name' => 'DE',
   'translations' => [
     'account' => 'Konto',
+    'cart' => 'Warenkorb',
     'color' => 'Farbe',
     'dirtAndSurface' => 'Verschmutzung & Oberfläche',
     'fieldOfApplication' => 'Einsatzgebiet',

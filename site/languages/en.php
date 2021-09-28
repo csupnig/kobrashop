@@ -6,6 +6,7 @@
   'name' => 'EN',
   'translations' => [
     'account' => 'Account',
+    'cart' => 'Cart',
     'color' => 'Color',
     'dirtAndSurface' => 'dirt & surface',
     'fieldOfApplication' => 'field of application',

@@ -20,26 +20,6 @@ $(document).ready(function () {
 		toggleAccountOverlay();
 	});
 
-	//Cart overlay
-	function showCartOverlay() {
-		$("div.overlay.account").removeClass("active");
-		$("div.overlay.cart").addClass("active");
-	}
-	function hideCartOverlay() {
-		$("div.overlay.cart").removeClass("active");
-	}
-	/*$("button.addToCart").click(function() {
-		showCartOverlay();
-	});*/
-	$("div.overlay.cart button.close").click(function() {
-		hideCartOverlay();
-	});
-
-	// Open cart after something has been added
-	if (window.location.hash == '#cartopen') {
-	  showCartOverlay();
-  }
-
 
 	if ($("body.product").length > 0) {
 		$(".controls button.colorSelector").click(function(){

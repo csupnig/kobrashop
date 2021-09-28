@@ -41,6 +41,7 @@
 .smallLeftMargin { margin-left:3rem; }
 
 /*Site-specific framework: Buttons & icons*/
+button.cart { width:2rem; height:2rem; background:url(/assets/images/icon-cart-black.svg) no-repeat center center; background-size:2rem; }
 button.account { width:2rem; height:2rem; background:url(/assets/images/icon-account-black.svg) no-repeat left center; background-size:2rem; }
 button.contact { width:2rem; height:2rem; background:url(/assets/images/icon-contact-black.svg) no-repeat left center; background-size:2rem; }
 button.website { width:2rem; height:2rem; background:url(/assets/images/icon-website-black.svg) no-repeat left center; background-size:2rem; }
