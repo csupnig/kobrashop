@@ -62,9 +62,11 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
     <div class="controls flex width100 floatLeft topMargin">
       <div class="filler flexGrow height100 floatLeft border <?= $productColor; ?> <?= $productBackground ?>"></div>
       <div class="buttons height100 floatLeft tinyLeftMargin">
-        <form class="productToCart floatRight height100" action="<?= url('add') ?>" method="post">
+        <form id="productform" class="productToCart floatRight height100" action="<?= url('add') ?>" method="post">
           <input type="hidden" name="id" value="<?= $page->id() ?>">
           <input type="hidden" name="url" value="<?= $page->url() ?>">
+          <input type="hidden" name="color" value="<?= $productColor ?>">
+          <input type="hidden" name="articleid" value="<?= $page->articleId() ?>">
           <button class="addToCart black <?= $productColor; ?> floatRight tinyLeftMargin">
           </button>
           <div class="quantity floatRight tinyLeftMargin border <?= $productColor; ?>">

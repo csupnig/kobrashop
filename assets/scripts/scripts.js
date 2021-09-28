@@ -50,6 +50,7 @@ $(document).ready(function () {
 			//Set new color
 			$("body").data("color", newColor);
 			$("body, .border." + oldColor + ", span." + oldColor + ", input." + oldColor + ", .addToCart." + oldColor).removeClass(oldColor).addClass(newColor);
+      $('#productform [name="color"]').val(newColor);
 		});
 	}
 
