@@ -1,4 +1,3 @@
-
 class Http {
   static post(url, data) {
     return fetch(url, {
