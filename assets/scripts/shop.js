@@ -1,47 +1,4 @@
 
-class Http {
-  static post(url, data) {
-    return fetch(url, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify(data)
-    }).then((response) => response.json());
-  }
-
-  static put(url, data) {
-    return fetch(url, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: 'PUT',
-      body: JSON.stringify(data)
-    }).then((response) => response.json());
-  }
-
-  static get(url) {
-    return fetch(url, {
-      headers: {
-        'Accept': 'application/json'
-      },
-      method: 'GET'
-    }).then((response) => response.json());
-  }
-
-  static remove(url, data) {
-    return fetch(url, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: 'DELETE',
-      body: JSON.stringify(data)
-    }).then((response) => response.json());
-  }
-}
 
 class Cart {
 
@@ -83,10 +40,8 @@ class Cart {
       event.preventDefault();
     });
     const template = $('#carttemplate').html();
-    Handlebars.registerHelper('formatCurrency', (value) => {
-      return '€ ' + (+value).toFixed(2).toLocaleString();
-    });
-    this.template = Handlebars.compile(template);
+
+    this.template = TemplateEngine.getInstance().precompileTemplate(template);
     this.refresh();
   }
 

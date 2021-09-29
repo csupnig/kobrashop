@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <!--Main Scripts-->
+    <script type="text/javascript" src="/assets/scripts/utils.js"></script>
     <script type="text/javascript" src="/assets/scripts/snippets.js"></script>
     <script type="text/javascript" src="/assets/scripts/scripts.js"></script>
     <script type="text/javascript" src="/assets/scripts/shop.js"></script>
