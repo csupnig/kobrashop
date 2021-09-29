@@ -101,11 +101,11 @@ class Product {
 
   bind() {
     $('#productform').submit((event) => {
-      const cartsettings = $('#productform').serializeArray().reduce((prev, current) => {
+      const product = $('#productform').serializeArray().reduce((prev, current) => {
         prev[current.name] = current.value;
         return prev;
       }, {});
-      this.addToCart(cartsettings);
+      this.addToCart(product);
       event.preventDefault();
     });
     const $quantityField = $('#productform [name="quantity"]');
@@ -125,6 +125,10 @@ class Product {
   }
 
   addToCart(cartsettings) {
+    const quantity = +cartsettings.quantity;
+    if (isNaN(quantity) || quantity < 0) {
+      return;
+    }
     Cart.getInstance().add(cartsettings);
   }
 
