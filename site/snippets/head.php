@@ -22,4 +22,5 @@
     <script type="text/javascript" src="/assets/scripts/snippets.js"></script>
     <script type="text/javascript" src="/assets/scripts/scripts.js"></script>
     <script type="text/javascript" src="/assets/scripts/shop.js"></script>
+    <script type="text/javascript" src="/assets/scripts/account.js"></script>
   </head>

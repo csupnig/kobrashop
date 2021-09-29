@@ -11,15 +11,6 @@ $(document).ready(function () {
 
 	}
 
-	//Account overlay
-	function toggleAccountOverlay() {
-		$("div.overlay.cart").removeClass("active");
-		$("div.overlay.account").toggleClass("active");
-	}
-	$("button.account, div.overlay.account button.close").click(function() {
-		toggleAccountOverlay();
-	});
-
 
 	if ($("body.product").length > 0) {
 		$(".controls button.colorSelector").click(function(){
