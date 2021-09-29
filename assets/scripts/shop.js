@@ -1,5 +1,3 @@
-
-
 class Cart {
 
   static _instance = undefined;
@@ -99,6 +97,14 @@ class Cart {
 
 class Product {
 
+  static _instance = undefined;
+  static getInstance() {
+    if (!Product._instance) {
+      Product._instance = new Product();
+    }
+    return Product._instance;
+  }
+
   bind() {
     $('#productform').submit((event) => {
       const product = $('#productform').serializeArray().reduce((prev, current) => {
@@ -130,14 +136,6 @@ class Product {
       return;
     }
     Cart.getInstance().add(product);
-  }
-
-  static _instance = undefined;
-  static getInstance() {
-    if (!Product._instance) {
-      Product._instance = new Product();
-    }
-    return Product._instance;
   }
 }
 
