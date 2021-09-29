@@ -124,12 +124,12 @@ class Product {
     });
   }
 
-  addToCart(cartsettings) {
-    const quantity = +cartsettings.quantity;
+  addToCart(product) {
+    const quantity = +product.quantity;
     if (isNaN(quantity) || quantity < 0) {
       return;
     }
-    Cart.getInstance().add(cartsettings);
+    Cart.getInstance().add(product);
   }
 
   static _instance = undefined;
