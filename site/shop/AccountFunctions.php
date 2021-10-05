@@ -9,28 +9,28 @@ class AccountFunctions
                 'pattern' => 'account',
                 'method' => 'post',
                 'action'  => function() {
-                    AccountFunctions::createUser();
+                    return AccountFunctions::createUser();
                 },
             ],
             [
                 'pattern' => 'account',
                 'method' => 'get',
                 'action'  => function() {
-                    AccountFunctions::getAccount();
+                    return AccountFunctions::getAccount();
                 },
             ],
             [
                 'pattern' => 'account/logout',
                 'method' => 'put',
                 'action'  => function() {
-                    AccountFunctions::logout();
+                    return  AccountFunctions::logout();
                 },
             ],
             [
                 'pattern' => 'account/login',
                 'method' => 'put',
                 'action'  => function() {
-                    AccountFunctions::login();
+                    return AccountFunctions::login();
                 },
             ],
         ];
@@ -89,6 +89,6 @@ class AccountFunctions
             $role = $user->roles();
             $addresses = json_decode($user->addresses());
         }
-        echo json_encode(array("loggedin" => isset($user), "role" => $role, "addresses" => $addresses));
+        return json_encode(array("loggedin" => isset($user), "role" => $role, "addresses" => $addresses));
     }
 }

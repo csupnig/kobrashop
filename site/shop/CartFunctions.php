@@ -9,28 +9,28 @@ class CartFunctions
                 'pattern' => 'cart',
                 'method' => 'post',
                 'action'  => function() {
-                    CartFunctions::addToCart();
+                    return CartFunctions::addToCart();
                 },
             ],
             [
                 'pattern' => 'cart',
                 'method' => 'put',
                 'action'  => function() {
-                    CartFunctions::updateQuantity();
+                    return CartFunctions::updateQuantity();
                 },
             ],
             [
                 'pattern' => 'cart',
                 'method' => 'get',
                 'action'  => function() {
-                    CartFunctions::getCart();
+                    return CartFunctions::getCart();
                 },
             ],
             [
                 'pattern' => 'cart',
                 'method' => 'delete',
                 'action'  => function() {
-                    CartFunctions::removeFromCart();
+                    return CartFunctions::removeFromCart();
                 },
             ],
         ];
@@ -73,6 +73,6 @@ class CartFunctions
 
     public static function getCart() {
         header('Content-type: application/json');
-        echo json_encode(array("items" => array_values(cart()->toArray()), "sum" => cart()->getSum(), "tax" => cart()->getTax()));
+        return json_encode(array("items" => array_values(cart()->toArray()), "sum" => cart()->getSum(), "tax" => cart()->getTax()));
     }
 }
