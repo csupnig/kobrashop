@@ -6,7 +6,7 @@ class AccountFunctions
     public static function getRoutes() {
         return [
             [
-                'pattern' => 'user',
+                'pattern' => 'account',
                 'method' => 'post',
                 'action'  => function() {
                     AccountFunctions::createUser();
@@ -37,8 +37,29 @@ class AccountFunctions
     }
 
     public static function createUser() {
-        header('Content-type: application/json');
-        echo json_encode(array("items" => array_values(cart()->toArray()), "sum" => cart()->getSum(), "tax" => cart()->getTax()));
+        try {
+            $kirby = kirby();
+            $kirby->impersonate('kirby');
+            /*$user = $kirby->users()->create([
+                'name'      => get('billing_first_name'),
+                'lastname'  => get('billing_last_name'),
+                'email'     => get('email'),
+                'password'  => get('password'),
+                'language'  => 'de',
+                'role'      => 'customer',
+                'content'   => [
+                    'birthdate' => '1989-01-29'
+                ]
+            ]);*/
+
+            echo json_encode(get('addresses'));
+
+        } catch(Exception $e) {
+
+            echo 'The user could not be created';
+            echo $e->getMessage();
+
+        }
     }
 
     public static function logout() {

@@ -56,7 +56,19 @@ class Account {
   }
 
   register(user) {
-    console.log('Register', user);
+    console.log('user', user);
+    const $form = $('form.ajax-register');
+    $form.removeClass('error');
+    if (!user.conditions_agreement) {
+      $form.addClass('error');
+      return;
+    }
+    user.addresses = [{name : 'address1'}, {name:'address2'}];
+    Http.post('/account', user).then((account) => {
+      this.render(account);
+    }).catch(() => {
+      $form.addClass('error');
+    });
   }
 
   login(login) {
