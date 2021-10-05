@@ -1,0 +1,109 @@
+Title: 123222
+
+----
+
+Name: Bürste
+
+----
+
+Articleid: 123222
+
+----
+
+Price: 10
+
+----
+
+Packagingunit: 1
+
+----
+
+Dimensions: false
+
+----
+
+Length: 
+
+----
+
+Width: 
+
+----
+
+Bristles: false
+
+----
+
+Bristlelength: 
+
+----
+
+Bristlewidth: 
+
+----
+
+Maxtemperature: 
+
+----
+
+Usage: sweeping
+
+----
+
+Sweeping: sweeping1, sweeping2
+
+----
+
+Brushing: 
+
+----
+
+Surfaces: 
+
+----
+
+Properties: 
+
+----
+
+Picturecolor1: - product.png
+
+----
+
+Picturecolor2: 
+
+----
+
+Picturecolor3: 
+
+----
+
+Picturecolor4: 
+
+----
+
+Picturecolor5: 
+
+----
+
+Picturecolor6: 
+
+----
+
+Picturecolor7: 
+
+----
+
+Picturecolor8: 
+
+----
+
+Picturecolor9: 
+
+----
+
+Picturecolor11: 
+
+----
+
+Picturecolor12: 
