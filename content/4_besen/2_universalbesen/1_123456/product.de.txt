@@ -1,0 +1,121 @@
+Title: 123456
+
+----
+
+Name: Universalbesen
+
+----
+
+Articleid: 123456
+
+----
+
+Price: 15
+
+----
+
+Packagingunit: 6
+
+----
+
+Picturecolor1: 
+
+----
+
+Picturecolor2: 
+
+----
+
+Picturecolor3: 
+
+----
+
+Picturecolor4: 
+
+----
+
+Picturecolor5: 
+
+----
+
+Picturecolor6: 
+
+----
+
+Picturecolor7: 
+
+----
+
+Picturecolor8: 
+
+----
+
+Picturecolor9: 
+
+----
+
+Picturecolor11: 
+
+----
+
+Picturecolor12: 
+
+----
+
+Dimensions: true
+
+----
+
+Length: 500
+
+----
+
+Width: 50
+
+----
+
+Bristles: true
+
+----
+
+Bristlelength: 55
+
+----
+
+Bristlewidth: 0,60
+
+----
+
+Maxtemperature: 134
+
+----
+
+Usage: sweeping
+
+----
+
+Sweeping: sweeping1, sweeping2
+
+----
+
+Brushing: 
+
+----
+
+Surfaces: surface1
+
+----
+
+Properties: phb
+
+----
+
+Cover: - 547136-2.png
+
+----
+
+Colors: color2, color5, color1, color3, color4
+
+----
+
+Color1: false
