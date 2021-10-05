@@ -111,6 +111,7 @@ class Product {
         prev[current.name] = current.value;
         return prev;
       }, {});
+      this.processProduct(product);
       this.addToCart(product);
       event.preventDefault();
     });
@@ -136,6 +137,13 @@ class Product {
       return;
     }
     Cart.getInstance().add(product);
+  }
+
+  processProduct(product) {
+    const variants = JSON.parse(productVariants);
+    const id = variants['color'+product.color];
+    console.log('id ', id);
+    product.id = id;
   }
 }
 

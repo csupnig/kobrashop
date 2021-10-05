@@ -5,8 +5,10 @@ $productVariants = $page->children()->filterBy("intendedTemplate", "productvaria
 
 //Remove multiple entries for identical colors
 $productColors = [];
+$variantMap = [];
 foreach ($productVariants as $productVariant) {
   $colorNumber = $productVariant->title()->html();
+  $variantMap["color".$colorNumber] = $productVariant->id();
   if (!in_array($colorNumber, $productColors)) $productColors [] = $colorNumber;
 }
 
@@ -29,6 +31,9 @@ else if ($page->usage() == "sweeping") $productBackground = $sweepingUsages[0];
 else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
 
 <body class="product color<?= $productColor ?>" data-color="<?= $productColor ?>">
+<script>
+  var productVariants = '<?=json_encode($variantMap) ?>';
+</script>
   <?php snippet("header"); ?>
   <section class="product inlineBlock width100 smallPadding">
     <div class="width100 floatLeft">
@@ -59,7 +64,6 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
       <div class="filler flexGrow height100 floatLeft border color<?= $productColor; ?> <?= $productBackground ?>"></div>
       <div class="buttons height100 floatLeft tinyLeftMargin">
         <form id="productform" class="productToCart floatRight height100" action="<?= url('add') ?>" method="post">
-          <input type="hidden" name="id" value="<?= $page->id() ?>">
           <input type="hidden" name="url" value="<?= $page->url() ?>">
           <input type="hidden" name="color" value="<?= $productColor ?>">
           <input type="hidden" name="articleid" value="<?= $page->articleId() ?>">
