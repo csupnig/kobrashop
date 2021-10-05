@@ -74,6 +74,8 @@ class Account {
   login(login) {
     Http.put('/account/login', login).then((account) => {
       this.render(account);
+    }).catch(() => {
+      this.render({passworderror : true})
     });
   }
 

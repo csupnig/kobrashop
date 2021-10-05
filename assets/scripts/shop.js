@@ -142,7 +142,6 @@ class Product {
   processProduct(product) {
     const variants = JSON.parse(productVariants);
     const id = variants['color'+product.color];
-    console.log('id ', id);
     product.id = id;
   }
 }

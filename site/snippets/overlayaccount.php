@@ -25,8 +25,9 @@
 				<input class="input-text input-required password" type="password" placeholder="Passwort" name="password" id="">
 			</div>
 
-
-			<div class="form-errors"></div>
+      {{#if passworderror}}
+			<div class="form-errors">Ungültige E-Mail-Adresse oder ungültiges Passwort.</div>
+      {{/if}}
 
 			<div class="txt-default_medium submit-row-inline fields">
                 <div>Hast Du Dein <a class="overlay-link lostpass dotted" href="https://kobrashop.at/my-account/lost-password/">Passwort vergessen</a>?</div>

@@ -1,4 +1,12 @@
 class Http {
+
+  static handleErrors(response) {
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response;
+  }
+
   static post(url, data) {
     return fetch(url, {
       headers: {
@@ -7,7 +15,7 @@ class Http {
       },
       method: 'POST',
       body: JSON.stringify(data)
-    }).then((response) => response.json());
+    }).then(Http.handleErrors).then((response) => response.json());
   }
 
   static put(url, data) {
@@ -18,7 +26,7 @@ class Http {
       },
       method: 'PUT',
       body: JSON.stringify(data)
-    }).then((response) => response.json());
+    }).then(Http.handleErrors).then((response) => response.json());
   }
 
   static get(url) {
@@ -27,7 +35,7 @@ class Http {
         'Accept': 'application/json'
       },
       method: 'GET'
-    }).then((response) => response.json());
+    }).then(Http.handleErrors).then((response) => response.json());
   }
 
   static remove(url, data) {
@@ -38,7 +46,7 @@ class Http {
       },
       method: 'DELETE',
       body: JSON.stringify(data)
-    }).then((response) => response.json());
+    }).then(Http.handleErrors).then((response) => response.json());
   }
 }
 

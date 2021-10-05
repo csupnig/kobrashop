@@ -40,7 +40,7 @@ class AccountFunctions
         try {
             $kirby = kirby();
             $kirby->impersonate('kirby');
-            /*$user = $kirby->users()->create([
+            $user = $kirby->users()->create([
                 'name'      => get('billing_first_name'),
                 'lastname'  => get('billing_last_name'),
                 'email'     => get('email'),
@@ -48,11 +48,12 @@ class AccountFunctions
                 'language'  => 'de',
                 'role'      => 'customer',
                 'content'   => [
-                    'birthdate' => '1989-01-29'
+                    'birthdate' => '1989-01-29',
+                    'addresses' => json_encode(get('addresses'))
                 ]
-            ]);*/
+            ]);
 
-            echo json_encode(get('addresses'));
+            echo json_encode($user);
 
         } catch(Exception $e) {
 
@@ -83,9 +84,11 @@ class AccountFunctions
         header('Content-type: application/json');
         $user = kirby()->user();
         $role = null;
+        $addresses = null;
         if (isset($user)) {
             $role = $user->roles();
+            $addresses = json_decode($user->addresses());
         }
-        echo json_encode(array("loggedin" => isset($user), "role" => $role));
+        echo json_encode(array("loggedin" => isset($user), "role" => $role, "addresses" => $addresses));
     }
 }
