@@ -47,7 +47,7 @@ class CartFunctions
             'color' => $color,
             'articleid' => $articleid
         ]);
-        self::getCart();
+        return self::getCart();
     }
 
     public static function updateQuantity() {
@@ -61,14 +61,14 @@ class CartFunctions
                 'quantity' => 0 + $quantity
             ]);
         }
-        self::getCart();
+        return self::getCart();
     }
 
     public static function removeFromCart() {
         $id = get('id');
 
         cart()->remove($id);
-        self::getCart();
+        return self::getCart();
     }
 
     public static function getCart() {

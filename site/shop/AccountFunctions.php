@@ -53,7 +53,7 @@ class AccountFunctions
                 ]
             ]);
 
-            echo json_encode($user);
+            return json_encode($user);
 
         } catch(Exception $e) {
 
@@ -68,7 +68,7 @@ class AccountFunctions
         if ($user = kirby()->user()) {
             $user->logout();
         }
-        self::getAccount();
+        return self::getAccount();
     }
 
     public static function login() {
@@ -77,7 +77,7 @@ class AccountFunctions
         kirby()->auth()->login(get('username'), get('password'));
 
 
-        self::getAccount();
+        return self::getAccount();
     }
 
     public static function getAccount() {
