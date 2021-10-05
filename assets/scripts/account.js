@@ -33,6 +33,14 @@ class Account {
       this.login(login);
       event.preventDefault();
     });
+    $account.on('submit', 'form.ajax-register', (event) => {
+      const user = $('form.ajax-register').serializeArray().reduce((prev, current) => {
+        prev[current.name] = current.value;
+        return prev;
+      }, {});
+      this.register(user);
+      event.preventDefault();
+    });
     const template = $('#accounttemplate').html();
 
     this.template = TemplateEngine.getInstance().precompileTemplate(template);
@@ -45,6 +53,10 @@ class Account {
 
   hide() {
     $("div.overlay").removeClass("active");
+  }
+
+  register(user) {
+    console.log('Register', user);
   }
 
   login(login) {
