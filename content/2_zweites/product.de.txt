@@ -18,9 +18,55 @@ Packagingunit: 1
 
 ----
 
-Picturecolor1:
+Dimensions: false
 
-- product.png
+----
+
+Length: 
+
+----
+
+Width: 
+
+----
+
+Bristles: false
+
+----
+
+Bristlelength: 
+
+----
+
+Bristlewidth: 
+
+----
+
+Maxtemperature: 
+
+----
+
+Usage: sweeping
+
+----
+
+Sweeping: sweeping1, sweeping2
+
+----
+
+Brushing: 
+
+----
+
+Surfaces: 
+
+----
+
+Properties: 
+
+----
+
+Picturecolor1: - product.png
 
 ----
 
@@ -61,51 +107,3 @@ Picturecolor11:
 ----
 
 Picturecolor12: 
-
-----
-
-Dimensions: false
-
-----
-
-Length: 
-
-----
-
-Width: 
-
-----
-
-Bristles: false
-
-----
-
-Bristlelength: 
-
-----
-
-Bristlewidth: 
-
-----
-
-Maxtemperature: 
-
-----
-
-Usage: sweeping
-
-----
-
-Sweeping: 
-
-----
-
-Brushing: 
-
-----
-
-Surfaces: 
-
-----
-
-Properties: 

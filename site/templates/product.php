@@ -1,21 +1,17 @@
 <?php snippet("head");
 
-//Determine available product colors
+//Fetch available product variants
+$productVariants = $page->children()->filterBy("intendedTemplate", "productvariant")->listed();
+
+//Remove multiple entries for identical colors
 $productColors = [];
-for($colorNumber = 1; $colorNumber <= 12; $colorNumber++) {
-  $pictureName = "pictureColor".$colorNumber;
-  if ($page->{$pictureName}()->toFile()) {
-    $productColors [] = "color".$colorNumber;
-  }
+foreach ($productVariants as $productVariant) {
+  $colorNumber = $productVariant->title()->html();
+  if (!in_array($colorNumber, $productColors)) $productColors [] = $colorNumber;
 }
 
-if (isset($_GET["productColor"])) {
-  //Determine product color
-  $productColor = $_GET["productColor"];
-} else {
-  //Determine random product color if not set
-  $productColor = $productColors[array_rand($productColors, 1)];
-} 
+//Determine product color
+$productColor = $productColors[array_rand($productColors, 1)];
 
 //Determine product background
 $productBackground = "";
@@ -28,11 +24,11 @@ foreach ($page->brushing()->split() as $brushingUsage) {
   $brushingUsages [] = $brushingUsage;
 }
 if ($page->usage() == "special") $productBackground = "special";
-else if ($page->usage() == "liquids") $productBackground = "liquids";
+else if ($page->usage() == "liquids") $productbackground = "liquids";
 else if ($page->usage() == "sweeping") $productBackground = $sweepingUsages[0];
 else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
 
-<body class="product <?= $productColor ?>" data-color="<?= $productColor ?>">
+<body class="product color<?= $productColor ?>" data-color="<?= $productColor ?>">
   <?php snippet("header"); ?>
   <section class="product inlineBlock width100 smallPadding">
     <div class="width100 floatLeft">
@@ -40,9 +36,9 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
         <h1 class="productName"><?= $page->name() ?></h1>
         <h2 class="productId"><?= $page->articleId() ?></h2>
         <?php foreach ($productColors as $pictureColor) {
-          $productPicture = "picture".$pictureColor;
-          if ($picture = $page->{$productPicture}()->toFile()) { ?>
-            <img class="productPicture width100 cover <?= $pictureColor ?>" src="<?= $picture->url() ?>"/>
+          $productPicture = $page->find($pictureColor)->picture();
+          if ($picture = $productPicture->toFile()) { ?>
+            <img class="productPicture width100 cover color<?= $pictureColor ?>" src="<?= $picture->url() ?>"/>
           <?php }
         } ?>
       </div>
@@ -60,16 +56,16 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
       </div>
     </div>
     <div class="controls flex width100 floatLeft topMargin">
-      <div class="filler flexGrow height100 floatLeft border <?= $productColor; ?> <?= $productBackground ?>"></div>
+      <div class="filler flexGrow height100 floatLeft border color<?= $productColor; ?> <?= $productBackground ?>"></div>
       <div class="buttons height100 floatLeft tinyLeftMargin">
         <form id="productform" class="productToCart floatRight height100" action="<?= url('add') ?>" method="post">
           <input type="hidden" name="id" value="<?= $page->id() ?>">
           <input type="hidden" name="url" value="<?= $page->url() ?>">
           <input type="hidden" name="color" value="<?= $productColor ?>">
           <input type="hidden" name="articleid" value="<?= $page->articleId() ?>">
-          <button class="addToCart black <?= $productColor; ?> floatRight tinyLeftMargin">
+          <button class="addToCart black color<?= $productColor; ?> floatRight tinyLeftMargin">
           </button>
-          <div class="quantity floatRight tinyLeftMargin border <?= $productColor; ?>">
+          <div class="quantity floatRight tinyLeftMargin border color<?= $productColor; ?>">
             <div class="floatLeft tinyLeftPadding tinyTopPadding centeredText">
               <button class="quantity increase large"><span class="<?= $productColor; ?>">+</span></button><br/>
               <button class="quantity decrease large"><span class="<?= $productColor; ?>">-</span></button>
@@ -82,7 +78,7 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
           </div>
         </form>
         <?php foreach ($productColors as $productColor) { ?>
-          <button class="colorSelector floatRight height100 <?= $productColor; ?>" data-color="<?= $productColor; ?>"></button>
+          <button class="colorSelector floatRight height100 color<?= $productColor; ?>" data-color="<?= $productColor; ?>"></button>
         <?php } ?>
       </div>
     </div>

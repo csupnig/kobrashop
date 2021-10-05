@@ -3,11 +3,15 @@ title: Product
 columns:
   - width: 1/3
     sections:
-      media:
-        headline: Media
-        type: files
-        template: image
-        sortable: true
+      productvariants:
+        headline: Product variants
+        type: pages
+        template: productvariant
+        sortBy: name asc
+        sortable: false
+        min: 1
+        max: 11
+        help: Variants need to be named with color numbers.
 
   - width: 2/3
     sections:
@@ -45,94 +49,6 @@ columns:
           dimensionsheadline:
             label: Colors & dimensions
             type: headline
-
-          pictureColor1:
-            label: Picture (Color 1 - white)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor2:
-            label: Picture (Color 2 - blue)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor3:
-            label: Picture (Color 3 - red)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor4:
-            label: Picture (Color 4 - yellow)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor5:
-            label: Picture (Color 5 - green)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor6:
-            label: Picture (Color 6 - black)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor7:
-            label: Picture (Color 7 - orange)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor8:
-            label: Picture (Color 8 - purple)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor9:
-            label: Picture (Color 9 - pink)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor11:
-            label: Picture (Color 11 - grey)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
-
-          pictureColor12:
-            label: Picture (Color 12 - brown)
-            type: files
-            multiple: false
-            upload:
-              template: image
-            width: 1/2
 
           line1:
             type: line
@@ -212,6 +128,8 @@ columns:
             width: 1/3
             when:
               usage: sweeping
+            required: true
+            translate: false
 
           brushing:
             label: Brushing usage
@@ -224,6 +142,8 @@ columns:
             width: 1/3
             when:
               usage: brushing
+            required: true
+            translate: false
 
           surfaces:
             label: Appropriate surfaces
@@ -234,6 +154,7 @@ columns:
               surface3: Rough surfaces
               surface4: Very rough surfaces
             width: 1/3
+            translate: false
 
           line2:
             type: line

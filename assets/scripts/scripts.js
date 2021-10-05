@@ -17,11 +17,11 @@ $(document).ready(function () {
 			//Get current color body
 			newColor = $(this).data("color");
 			//Get new color from button
-			oldColor = $("body").data("color");
+			oldColor = "color" + $("body").data("color");
 			//Set new color
 			$("body").data("color", newColor);
-			$("body, .border." + oldColor + ", span." + oldColor + ", input." + oldColor + ", .addToCart." + oldColor).removeClass(oldColor).addClass(newColor);
-      $('#productform [name="color"]').val(newColor);
+			$("body, .border." + oldColor + ", span." + oldColor + ", input." + oldColor + ", .addToCart." + oldColor).removeClass(oldColor).addClass("color" + newColor);
+      		$('#productform [name="color"]').val(newColor);
 		});
 	}
 

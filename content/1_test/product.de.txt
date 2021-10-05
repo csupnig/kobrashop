@@ -10,7 +10,7 @@ Articleid: 123456
 
 ----
 
-Price: 10
+Price: 15
 
 ----
 
@@ -22,15 +22,11 @@ Picturecolor1:
 
 ----
 
-Picturecolor2:
-
-- 547136-2.png
+Picturecolor2: 
 
 ----
 
-Picturecolor3:
-
-- 547136-3.png
+Picturecolor3: 
 
 ----
 

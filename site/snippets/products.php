@@ -1,18 +1,19 @@
 <section class="products inlineBlock width100">
   <?php $products = $site->index()->filterBy("intendedTemplate", "product")->listed();
   foreach ($products as $product) {
-    //Determine available product colors
+    //Fetch available product variants
+    $productVariants = $product->children()->filterBy("intendedTemplate", "productvariant")->listed();
+
+    //Remove multiple entries for identical colors
     $productColors = [];
-    for($colorNumber = 1; $colorNumber <= 12; $colorNumber++) {
-      $pictureName = "pictureColor".$colorNumber;
-      if ($product->{$pictureName}()->toFile()) {
-        $productColors [] = "color".$colorNumber;
-      }
+    foreach ($productVariants as $productVariant) {
+      $colorNumber = $productVariant->title()->html();
+      if (!in_array($colorNumber, $productColors)) $productColors [] = $colorNumber;
     }
 
     //Determine product color
     $productColor = $productColors[array_rand($productColors, 1)];
-    $productPicture = "picture".$productColor;
+    $productPicture = $product->find($productColor)->picture();
 
     //Determine product background
     $productBackground = "";
@@ -30,16 +31,16 @@
     else if ($product->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
     
     <a href="<?= $product->url() ?>?productColor=<?= $productColor ?>">
-    <div class="product black floatLeft relative verySmallPadding <?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
+    <div class="product black floatLeft relative verySmallPadding color<?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
       <div class="absolute">
         <h4 class="productName"><?= $product->name() ?></h4>
         <h5 class="productId tinyTopMargin"><?= $product->articleId() ?></h5>
       </div>
       <span class="price floatRight"><?= formatPrice($product->price()->toFloat()) ?></span>
-      <?php if ($cover = $product->{$productPicture}()->toFile()) { ?>
+      <?php if ($cover = $productPicture->toFile()) { ?>
         <img class="width100 cover" src="<?= $cover->url() ?>"/>
       <?php } ?>
-      <div class="overlay width100 absolute left bottom centeredText verySmallPadding">
+      <div class="overlay width100 absolute left bottom centeredText verySmallPadding color<?= $productColor ?>">
         <div class="dimensions">
           <?php snippet("productdimensions", ["product" => $product, "temperature" => false]); ?>
         </div>
