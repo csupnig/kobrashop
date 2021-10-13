@@ -12,6 +12,7 @@
 
 /*=================================== Initialization & General ===================================*/
 
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
 
 /*=================================== Site-specific Framework & Snippets ===================================*/
 
@@ -19,14 +20,18 @@
 /*Site-specific medium paddings*/
 /*Site-specific large paddings*/
 /*Site-specific small & extra small paddings*/
+.microTopPadding { padding-top:0.75rem; }
 .tinyTopPadding { padding-top:1rem; }
 .tinyLeftPadding { padding-left:1rem; }
 .verySmallPadding { padding:1.5rem; }
+.verySmallHPadding { padding-left:1.5rem; padding-right:1.5rem; }
 .verySmallVPadding { padding-top:1.5rem; padding-bottom:1.5rem; }
 .verySmallTopPadding { padding-top:1.5rem; }
+.verySmallLeftPadding { padding-left:1.5rem; }
 .verySmallRightPadding { padding-right:1.5rem; }
 .smallPadding { padding:3rem; }
 .smallHPadding { padding-left:3rem; padding-right:3rem; }
+.smallVPadding { padding-top:3rem; padding-bottom:3rem; }
 .smallLeftPadding { padding-left:3rem; }
 /*Site-specific padding exceptions*/
 /*Site-specific medium margins*/
@@ -35,6 +40,7 @@
 /*Site-specific small margins*/
 .tinyTopMargin { margin-top:0.5rem; }
 .tinyLeftMargin { margin-left:0.5rem; }
+.verySmallMargin { margin:1.5rem; }
 .verySmallLeftMargin { margin-left:1.5rem; }
 .verySmallHMargin { margin-left:1.5rem; margin-right:1.5rem; }
 .smallBottomMargin { margin-bottom:3rem; }
@@ -74,17 +80,17 @@ input.quantity { width:6rem; height:100%; background:none; }
 /*Background colors & patterns*/
 .whiteBackground { background-color:#fff; }
 .whiteBackground.transparentBackground { background-color:#ffffff50; }
-.product.color1, .overlay.color1 { background-color:#448de9; } /*white*/
-.product.color2, .overlay.color2 { background-color:#ffd400; } /*blue*/
-.product.color3, .overlay.color3 { background-color:#2e3192; } /*red*/
-.product.color4, .overlay.color4 { background-color:#00ad66; } /*yellow*/
-.product.color5, .overlay.color5 { background-color:#ff9ac1; } /*green*/
-.product.color6, .overlay.color6 { background-color:#ede7da; } /*black*/
-.product.color7, .overlay.color7 { background-color:#9bdbdb; } /*orange*/
-.product.color8, .overlay.color8 { background-color:#ffa020; } /*purple*/
-.product.color9, .overlay.color9 { background-color:#ef3e23; } /*pink*/
-.product.color11, .overlay.color11 { background-color:#9b65aa; } /*grey*/
-.product.color12, .overlay.color12 { background-color:#59caec; } /*brown*/
+.product.color1, .overlay.color1, .circle.color1 { background-color:#448de9; } /*white*/
+.product.color2, .overlay.color2, .circle.color2 { background-color:#ffd400; } /*blue*/
+.product.color3, .overlay.color3, .circle.color3 { background-color:#2e3192; } /*red*/
+.product.color4, .overlay.color4, .circle.color4 { background-color:#00ad66; } /*yellow*/
+.product.color5, .overlay.color5, .circle.color5 { background-color:#ff9ac1; } /*green*/
+.product.color6, .overlay.color6, .circle.color6 { background-color:#ede7da; } /*black*/
+.product.color7, .overlay.color7, .circle.color7 { background-color:#9bdbdb; } /*orange*/
+.product.color8, .overlay.color8, .circle.color8 { background-color:#ffa020; } /*purple*/
+.product.color9, .overlay.color9, .circle.color9 { background-color:#ef3e23; } /*pink*/
+.product.color11, .overlay.color11, .circle.color11 { background-color:#9b65aa; } /*grey*/
+.product.color12, .overlay.color12, .circle.color12 { background-color:#59caec; } /*brown*/
 button.color1 { background-color:#ede7da; } /*white*/
 button.color2 { background-color:#2e3192; } /*blue*/
 button.color3 { background-color:#ef3e23; } /*red*/
@@ -162,17 +168,25 @@ section.product .controls .pcs { margin-top:1.7rem; }
 section.product .productPicture { display:none; }
 body.color1 .productPicture.color1, body.color2 .productPicture.color2, body.color3 .productPicture.color3, body.color4 .productPicture.color4, body.color5 .productPicture.color5, body.color6 .productPicture.color6, body.color7 .productPicture.color7, body.color8 .productPicture.color8, body.color9 .productPicture.color9, body.color11 .productPicture.color11, body.color12 .productPicture.color12 { display:block; }
 
+.cart input[type=number] { width:7rem; background:none; }
+.cart tr:nth-child(even) { background-color:#f4f4f4; }
+.cart td.product-name { width:23rem; }
+.cart .circle { width:1.7rem; height:1.7rem; padding-top:0.2rem; }
+
 /*=================================== Texts ===================================*/
 
 /*Default types*/
 nav { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
 span, .tooltip { font:1.3rem/1.5rem 'Geomanist-Light', sans-serif; }
+span.bold { font:1.3rem/1.5rem 'Geomanist-Bold', sans-serif; }
 span.small { font:1rem/1.3rem 'Geomanist-Light', sans-serif; }
 span.small.bold { font:1rem/1.3rem 'Geomanist-Bold', sans-serif; }
+span.large.bold { font:1.7rem/2.1rem 'Geomanist-Bold', sans-serif; }
 span.veryLarge { font:3rem/3.6rem 'Geomanist-Light', sans-serif; }
 span.veryLarge.bold { font:3rem/3.6rem 'Geomanist-Bold', sans-serif; }
 span.huge.bold, input.quantity { font:4.5rem/4.5rem 'Geomanist-Bold', sans-serif; }
-button.quantity.large span { font:3rem/1.5rem 'Geomanist-Bold', sans-serif; }
+button.quantity span { font:2rem/1rem 'Geomanist-Bold', sans-serif; }
+button.quantity.large span, input[type=number] { font:3rem/1.5rem 'Geomanist-Bold', sans-serif; }
 input.search { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
 h1 { font:2.6rem/3.4rem 'Geomanist-Bold', sans-serif; }
 h2 { font:1.6rem/2.2rem 'Geomanist-Light', sans-serif; }

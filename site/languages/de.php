@@ -15,6 +15,8 @@
     'products' => 'Produkte',
     'productSearch' => 'Produktsuche',
     'properties' => 'Eigenschaften',
+    'total' => 'Gesamtsumme',
+    'vat' => 'Mehrwertsteuer',
     /*Product usages*/
     'for' => 'Für',
     'to' => 'bis',

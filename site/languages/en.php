@@ -15,6 +15,8 @@
     'products' => 'Products',
     'productSearch' => 'Product search',
     'properties' => 'properties',
+    'total' => 'Total amount',
+    'vat' => 'VAT',
     /*Product usages*/
     'for' => 'For',
     'to' => 'to',
