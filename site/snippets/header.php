@@ -13,29 +13,26 @@
       <a class="floatLeft relative verySmallLeftMargin" href="<?= $site->contactPage()->url() ?>"><button class="contact"></button><div class="tooltip rightArrow white absolute">Information</div></a>
       <a class="floatLeft relative verySmallLeftMargin" href="https://www.kobra.at"><button class="website"></button><div class="tooltip rightArrow white absolute">kobra.at</div></a>
     </nav>
-    <nav class="overlay products smallPadding absolute">
-      <div class="width25 floatLeft">
-        <ul class="categories">
-          <?php $categories = $site->children()->filterBy("intendedTemplate", "category")->listed();
+    <nav class="overlay width100 left smallPadding absolute backgroundColor<?= $productColor ?>">
+      <div class="width50 floatLeft rightBorder">
+        <ul class="categories blankList">
+          <?php $categories = $site->children()->filterBy("intendedTemplate", "productcategory")->listed();
           foreach ($categories as $category) { ?>
-            <li data-subCategory="<?= $category->slug() ?>"><?= $category->name()->html() ?><li>
+            <li class="hoverUnderline dashedUnderline">
+              <a href="" data-category="<?= $category->slug() ?>"><?= $category->name()->html() ?></a>
+              <?php $subcategories = $category->children()->filterBy("intendedTemplate", "productcategory")->listed();
+              $scCount = $subcategories->count();
+              if ($scCount > 0) { 
+                $scNumber = 1; ?>
+                <ul class="subcategories blankList verySmallLeftPadding microVPadding">
+                <?php foreach ($subcategories as $subcategory) { ?>
+                  <li class="inlineBlock"><a href="" data-category="<?= $subcategory->slug() ?>"><?= $subcategory->name()->html() ?></a><?php if ($scNumber < $scCount) echo ","; ?></li>
+                  <?php $scNumber++;
+                } ?>
+                </ul>
+              <?php } ?>
+            </li>
           <?php } ?>
-        </ul>
-      </div>
-      <div class="width25 floatLeft">
-        <?php $currentCategory = "";
-        foreach ($categories as $category) {
-          if ($currentCategory != $category) {
-            if ($currentCategory == "") { ?>
-              <ul class="<?= $category->slug() ?>">
-            <?php } else { ?>
-              </ul><ul class="<?= $category->slug() ?>">
-            <?php }
-            $currentCategory = $category;
-          }
-          $subCategories = $category->children()->filterBy("intendedTemplate", "subCategory")->listed(); ?>
-          <li class="<?= $category->slug() ?>"><?= $category->name()->html() ?><li>
-        <?php } ?>
         </ul>
       </div>
       <div class="width50 floatLeft">
@@ -48,6 +45,11 @@
         </div>
         <div>
           <h3><?= t("color"); ?></h3>
+            <?php for ($buttonNumber = 1; $buttonNumber <= 12; $buttonNumber++) {
+              if ($buttonNumber != 10) { ?>
+                <button class="circle backgroundColor<?= $buttonNumber ?> floatLeft microRightPadding microBottomPadding"><?= $buttonNumber ?></button>
+              <?php }
+            } ?>
         </div>
       </div>
     </nav>

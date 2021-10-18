@@ -22,7 +22,7 @@
         </div>
       </td>
       <td class="product-name verySmallVPadding" data-title="Produkt">
-        <span class="txt-product-name bold black noUnderline"><a href="{{ this.id }}">{{ this.title }}</a></span><br><span class="txt-overlay-sku">{{this.articleid}}</span>-<span class="product-color-icon circle color{{this.color}} centeredText vCentered inlineBlock">{{this.color}}</span>
+        <span class="txt-product-name bold black noUnderline"><a href="{{ this.id }}">{{ this.title }}</a></span><br><span class="txt-overlay-sku">{{this.articleid}}</span>-<span class="product-color-icon circle backgroundColor{{this.color}} centeredText vCentered inlineBlock">{{this.color}}</span>
       </td>
       <td class="product-total verySmallVPadding rightText">
         <span class="amount large bold">{{formatCurrency this.sum }}</span>

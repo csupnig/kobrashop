@@ -13,7 +13,8 @@ foreach ($productVariants as $productVariant) {
 }
 
 //Determine product color
-$productColor = $productColors[array_rand($productColors, 1)];
+if (isset($_GET["productColor"])) $productColor = $_GET["productColor"];
+else $productColor = $productColors[array_rand($productColors, 1)];
 
 //Determine product background
 $productBackground = "";
@@ -30,11 +31,11 @@ else if ($page->usage() == "liquids") $productbackground = "liquids";
 else if ($page->usage() == "sweeping") $productBackground = $sweepingUsages[0];
 else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
 
-<body class="product color<?= $productColor ?>" data-color="<?= $productColor ?>">
+<body class="product backgroundColor<?= $productColor ?>" data-color="<?= $productColor ?>">
 <script>
   var productVariants = '<?=json_encode($variantMap) ?>';
 </script>
-  <?php snippet("header"); ?>
+  <?php snippet("header", ['productColor' => $productColor]); ?>
   <section class="product inlineBlock width100 smallPadding">
     <div class="width100 floatLeft">
       <div class="product width75 floatLeft <?= $productBackground ?>">

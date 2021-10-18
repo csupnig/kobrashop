@@ -31,7 +31,7 @@
     else if ($product->usage() == "brushing") $productBackground = $brushingUsages[0]; ?>
     
     <a href="<?= $product->url() ?>?productColor=<?= $productColor ?>">
-    <div class="product black floatLeft relative verySmallPadding color<?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
+    <div class="product black floatLeft relative verySmallPadding backgroundColor<?= $productColor ?> <?= $productBackground ?> <?= $product->displaySize() ?>">
       <div class="absolute">
         <h4 class="productName"><?= $product->name() ?></h4>
         <h5 class="productId tinyTopMargin"><?= $product->articleId() ?></h5>
@@ -40,7 +40,7 @@
       <?php if ($cover = $productPicture->toFile()) { ?>
         <img class="width100 cover" src="<?= $cover->url() ?>"/>
       <?php } ?>
-      <div class="overlay width100 absolute left bottom centeredText verySmallPadding color<?= $productColor ?>">
+      <div class="overlay width100 absolute left bottom centeredText verySmallPadding backgroundColor<?= $productColor ?>">
         <div class="dimensions">
           <?php snippet("productdimensions", ["product" => $product, "temperature" => false]); ?>
         </div>
