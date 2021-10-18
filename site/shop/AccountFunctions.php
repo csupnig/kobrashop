@@ -20,6 +20,13 @@ class AccountFunctions
                 },
             ],
             [
+                'pattern' => 'account/addresses',
+                'method' => 'put',
+                'action'  => function() {
+                    return  AccountFunctions::saveAddresses();
+                },
+            ],
+            [
                 'pattern' => 'account/logout',
                 'method' => 'put',
                 'action'  => function() {
@@ -58,6 +65,23 @@ class AccountFunctions
         } catch(Exception $e) {
 
             echo 'The user could not be created';
+            echo $e->getMessage();
+
+        }
+    }
+
+    public static function saveAddresses() {
+        try {
+            $kirby = kirby();
+
+            $addresses = json_encode(get('addresses'));
+
+            $kirby->user()->update(['addresses' => $addresses]);
+            return self::getAccount();
+
+        } catch(Exception $e) {
+
+            echo 'The addresses could not be saved';
             echo $e->getMessage();
 
         }

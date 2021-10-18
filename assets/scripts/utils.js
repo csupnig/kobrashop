@@ -63,6 +63,10 @@ class TemplateEngine {
     Handlebars.registerHelper('formatCurrency', (value) => {
       return '€ ' + (+value).toFixed(2).toLocaleString();
     });
+
+    Handlebars.registerHelper('ifEquals', function(a, b, next) {
+      return (a === b) ? true : false;
+    });
   }
 
   precompileTemplate(template) {
@@ -70,3 +74,19 @@ class TemplateEngine {
   }
 }
 
+
+class Utils {
+
+  static formToJson(formselector) {
+    const data = $(formselector).serializeArray().reduce((prev, current) => {
+      prev[current.name] = current.value;
+      return prev;
+    }, {});
+
+    return data;
+  }
+
+  static hasValue(obj) {
+    return obj && typeof obj !== 'undefined' && obj != null;
+  }
+}

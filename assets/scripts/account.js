@@ -26,10 +26,7 @@ class Account {
       event.preventDefault();
     });
     $account.on('submit', 'form.ajax-login', (event) => {
-      const login = $('form.ajax-login').serializeArray().reduce((prev, current) => {
-        prev[current.name] = current.value;
-        return prev;
-      }, {});
+      const login = Utils.formToJson('form.ajax-login');
       this.login(login);
       event.preventDefault();
     });
@@ -63,7 +60,7 @@ class Account {
       $form.addClass('error');
       return;
     }
-    user.addresses = [{name : 'address1'}, {name:'address2'}];
+    user.addresses = [];
     Http.post('/account', user).then((account) => {
       this.render(account);
     }).catch(() => {
