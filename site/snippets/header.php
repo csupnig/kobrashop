@@ -36,20 +36,42 @@
         </ul>
       </div>
       <div class="width50 floatLeft">
-        <h2><?= t("filterProductsBy"); ?></h2>
-        <div>
-          <h3><?= t("dirtAndSurface"); ?></h3>
+        <div class="width100">
+          <h2><?= t("filterProductsBy"); ?> <?= t("dirtAndSurface"); ?></h2>
+          <div class="width50 floatLeft">
+            <div class="icon dirt sweeping1 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples1"); ?></div></div>
+            <div class="icon dirt sweeping2 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples2"); ?></div></div>
+            <div class="icon dirt sweeping3 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples3"); ?></div></div>
+            <div class="icon dirt sweeping4 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples4"); ?></div></div>
+            <span class="floatLeft"><?= t("sweeping1") ?></span><span class="floatRight"><?= t("sweeping4") ?></span>
+          </div>
+          <div class="width50 floatLeft">
+            <div class="icon dirt brushing1 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples1"); ?></div></div>
+            <div class="icon dirt brushing2 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples2"); ?></div></div>
+            <div class="icon dirt brushing3 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples3"); ?></div></div>
+            <div class="icon dirt brushing4 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples4"); ?></div></div>
+            <span class="floatLeft"><?= t("brushing1") ?></span><span class="floatRight"><?= t("brushing4") ?></span>
+          </div>
+          <div class="width50 floatLeft">
+            <div class="icon surface surface1 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
+            <div class="icon surface surface2 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
+            <div class="icon surface surface3 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
+            <div class="icon surface surface4 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
+            <span class="floatLeft"><?= t("surface1") ?></span><span class="floatRight"><?= t("surface4") ?></span>
+          </div>
         </div>
-        <div>
-          <h3><?= t("properties"); ?></h3>
-        </div>
-        <div>
-          <h3><?= t("color"); ?></h3>
+        <div class="width100 floatLeft">
+          <div class="width50 floatLeft">
+            <h2><?= t("properties"); ?></h2>
+          </div>
+          <div class="width50 floatLeft">
+            <h2><?= t("color"); ?></h2>
             <?php for ($buttonNumber = 1; $buttonNumber <= 12; $buttonNumber++) {
               if ($buttonNumber != 10) { ?>
-                <button class="circle backgroundColor<?= $buttonNumber ?> floatLeft microRightPadding microBottomPadding"><?= $buttonNumber ?></button>
+                <button class="circle color<?= $buttonNumber ?> floatLeft tinyRightMargin tinyBottomMargin"><?= $buttonNumber ?></button>
               <?php }
             } ?>
+          </div>
         </div>
       </div>
     </nav>
