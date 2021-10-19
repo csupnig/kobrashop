@@ -64,7 +64,7 @@ class TemplateEngine {
       return '€ ' + (+value).toFixed(2).toLocaleString();
     });
 
-    Handlebars.registerHelper('ifEquals', function(a, b, next) {
+    Handlebars.registerHelper('ifEquals', (a, b, next) => {
       return (a === b) ? true : false;
     });
   }

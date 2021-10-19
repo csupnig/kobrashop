@@ -12,11 +12,15 @@
         {{/each}}
         <option value="{{nextid}}" class="address-new" {{#if createnew}}selected=""{{/if}}>Neue Adresse</option>
     </select>
+    {{#if showNew}}
     <button type="button" class="button address-add">+</button>
+    {{/if}}
+    {{#if showDelete}}
     <button type="button" class="button address-delete">×</button>
-    <button type="button" class="button address-delete-cancel hidden" data-default-address="0"><img src="/wp-content/themes/kobra/assets/images/icon-return.png" alt=""></button>
-    <button type="button" class="button address-delete-confirm hidden">Bestätigen</button>
-
+    {{/if}}
+    {{#if deleteAddress}}
+    <button type="button" class="button address-delete-confirm">Bestätigen</button>
+    {{/if}}
 </div>
 <div class="width100 verySmallHPadding smallVPadding">
 

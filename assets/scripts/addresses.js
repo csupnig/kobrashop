@@ -16,6 +16,8 @@ class Addresses {
 
   account = undefined;
 
+  deleteAddress = false;
+
   bind() {
 
 
@@ -27,19 +29,46 @@ class Addresses {
     $addresses.on('change', 'select[name="billing_address_index"]', () => {
       this.selectAddress();
     });
+    $addresses.on('click', '.address-delete', () => {
+      this.deleteAddress = true;
+      this.render(this.account);
+    });
+    $addresses.on('click', '.address-delete-confirm', () => {
+      this.deleteSelected();
+    });
+    $addresses.on('click', '.address-add', () => {
+      this.selectedAddress = undefined;
+      this.render(this.account);
+    });
     const template = $('#addressestemplate').html();
 
     this.template = TemplateEngine.getInstance().precompileTemplate(template);
     this.refresh();
   }
 
+  deleteSelected() {
+    this.deleteAddress = false;
+    const selectedId = $('#addresses select[name="billing_address_index"]').val();
+    Http.get('/account').then((account) => {
+      let addresses = account.addresses;
+      if (!Utils.hasValue(addresses)) {
+        addresses = [];
+      }
+      addresses = addresses.filter(a => a.id !== selectedId);
+      return Http.put('/account/addresses', {addresses : addresses});
+    }).then((account) => {
+      this.account = account;
+      this.render(account);
+    });
+  }
+
   selectAddress() {
+    this.deleteAddress = false;
     if (!Utils.hasValue(this.account) || !Utils.hasValue(this.account.addresses)) {
       return;
     }
     const selectedId = $('#addresses select[name="billing_address_index"]').val();
     this.selectedAddress = this.account.addresses.find(a => a.id === selectedId);
-    console.log('slected', this.selectedAddress);
     this.render(this.account);
   }
 
@@ -87,9 +116,10 @@ class Addresses {
     account.selectedAddress = this.selectedAddress;
     account.nextid = account.addresses ? account.addresses.length : 0;
     account.createnew = !this.selectedAddress;
-
+    account.deleteAddress = Utils.hasValue(this.selectedAddress) && this.deleteAddress;
+    account.showDelete = Utils.hasValue(this.selectedAddress) && !this.deleteAddress;
+    account.showNew = !account.deleteAddress;
     $('#addresses').html(this.template(account));
-    console.log('rendered');
   }
 
 }
