@@ -25,18 +25,19 @@ class Addresses {
 
     const $addresses = $(this.mainselector);
 
-    $addresses.on('click', '.address-save-confirm', () => {
-      this.saveAddress();
+    $addresses.on('click', '.address-save-confirm', ($event) => {
+      this.saveAddress($event);
     });
-    $addresses.on('change', 'select[name="billing_address_index"]', () => {
-      this.selectAddress();
+    $addresses.on('change', 'select[name="billing_address_index"]', ($event) => {
+
+      this.selectAddress($event);
     });
     $addresses.on('click', '.address-delete', () => {
       this.deleteAddress = true;
       this.render(this.account);
     });
-    $addresses.on('click', '.address-delete-confirm', () => {
-      this.deleteSelected();
+    $addresses.on('click', '.address-delete-confirm', ($event) => {
+      this.deleteSelected($event);
     });
     $addresses.on('click', '.address-add', () => {
       this.selectedAddress = undefined;
@@ -48,13 +49,13 @@ class Addresses {
     this.refresh();
   }
 
-  getSelectedId() {
-    return $(this.mainselector + ' select[name="billing_address_index"]').val();
+  getSelectedId($event) {
+    return $($event.currentTarget).parents(this.mainselector).find('select[name="billing_address_index"]').val();
   }
 
-  deleteSelected() {
+  deleteSelected($event) {
     this.deleteAddress = false;
-    const selectedId = this.getSelectedId();
+    const selectedId = this.getSelectedId($event);
     Http.get('/account').then((account) => {
       let addresses = account.addresses;
       if (!Utils.hasValue(addresses)) {
@@ -68,19 +69,20 @@ class Addresses {
     });
   }
 
-  selectAddress() {
+  selectAddress($event) {
+
     this.deleteAddress = false;
     if (!Utils.hasValue(this.account) || !Utils.hasValue(this.account.addresses)) {
       return;
     }
-    const selectedId = this.getSelectedId();
+    const selectedId = this.getSelectedId($event);
     this.selectedAddress = this.account.addresses.find(a => a.id === selectedId);
     this.render(this.account);
   }
 
-  saveAddress() {
-    const address = Utils.formToJson('form[name="address"]');
-    address.id = this.getSelectedId();
+  saveAddress($event) {
+    const address = Utils.formToJson($($event.currentTarget).parents(this.mainselector).find('form[name="address"]'));
+    address.id = this.getSelectedId($event);
     if (address.reg_account_type === 'Firma') {
       address.isprivate = false;
       address.iscompany = true;
@@ -106,6 +108,7 @@ class Addresses {
         }
         return Http.put('/account/addresses', {addresses : addresses});
     }).then((account) => {
+      this.selectedAddress = account.addresses.find(a => a.id === address.id);
       this.account = account;
       this.render(account);
     });
@@ -124,7 +127,7 @@ class Addresses {
     account.createnew = !this.selectedAddress;
     account.deleteAddress = Utils.hasValue(this.selectedAddress) && this.deleteAddress;
     account.showDelete = Utils.hasValue(this.selectedAddress) && !this.deleteAddress;
-    account.showNew = !account.deleteAddress;
+    account.showNew = !account.deleteAddress && Utils.hasValue(this.selectedAddress);
     $(this.mainselector).html(this.template(account));
   }
 
