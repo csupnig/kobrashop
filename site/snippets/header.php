@@ -36,35 +36,35 @@
         </ul>
       </div>
       <div class="width50 floatLeft">
-        <div class="width100">
+        <div class="usage width100">
           <h2><?= t("filterProductsBy"); ?> <?= t("dirtAndSurface"); ?></h2>
-          <div class="width50 floatLeft">
+          <div class="width50 floatLeft verySmallPadding">
             <div class="icon dirt sweeping1 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples1"); ?></div></div>
             <div class="icon dirt sweeping2 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples2"); ?></div></div>
             <div class="icon dirt sweeping3 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples3"); ?></div></div>
             <div class="icon dirt sweeping4 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples4"); ?></div></div>
-            <span class="floatLeft"><?= t("sweeping1") ?></span><span class="floatRight"><?= t("sweeping4") ?></span>
+            <div class="labels"><span class="small floatLeft"><?= t("sweeping1h") ?></span><span class="small floatRight"><?= t("sweeping4h") ?></span></div>
           </div>
-          <div class="width50 floatLeft">
+          <div class="width50 floatLeft verySmallPadding">
             <div class="icon dirt brushing1 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples1"); ?></div></div>
             <div class="icon dirt brushing2 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples2"); ?></div></div>
             <div class="icon dirt brushing3 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples3"); ?></div></div>
             <div class="icon dirt brushing4 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples4"); ?></div></div>
-            <span class="floatLeft"><?= t("brushing1") ?></span><span class="floatRight"><?= t("brushing4") ?></span>
+            <div class="labels"><span class="small floatLeft"><?= t("brushing1h") ?></span><span class="small floatRight"><?= t("brushing4h") ?></span></div>
           </div>
-          <div class="width50 floatLeft">
+          <div class="width50 floatLeft verySmallPadding">
             <div class="icon surface surface1 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
             <div class="icon surface surface2 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
             <div class="icon surface surface3 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
             <div class="icon surface surface4 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
-            <span class="floatLeft"><?= t("surface1") ?></span><span class="floatRight"><?= t("surface4") ?></span>
+            <div class="labels"><span class="small floatLeft"><?= t("surface1h") ?></span><span class="small floatRight"><?= t("surface4h") ?></span></div>
           </div>
         </div>
         <div class="width100 floatLeft">
-          <div class="width50 floatLeft">
+          <div class="properties width50 floatLeft">
             <h2><?= t("properties"); ?></h2>
           </div>
-          <div class="width50 floatLeft">
+          <div class="colors width50 floatLeft">
             <h2><?= t("color"); ?></h2>
             <?php for ($buttonNumber = 1; $buttonNumber <= 12; $buttonNumber++) {
               if ($buttonNumber != 10) { ?>

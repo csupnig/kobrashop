@@ -154,7 +154,8 @@ header div.tooltip.rightArrow { padding-right:2rem; left:auto; right:2.5rem; top
 
 /*Overlay visibility*/
 header .overlay, body .overlay { display:none; }
-header:hover .overlay, body .overlay.active, section.products .product .overlay { display:block; z-index:1000; }
+header:hover .overlay { display:inline-block; z-index:1000; }
+body .overlay.active, section.products .product .overlay { display:block; }
 
 
 /*=================================== Templates ===================================*/
@@ -162,6 +163,7 @@ header:hover .overlay, body .overlay.active, section.products .product .overlay 
 body { transition: background-color 0.75s ease; }
 
 header .overlay { top:9rem; }
+header .overlay .labels { width:15.5rem; }
 
 section.products .product { width:50rem; height:25rem; }
 section.products .product .overlay .details { display:none; }
@@ -209,7 +211,7 @@ h5 { font:1.4rem/1.4rem 'Geomanist-Light', sans-serif; }
 
 /*Type colors*/
 .black, .black a, input.black::placeholder, .backgroundColor1, .backgroundColor3, .backgroundColor4, .backgroundColor5, .backgroundColor7, .backgroundColor8, .backgroundColor9, .backgroundColor11 { color:#000; }
-.white, .white a, .backgroundColor2, .backgroundColor6, .backgroundColor12, button.color2, button.color6, button.color12 { color:#fff; }
+.white, .white a, /*.backgroundColor2, .backgroundColor6, .backgroundColor12,*/ button.color2, button.color6, button.color12 { color:#fff; }
 span.color1, /*button.color1,*/ input.color1 { color:#ede7da; } /*white*/
 span.color2, /*button.color2,*/ input.color2 { color:#2e3192; } /*blue*/
 span.color3, /*button.color3,*/ input.color3 { color:#ef3e23; } /*red*/
