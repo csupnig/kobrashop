@@ -1,4 +1,4 @@
-<div id="addresses" class="">
+<div id="addresses" class="address-container">
 
 </div>
 
@@ -83,7 +83,7 @@
 </div>
 
 {{else}}
-not logged in
+
 {{/if}}
 
 </script>

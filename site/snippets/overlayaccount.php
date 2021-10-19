@@ -5,6 +5,9 @@
   <div id="account">
 
   </div>
+
+  <div class="address-container"></div>
+
   <script id="accounttemplate" type="text/x-handlebars">
     {{#if loggedin}}
       <h1>Loggedin</h1>

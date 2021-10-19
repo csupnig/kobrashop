@@ -89,4 +89,8 @@ class Utils {
   static hasValue(obj) {
     return obj && typeof obj !== 'undefined' && obj != null;
   }
+
+  static go(target) {
+    window.location.href = target;
+  }
 }

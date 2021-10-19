@@ -18,10 +18,12 @@ class Addresses {
 
   deleteAddress = false;
 
+  mainselector = '.address-container';
+
   bind() {
 
 
-    const $addresses = $('#addresses');
+    const $addresses = $(this.mainselector);
 
     $addresses.on('click', '.address-save-confirm', () => {
       this.saveAddress();
@@ -46,9 +48,13 @@ class Addresses {
     this.refresh();
   }
 
+  getSelectedId() {
+    return $(this.mainselector + ' select[name="billing_address_index"]').val();
+  }
+
   deleteSelected() {
     this.deleteAddress = false;
-    const selectedId = $('#addresses select[name="billing_address_index"]').val();
+    const selectedId = this.getSelectedId();
     Http.get('/account').then((account) => {
       let addresses = account.addresses;
       if (!Utils.hasValue(addresses)) {
@@ -67,14 +73,14 @@ class Addresses {
     if (!Utils.hasValue(this.account) || !Utils.hasValue(this.account.addresses)) {
       return;
     }
-    const selectedId = $('#addresses select[name="billing_address_index"]').val();
+    const selectedId = this.getSelectedId();
     this.selectedAddress = this.account.addresses.find(a => a.id === selectedId);
     this.render(this.account);
   }
 
   saveAddress() {
     const address = Utils.formToJson('form[name="address"]');
-    address.id = $('#addresses select[name="billing_address_index"]').val();
+    address.id = this.getSelectedId();
     if (address.reg_account_type === 'Firma') {
       address.isprivate = false;
       address.iscompany = true;
@@ -119,7 +125,7 @@ class Addresses {
     account.deleteAddress = Utils.hasValue(this.selectedAddress) && this.deleteAddress;
     account.showDelete = Utils.hasValue(this.selectedAddress) && !this.deleteAddress;
     account.showNew = !account.deleteAddress;
-    $('#addresses').html(this.template(account));
+    $(this.mainselector).html(this.template(account));
   }
 
 }

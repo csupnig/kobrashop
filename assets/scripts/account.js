@@ -70,7 +70,8 @@ class Account {
 
   login(login) {
     Http.put('/account/login', login).then((account) => {
-      this.render(account);
+      //this.render(account);
+      Utils.go('/');
     }).catch(() => {
       this.render({passworderror : true})
     });
@@ -78,7 +79,8 @@ class Account {
 
   logout() {
     Http.put('/account/logout').then((account) => {
-      this.render(account);
+      //this.render(account);
+      Utils.go('/');
     });
   }
 
