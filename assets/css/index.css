@@ -28,11 +28,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 .verySmallHPadding { padding-left:1.5rem; padding-right:1.5rem; }
 .verySmallVPadding { padding-top:1.5rem; padding-bottom:1.5rem; }
 .verySmallTopPadding { padding-top:1.5rem; }
+.verySmallBottomPadding { padding-bottom:1.5rem; }
 .verySmallLeftPadding { padding-left:1.5rem; }
 .verySmallRightPadding { padding-right:1.5rem; }
 .smallPadding { padding:3rem; }
 .smallHPadding { padding-left:3rem; padding-right:3rem; }
 .smallVPadding { padding-top:3rem; padding-bottom:3rem; }
+.smallTopPadding { padding-top:3rem; }
 .smallLeftPadding { padding-left:3rem; }
 /*Site-specific padding exceptions*/
 /*Site-specific medium margins*/
@@ -77,6 +79,12 @@ input.quantity { width:6rem; height:100%; background:none; }
 .icon.bristles { height:3.8rem; padding-left:4rem; background:url(/assets/images/icon-bristles.svg) no-repeat left center; background-size:3.2rem; }
 .icon.temperature { height:3.8rem; padding-left:4.6rem; background:url(/assets/images/icon-temperature.svg) no-repeat left center; background-size:4rem; }
 .icon.phb { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-phb.svg) no-repeat left center; background-size:contain; }
+.icon.stainless { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-stainless.svg) no-repeat left center; background-size:contain; }
+.icon.alcalics { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-alcalic.svg) no-repeat left center; background-size:contain; }
+.icon.acids { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-acid.svg) no-repeat left center; background-size:contain; }
+.icon.waterFlow { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-water.svg) no-repeat left center; background-size:contain; }
+.icon.partiallyDetectable { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-partiallyDetectable.svg) no-repeat left center; background-size:contain; }
+.icon.fullyDetectable { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-fullyDetectable.svg) no-repeat left center; background-size:contain; }
 
 /*Text spacing*/
 
