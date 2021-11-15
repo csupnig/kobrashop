@@ -13,6 +13,7 @@
     'filterProductsBy' => 'Produkte filtern nach',
     'pcs.' => 'Stk.',
     'products' => 'Produkte',
+    'discount' => 'Rabatt',
     'productSearch' => 'Produktsuche',
     'properties' => 'Eigenschaften',
     'total' => 'Gesamtsumme',

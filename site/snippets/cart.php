@@ -11,7 +11,7 @@
     {{#if (ifEquals this.id "discount")}}
     <tr class="cart_item" data-id="{{this.id}}">
       <td></td><td class="product-name verySmallVPadding" data-title="Discount">
-          <span class="txt-product-name bold black noUnderline">Discount</span>
+          <span class="txt-product-name bold black noUnderline"><?= t("discount") ?></span>
         </td><td class="product-total verySmallVPadding rightText">
           <span class="amount large bold">{{formatCurrency this.sum }}</span>
         </td>

@@ -13,6 +13,7 @@
     'filterProductsBy' => 'Filter products by',
     'pcs.' => 'pcs.',
     'products' => 'Products',
+    'discount' => 'Discount',
     'productSearch' => 'Product search',
     'properties' => 'properties',
     'total' => 'Total amount',
