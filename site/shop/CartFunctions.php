@@ -36,6 +36,19 @@ class CartFunctions
         ];
     }
 
+    public static function handleCartDiscount($cart) {
+        if ($cart->count() > 0) {
+            $cart->remove('shipping');
+            $cart->remove('discount');
+
+            $kirby = kirby();
+            $discount = $kirby->user()->discount()->toFloat();
+            if (isset($discount) && $discount > 0) {
+                $cart->add(['id' => 'discount', 'price' => -$cart->getSum() * $discount]);
+            }
+        }
+    }
+
     public static function addToCart() {
         $id = get('id');
         $quantity = get('quantity');

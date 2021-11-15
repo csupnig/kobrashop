@@ -8,29 +8,41 @@
 
 
   {{#each items}}
+    {{#if (ifEquals this.id "discount")}}
     <tr class="cart_item" data-id="{{this.id}}">
-      <td class="product-quantity quantity-input verySmallVPadding verySmallLeftPadding" data-title="Anzahl">
-        <div class="quantity-buttons">
-          <div class="floatLeft centeredText microTopPadding">
-            <button class="quantity increase"><span class="">+</span></button><br/>
-            <button class="quantity decrease"><span class="">-</span></button>
-          </div>
-        </div>
-        <div class="quantity">
-          <input type="number" class="input-text qty text rightText" step="1" min="0" max="" name="quantity" value="{{ this.quantity }}" title="Menge" size="4" pattern="[0-9]*" inputmode="numeric">
-          <span> Stk.</span>
-        </div>
-      </td>
-      <td class="product-name verySmallVPadding" data-title="Produkt">
-        <span class="txt-product-name bold black noUnderline"><a href="{{ this.id }}">{{ this.title }}</a></span><br><span class="txt-overlay-sku">{{this.articleid}}</span>-<span class="product-color-icon circle backgroundColor{{this.color}} centeredText vCentered inlineBlock">{{this.color}}</span>
-      </td>
-      <td class="product-total verySmallVPadding rightText">
-        <span class="amount large bold">{{formatCurrency this.sum }}</span>
-      </td>
-      <td class="product-remove rightText verySmallRightPadding">
-        <span class="bold noUnderline"><a href="" class="remove">×</a></span>
-      </td>
+      <td></td><td class="product-name verySmallVPadding" data-title="Discount">
+          <span class="txt-product-name bold black noUnderline">Discount</span>
+        </td><td class="product-total verySmallVPadding rightText">
+          <span class="amount large bold">{{formatCurrency this.sum }}</span>
+        </td>
+        <td class="product-remove rightText verySmallRightPadding">
+        </td>
     </tr>
+    {{else}}
+      <tr class="cart_item" data-id="{{this.id}}">
+        <td class="product-quantity quantity-input verySmallVPadding verySmallLeftPadding" data-title="Anzahl">
+          <div class="quantity-buttons">
+            <div class="floatLeft centeredText microTopPadding">
+              <button class="quantity increase"><span class="">+</span></button><br/>
+              <button class="quantity decrease"><span class="">-</span></button>
+            </div>
+          </div>
+          <div class="quantity">
+            <input type="number" class="input-text qty text rightText" step="1" min="0" max="" name="quantity" value="{{ this.quantity }}" title="Menge" size="4" pattern="[0-9]*" inputmode="numeric">
+            <span> Stk.</span>
+          </div>
+        </td>
+        <td class="product-name verySmallVPadding" data-title="Produkt">
+          <span class="txt-product-name bold black noUnderline"><a href="{{ this.id }}">{{ this.title }}</a></span><br><span class="txt-overlay-sku">{{this.articleid}}</span>-<span class="product-color-icon circle backgroundColor{{this.color}} centeredText vCentered inlineBlock">{{this.color}}</span>
+        </td>
+        <td class="product-total verySmallVPadding rightText">
+          <span class="amount large bold">{{formatCurrency this.sum }}</span>
+        </td>
+        <td class="product-remove rightText verySmallRightPadding">
+          <span class="bold noUnderline"><a href="" class="remove">×</a></span>
+        </td>
+      </tr>
+    {{/if}}
   {{/each}}
 
   </tbody>

@@ -10,8 +10,16 @@ return [
   ],
   'hooks' => [
     'ww.merx.cart' => function ($cart) {
-
+        try {
+            CartFunctions::handleCartDiscount($cart);
+        } catch (\Exception $exception) {
+            var_dump($exception);
+        }
     },
+      'ww.merx.initializePayment:before' => function($data, $cart) {
+            //var_dump($data);
+            //var_dump($cart);
+      },
     'page.create:after' => function ($page) {
       //Copy product price to product variant on creation
       if ($page->intendedTemplate() == "productvariant") {

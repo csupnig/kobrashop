@@ -1,0 +1,15 @@
+Title: Discount
+
+----
+
+Name: Discount
+
+----
+
+Articleid: 000
+
+----
+
+Price: 0
+
+----
