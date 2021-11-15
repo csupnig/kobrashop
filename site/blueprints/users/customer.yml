@@ -1,5 +1,5 @@
 title: Customer
-description: Can shop in the shop
+description: Shop user that cannot access the backend panel
 
 permissions:
   access:
@@ -7,3 +7,45 @@ permissions:
     users: false
     panel: false
     site: true
+
+columns:
+  - width: 1/1
+    sections:
+      settings:
+        type: fields
+        fields:
+          dataheadline:
+            label: Customer data
+            type: headline
+
+          business:
+            label: Customer type
+            type: toggle
+            width: 1/4
+            text:
+              - "Private customer"
+              - "Business customer"
+            required: true
+
+          uid:
+            label: UID
+            type: text
+            width: 1/4
+            when:
+              business: true
+            required: true
+
+          settingsheadline:
+            label: Customer settings
+            type: headline
+
+          discount:
+            label: Discount
+            type: select
+            width: 1/4
+            options:
+              0.05: "5%"
+              0.1: "10%"
+              0.15: "15%"
+              0.2: "20%"
+              0.25: "25%"

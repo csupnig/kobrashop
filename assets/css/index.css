@@ -241,6 +241,7 @@ button.strikethrough.active, a.strikethrough:hover { text-decoration:none !impor
 ol { list-style-position:inside; }
 
 /*Link styles*/
+header.black nav a:hover { border-bottom:0.05rem dashed #000; }
 .blue.hoverUnderline a:hover, .blue.hoverUnderline a:visited, nav a.active, nav a.open, .blue.alwaysUnderline a:link, .blue.alwaysUnderline a:visited, .blue.alwaysUnderline a:hover, .blue.alwaysUnderline a:active, button.direct:not(.active):hover span { text-decoration:none; border-bottom:0.08rem solid #3267ed !important; }
 .white.hoverUnderline a:hover, .white.hoverUnderline a:visited, button.direct.active span { text-decoration:none; border-bottom:0.05rem solid #fff !important; }
 .noUnderline, .noUnderline a:link, .noUnderline a:visited, .noUnderline a:hover, .noUnderline a:active, .hoverUnderline a:link, .hoverUnderline a:visited { text-decoration:none; border-bottom:none; }
