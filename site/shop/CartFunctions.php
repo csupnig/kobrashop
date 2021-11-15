@@ -38,7 +38,6 @@ class CartFunctions
 
     public static function handleCartDiscount($cart) {
         if ($cart->count() > 0) {
-            $cart->remove('shipping');
             $cart->remove('discount');
 
             $kirby = kirby();
