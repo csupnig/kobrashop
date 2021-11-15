@@ -54,13 +54,28 @@ class Account {
 
   register(user) {
     console.log('user', user);
+
     const $form = $('form.ajax-register');
     $form.removeClass('error');
     if (!user.conditions_agreement) {
       $form.addClass('error');
       return;
     }
-    user.addresses = [];
+    user.business = user.reg_account_type == 'Firma';
+    user.uid = user.billing_uid;
+    user.addresses = [{
+      id : '0',
+      billing_address_1 : user.billing_address_1,
+      billing_city : user.billing_city,
+      billing_company : user.billing_company,
+      billing_country : user.billing_country,
+      billing_first_name : user.billing_first_name,
+      billing_last_name : user.billing_last_name,
+      billing_phone : user.billing_phone,
+      billing_postcode : user.billing_postcode,
+      billing_uid : user.billing_uid,
+      reg_account_type : user.reg_account_type
+    }];
     Http.post('/account', user).then((account) => {
       this.render(account);
     }).catch(() => {

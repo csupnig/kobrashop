@@ -55,7 +55,8 @@ class AccountFunctions
                 'language'  => 'de',
                 'role'      => 'customer',
                 'content'   => [
-                    'birthdate' => '1989-01-29',
+                    'business' => get('business'),
+                    'uid' => get('uid'),
                     'addresses' => json_encode(get('addresses'))
                 ]
             ]);
