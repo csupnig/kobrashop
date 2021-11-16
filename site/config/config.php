@@ -29,7 +29,7 @@ return [
       //Copy product price to product variant on creation
       if ($page->intendedTemplate() == "productvariant") {
         $page->update([
-          "price" => $page->parent()->price()
+          "price" => $page->parent()->price(),
         ]); 
       }
     },

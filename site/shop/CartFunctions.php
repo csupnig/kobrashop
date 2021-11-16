@@ -1,5 +1,6 @@
 <?php
-
+use Stripe\Stripe;
+require 'vendor/autoload.php';
 
 class CartFunctions
 {
@@ -48,6 +49,14 @@ class CartFunctions
         return '';
     }
 
+    public static function initPayment() {
+        if (option('ww.merx.production') === true) {
+            Stripe::setApiKey(option('ww.merx.stripe.live.secret_key'));
+        } else {
+            Stripe::setApiKey(option('ww.merx.stripe.test.secret_key'));
+        }
+    }
+
     public static function handleCartDiscount($cart) {
         if ($cart->count() > 0) {
             $cart->remove('discount');
@@ -94,6 +103,7 @@ class CartFunctions
         $id = get('id');
         $quantity = get('quantity');
         $color = get('color');
+        $name = get('name');
         $articleid = get('articleid');
         $cart = cart();
         CartFunctions::removeShipping($cart);
@@ -101,6 +111,7 @@ class CartFunctions
             'id' => $id,
             'quantity' => 0 + $quantity,
             'color' => $color,
+            'title' => $name,
             'articleid' => $articleid
         ]);
         return self::getCart();
@@ -112,6 +123,7 @@ class CartFunctions
         $cart = cart();
         CartFunctions::removeShipping($cart);
         if (0 + $quantity <= 0) {
+            $cart->remove('discount');
             $cart->remove($id);
         } else {
             $cart->updateItem([
@@ -126,6 +138,7 @@ class CartFunctions
         $id = get('id');
         $cart = cart();
         CartFunctions::removeShipping($cart);
+        $cart->remove('discount');
         $cart->remove($id);
         return self::getCart();
     }

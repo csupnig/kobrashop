@@ -67,6 +67,7 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
         <form id="productform" class="productToCart floatRight height100" action="<?= url('add') ?>" method="post">
           <input type="hidden" name="url" value="<?= $page->url() ?>">
           <input type="hidden" name="color" value="<?= $productColor ?>">
+          <input type="hidden" name="name" value="<?= $page->name() ?>">
           <input type="hidden" name="articleid" value="<?= $page->articleId() ?>">
           <button class="addToCart black color<?= $productColor; ?> floatRight tinyLeftMargin">
           </button>
