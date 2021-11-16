@@ -14,6 +14,7 @@
     'pcs.' => 'Stk.',
     'products' => 'Produkte',
     'discount' => 'Rabatt',
+    'shipping' => 'Versandkosten',
     'productSearch' => 'Produktsuche',
     'properties' => 'Eigenschaften',
     'total' => 'Gesamtsumme',

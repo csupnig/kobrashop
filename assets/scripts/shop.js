@@ -67,7 +67,7 @@ class Cart {
   }
 
   show() {
-    $("div.overlay.account").removeClass("active");
+    $("div.overlay").removeClass("active");
     $("div.overlay.cart").addClass("active");
   }
 
@@ -146,7 +146,64 @@ class Product {
   }
 }
 
+class Checkout {
+
+  static _instance = undefined;
+  static getInstance() {
+    if (!Checkout._instance) {
+      Checkout._instance = new Checkout();
+    }
+    return Checkout._instance;
+  }
+
+  template = undefined;
+
+  bind() {
+    $('#overlay-checkoutoverview .close').click(() => {
+      this.hideOverlays();
+    });
+    var $form = $('#checkout_form');
+    $('#checkout_link').click((event) => {
+      var address = Addresses.getInstance().getCartAddress();
+      if (Addresses.getInstance().isCartAddressValid()) {
+        console.log('SUBMIT TO overview');
+        this.fetchOverview(address);
+      } else {
+        Addresses.getInstance().setCartFormError();
+      }
+
+      event.preventDefault();
+      return false;
+    });
+    const template = $('#overviewtemplate').html();
+
+    this.template = TemplateEngine.getInstance().precompileTemplate(template);
+  }
+
+  showOverview() {
+    $("div.overlay.checkoutoverview").addClass("active");
+  }
+
+  hideOverlays() {
+    $("div.overlay").removeClass("active");
+  }
+
+  fetchOverview(address) {
+    Http.post('/checkoutoverview', address).then((response) => {
+      this.renderOverview(response);
+      this.hideOverlays();
+      this.showOverview();
+    });
+  }
+
+  renderOverview(cart) {
+    $('#checkoutoverview_container').html(this.template(cart));
+  }
+
+}
+
 $(document).ready(() => {
     Product.getInstance().bind();
     Cart.getInstance().bind();
+    Checkout.getInstance().bind();
 });

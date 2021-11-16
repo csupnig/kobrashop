@@ -6,6 +6,13 @@ class CartFunctions
     public static function getRoutes() {
         return [
             [
+                'pattern' => 'checkoutoverview',
+                'method' => 'post',
+                'action'  => function() {
+                    return CartFunctions::generateCheckoutOverview();
+                },
+            ],
+            [
                 'pattern' => 'cart',
                 'method' => 'post',
                 'action'  => function() {
@@ -41,11 +48,41 @@ class CartFunctions
             $cart->remove('discount');
 
             $kirby = kirby();
-            $discount = $kirby->user()->discount()->toFloat();
-            if (isset($discount) && $discount > 0) {
-                $cart->add(['id' => 'discount', 'price' => -$cart->getSum() * $discount]);
+            $user = $kirby->user();
+            if (isset($user)) {
+                $discount = $user->discount()->toFloat();
+                if (isset($discount) && $discount > 0) {
+                    $cart->add(['id' => 'discount', 'price' => -$cart->getSum() * $discount]);
+                }
             }
         }
+    }
+
+    public static function handleCartShipping($cart, $country) {
+        if ($cart->count() > 0) {
+            $cart->remove('shipping');
+
+            $kirby = kirby();
+            $user = $kirby->user();
+            if (isset($user)) {
+                $cart->add(['id' => 'shipping', 'price' => 20]);
+
+            }
+        }
+    }
+
+    public static function removeShipping($cart) {
+        if ($cart->count() > 0) {
+            $cart->remove('shipping');
+        }
+    }
+
+    public static function generateCheckoutOverview() {
+
+        $country = get('billing_country');
+        CartFunctions::handleCartShipping(cart(), $country);
+
+        return self::getCart();
     }
 
     public static function addToCart() {
@@ -53,7 +90,9 @@ class CartFunctions
         $quantity = get('quantity');
         $color = get('color');
         $articleid = get('articleid');
-        cart()->add([
+        $cart = cart();
+        CartFunctions::removeShipping($cart);
+        $cart->add([
             'id' => $id,
             'quantity' => 0 + $quantity,
             'color' => $color,
@@ -65,10 +104,12 @@ class CartFunctions
     public static function updateQuantity() {
         $id = get('id');
         $quantity = get('quantity');
+        $cart = cart();
+        CartFunctions::removeShipping($cart);
         if (0 + $quantity <= 0) {
-            cart()->remove($id);
+            $cart->remove($id);
         } else {
-            cart()->updateItem([
+            $cart->updateItem([
                 'id' => $id,
                 'quantity' => 0 + $quantity
             ]);
@@ -78,8 +119,9 @@ class CartFunctions
 
     public static function removeFromCart() {
         $id = get('id');
-
-        cart()->remove($id);
+        $cart = cart();
+        CartFunctions::removeShipping($cart);
+        $cart->remove($id);
         return self::getCart();
     }
 

@@ -8,7 +8,7 @@
 <div class="width100 verySmallHPadding smallVPadding">
     <select name="billing_address_index" class="select-address">
         {{#each addresses}}
-          <option value="{{this.id}}" class="address-default" {{#if (ifEquals this.id ../selectedAddress.id)}}selected=""{{/if}}>{{this.billing_first_name}} {{this.billing_last_name}}</option>
+          <option value="{{this.id}}" class="address-default" {{#if (ifEquals this.id ../selectedAddress.id)}}selected=""{{/if}}>{{#if (or this.billing_first_name this.billing_last_name)}}{{this.billing_first_name}} {{this.billing_last_name}}{{else}}Unbenannt{{/if}}</option>
         {{/each}}
         <option value="{{nextid}}" class="address-new" {{#if createnew}}selected=""{{/if}}>Neue Adresse</option>
     </select>
@@ -26,25 +26,26 @@
 
   <form name="address" class="fields-address fields">
 
-        <select class="account_type hidden" name="reg_account_type">
+        <select class="account_type" name="reg_account_type">
             <option value="Privatkunde" {{#if selectedAddress.isprivate}}selected=""{{/if}}>Privatkunde</option>
             <option value="Firma" {{#if selectedAddress.iscompany}}selected=""{{/if}}>Firma</option>
         </select>
 
+        {{#if selectedAddress.iscompany}}
         <p class="form-row">
-            <input type="text" class="input-text billing_company" name="billing_company" placeholder="Firma" value="{{selectedAddress.billing_company}}"><input type="text" class="input-text billing_uid hidden" name="billing_uid" placeholder="UID" value="{{selectedAddress.billing_uid}}" autocomplete="uid">
+            <input type="text" class="input-text billing_company" name="billing_company" placeholder="Firma" value="{{selectedAddress.billing_company}}" required><input type="text" class="input-text billing_uid hidden" name="billing_uid" placeholder="UID" value="{{selectedAddress.billing_uid}}" autocomplete="uid" required>
         </p>
-
+        {{/if}}
         <p class="form-row">
             <input type="text" class="input-text input-required" name="billing_first_name" placeholder="Vorname" value="{{selectedAddress.billing_first_name}}"><input type="text" class="input-text input-required billing_last_name" name="billing_last_name" placeholder="Nachname" value="{{selectedAddress.billing_last_name}}">
         </p>
 
         <p class="form-row">
-            <input type="text" class="input-text input-required" name="billing_address_1" placeholder="Straße, Hausnummer, Tür" value="{{selectedAddress.billing_address_1}}"><input type="text" class="input-text input-required" name="billing_postcode" placeholder="PLZ" value="{{selectedAddress.billing_postcode}}"><input type="text" class="input-text input-required billing_city" name="billing_city" placeholder="Stadt" value="{{selectedAddress.billing_city}}">
+            <input type="text" class="input-text input-required" name="billing_address_1" placeholder="Straße, Hausnummer, Tür" value="{{selectedAddress.billing_address_1}}" required><input type="text" class="input-text input-required" name="billing_postcode" placeholder="PLZ" value="{{selectedAddress.billing_postcode}}" required><input type="text" class="input-text input-required billing_city" name="billing_city" placeholder="Stadt" value="{{selectedAddress.billing_city}}" required>
         </p>
 
         <p class="form-row">
-            <select class="country_select billing_country" name="billing_country">
+            <select class="country_select billing_country" name="billing_country" required>
                                     <option value="AT" {{#ifEquals selectedAddress.billing_country "AT"}} selected=""{{/ifEquals}}>Österreich</option>
                                     <option value="BE" {{#ifEquals selectedAddress.billing_country "BE"}} selected=""{{/ifEquals}}>Belgien</option>
                                     <option value="BG" {{#ifEquals selectedAddress.billing_country "BG"}} selected=""{{/ifEquals}}>Bulgarien</option>

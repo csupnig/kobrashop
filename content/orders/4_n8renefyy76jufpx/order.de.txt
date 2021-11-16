@@ -1,0 +1,33 @@
+Name: Christopher Supnig
+
+----
+
+Email: christopher@supnig.com
+
+----
+
+Paymentmethod: empty-gateway
+
+----
+
+Items:
+
+- 
+  id: besen/universalbesen/123456/2
+  quantity: 1
+  price: 15
+  tax: 0
+  color: "2"
+  articleid: "123456"
+  title: "2"
+  taxrate: 0
+  sum: 15
+  sumtax: 0
+
+----
+
+Invoicedate: 2021-11-15T14:21:58+00:00
+
+----
+
+Paymentcomplete: false

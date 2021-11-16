@@ -1,0 +1,15 @@
+Title: Shipping
+
+----
+
+Name: Shipping
+
+----
+
+Articleid: 000
+
+----
+
+Price: 0
+
+----

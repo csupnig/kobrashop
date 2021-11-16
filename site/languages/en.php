@@ -14,6 +14,7 @@
     'pcs.' => 'pcs.',
     'products' => 'Products',
     'discount' => 'Discount',
+    'shipping' => 'Shipping',
     'productSearch' => 'Product search',
     'properties' => 'properties',
     'total' => 'Total amount',

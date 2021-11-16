@@ -8,10 +8,10 @@
 
 
   {{#each items}}
-    {{#if (ifEquals this.id "discount")}}
+    {{#if (or (ifEquals this.id "discount") (ifEquals this.id "shipping"))}}
     <tr class="cart_item" data-id="{{this.id}}">
       <td></td><td class="product-name verySmallVPadding" data-title="Discount">
-          <span class="txt-product-name bold black noUnderline"><?= t("discount") ?></span>
+          <span class="txt-product-name bold black noUnderline">{{#if (ifEquals this.id "discount")}}<?= t("discount") ?>{{else}}<?= t("shipping") ?>{{/if}}</span>
         </td><td class="product-total verySmallVPadding rightText">
           <span class="amount large bold">{{formatCurrency this.sum }}</span>
         </td>

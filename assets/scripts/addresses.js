@@ -32,6 +32,23 @@ class Addresses {
 
       this.selectAddress($event);
     });
+    $addresses.on('change', 'select[name="reg_account_type"]', ($event) => {
+      if (!Utils.hasValue(this.selectedAddress)) {
+        this.selectedAddress = {};
+        this.selectedAddress.id = this.getSelectedId($event);
+        this.account.addresses.push(this.selectedAddress)
+      }
+      const address = Utils.formToJson($($event.currentTarget).parents(this.mainselector).find('form[name="address"]'));
+      console.log(address.reg_account_type, $($event.currentTarget).val());
+      if (address.reg_account_type === 'Firma') {
+        this.selectedAddress.isprivate = false;
+        this.selectedAddress.iscompany = true;
+      } else {
+        this.selectedAddress.isprivate = true;
+        this.selectedAddress.iscompany = false;
+      }
+      this.render(this.account);
+    });
     $addresses.on('click', '.address-delete', () => {
       this.deleteAddress = true;
       this.render(this.account);
@@ -78,6 +95,19 @@ class Addresses {
     const selectedId = this.getSelectedId($event);
     this.selectedAddress = this.account.addresses.find(a => a.id === selectedId);
     this.render(this.account);
+  }
+
+  getCartAddress() {
+    return Utils.formToJson($('#overlay-cart').find('form[name="address"]'));
+  }
+
+  isCartAddressValid() {
+    let form = $('#overlay-cart').find('form[name="address"]')[0];
+    return form.checkValidity();
+  }
+
+  setCartFormError() {
+    $('#overlay-cart').find('form[name="address"]').addClass('error');
   }
 
   saveAddress($event) {

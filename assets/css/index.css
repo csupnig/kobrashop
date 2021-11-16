@@ -191,6 +191,11 @@ body.backgroundColor1 .productPicture.color1, body.backgroundColor2 .productPict
 .cart td.product-name { width:23rem; }
 .cart .circle { width:1.7rem; height:1.7rem; padding-top:0.2rem; }
 
+/* FORM VALIDATION*/
+
+form.error input:invalid { border: 1px solid red; }
+form.error select:invalid { border: 1px solid red; }
+
 /*=================================== Texts ===================================*/
 
 /*Default types*/

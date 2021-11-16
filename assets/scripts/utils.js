@@ -67,6 +67,20 @@ class TemplateEngine {
     Handlebars.registerHelper('ifEquals', (a, b, next) => {
       return (a === b) ? true : false;
     });
+    Handlebars.registerHelper({
+      eq: (v1, v2) => v1 === v2,
+      ne: (v1, v2) => v1 !== v2,
+      lt: (v1, v2) => v1 < v2,
+      gt: (v1, v2) => v1 > v2,
+      lte: (v1, v2) => v1 <= v2,
+      gte: (v1, v2) => v1 >= v2,
+      and() {
+        return Array.prototype.every.call(arguments, Boolean);
+      },
+      or() {
+        return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+      }
+    });
   }
 
   precompileTemplate(template) {
@@ -88,6 +102,10 @@ class Utils {
 
   static hasValue(obj) {
     return obj && typeof obj !== 'undefined' && obj != null;
+  }
+
+  static hasText(obj) {
+    return Utils.hasValue(obj) && obj !== '' && obj.length > 0;
   }
 
   static go(target) {
