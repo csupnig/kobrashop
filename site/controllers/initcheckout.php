@@ -25,7 +25,6 @@ if (kirby()->request()->method() === 'POST') {
       $lineItems = array();
       foreach ($cart->data() as $item) {
 
-          // TODO handle proper product titles
           // TODO handle proper tax
           if ($item['id'] !== 'discount') {
               array_push($lineItems, [
@@ -53,9 +52,12 @@ if (kirby()->request()->method() === 'POST') {
         ];
 
       $session = \Stripe\Checkout\Session::create($stripeData);
-    var_dump($session);
 
-      //merx()->initializePayment();
+      merx()->initializePayment();
+
+      // TODO initialize payment to create virtual order page
+      // TODO complete payment to create final order page
+      // TODO set session id to order page content
 
         //go($session->url);
      // var_dump($session->url);
