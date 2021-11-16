@@ -49,11 +49,19 @@ class CartFunctions
         return '';
     }
 
-    public static function initPayment() {
+    public static function setStripeApiKey() {
         if (option('ww.merx.production') === true) {
             Stripe::setApiKey(option('ww.merx.stripe.live.secret_key'));
         } else {
             Stripe::setApiKey(option('ww.merx.stripe.test.secret_key'));
+        }
+    }
+
+    public static function getStripeWebhookSecret() {
+        if (option('ww.merx.production') === true) {
+            return option('ww.merx.stripe.live.webhook_secret');
+        } else {
+            return option('ww.merx.stripe.test.webhook_secret');
         }
     }
 
