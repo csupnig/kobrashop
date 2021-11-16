@@ -2,9 +2,14 @@
 use Kirby\Exception\Exception;
 require_once __DIR__."/../shop/CartFunctions.php";
 require_once __DIR__."/../shop/AccountFunctions.php";
+require_once __DIR__."/stripe.config.php";
 
 return [
   'debug' => true,
+    'ww.merx.stripe.test.publishable_key' => StripeConfig::getTestPKey(),
+    'ww.merx.stripe.test.secret_key' => StripeConfig::getTestSKey(),
+    'ww.merx.stripe.live.publishable_key' => StripeConfig::getPKey(),
+    'ww.merx.stripe.live.secret_key' => StripeConfig::getSKey(),
   'ww.merx.gateways' => [
     'empty-gateway' => [],
   ],
