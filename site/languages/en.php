@@ -27,7 +27,7 @@
     'special' => 'special',
     'usages' => 'usages',
     'dirt' => 'dirt',
-    'surfaces' => 'surfaces',
+    'surface' => 'surfaces',
     'sweeping1' => 'fine',
     'sweeping1h' => 'fine',
     'sweeping2' => 'medium',

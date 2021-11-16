@@ -61,30 +61,32 @@ button.close { width:1.25rem; height:1.25rem; background:url(/assets/images/icon
 input.search { height:3rem; padding-left:3rem; background:url(/assets/images/icon-search-black.svg) no-repeat left center; background-size:2rem; }
 input.quantity { width:6rem; height:100%; background:none; }
 
-.icon.dirt, .icon.surface { width:3.5rem; height:3.5rem; margin:0.4rem 0.2rem; opacity:0.2; }
-.icon.dirt.active, .icon.surface.active { opacity:1; }
-.icon.surface1 { background:url(/assets/images/icon-surface1.svg) no-repeat left center; background-size:contain; }
-.icon.surface2 { background:url(/assets/images/icon-surface2.svg) no-repeat left center; background-size:contain; }
-.icon.surface3 { background:url(/assets/images/icon-surface3.svg) no-repeat left center; background-size:contain; }
-.icon.surface4 { background:url(/assets/images/icon-surface4.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping1 { background:url(/assets/images/icon-dirt-sweeping1.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping2 { background:url(/assets/images/icon-dirt-sweeping2.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping3 { background:url(/assets/images/icon-dirt-sweeping3.svg) no-repeat left center; background-size:contain; }
-.icon.sweeping4 { background:url(/assets/images/icon-dirt-sweeping4.svg) no-repeat left center; background-size:contain; }
-.icon.brushing1 { background:url(/assets/images/icon-dirt-brushing1.svg) no-repeat left center; background-size:contain; }
-.icon.brushing2 { background:url(/assets/images/icon-dirt-brushing2.svg) no-repeat left center; background-size:contain; }
-.icon.brushing3 { background:url(/assets/images/icon-dirt-brushing3.svg) no-repeat left center; background-size:contain; }
-.icon.brushing4 { background:url(/assets/images/icon-dirt-brushing4.svg) no-repeat left center; background-size:contain; }
+.icon.dirt, .icon.surface { width:3.5rem; height:3.5rem; margin:0.4rem 0.2rem; }
+.icon .image { width:100%; height:100%; }
+.icon.dirt .image, .icon.surface .image, .icon.property .image, header button.color { opacity:0.2; }
+.icon.active .image, header button.color.active { opacity:1; }
+.icon.surface1 .image { background:url(/assets/images/icon-surface1.svg) no-repeat left center; background-size:contain; }
+.icon.surface2 .image { background:url(/assets/images/icon-surface2.svg) no-repeat left center; background-size:contain; }
+.icon.surface3 .image { background:url(/assets/images/icon-surface3.svg) no-repeat left center; background-size:contain; }
+.icon.surface4 .image { background:url(/assets/images/icon-surface4.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping1 .image { background:url(/assets/images/icon-dirt-sweeping1.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping2 .image { background:url(/assets/images/icon-dirt-sweeping2.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping3 .image { background:url(/assets/images/icon-dirt-sweeping3.svg) no-repeat left center; background-size:contain; }
+.icon.sweeping4 .image { background:url(/assets/images/icon-dirt-sweeping4.svg) no-repeat left center; background-size:contain; }
+.icon.brushing1 .image { background:url(/assets/images/icon-dirt-brushing1.svg) no-repeat left center; background-size:contain; }
+.icon.brushing2 .image { background:url(/assets/images/icon-dirt-brushing2.svg) no-repeat left center; background-size:contain; }
+.icon.brushing3 .image { background:url(/assets/images/icon-dirt-brushing3.svg) no-repeat left center; background-size:contain; }
+.icon.brushing4 .image { background:url(/assets/images/icon-dirt-brushing4.svg) no-repeat left center; background-size:contain; }
 .icon.body { height:4rem; padding-left:6.4rem; background:url(/assets/images/icon-dimensions2.svg) no-repeat left center; background-size:5.7rem; }
 .icon.bristles { height:3.8rem; padding-left:4rem; background:url(/assets/images/icon-bristles.svg) no-repeat left center; background-size:3.2rem; }
 .icon.temperature { height:3.8rem; padding-left:4.6rem; background:url(/assets/images/icon-temperature.svg) no-repeat left center; background-size:4rem; }
-.icon.phb { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-phb.svg) no-repeat left center; background-size:contain; }
-.icon.stainless { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-stainless.svg) no-repeat left center; background-size:contain; }
-.icon.alcalics { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-alcalic.svg) no-repeat left center; background-size:contain; }
-.icon.acids { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-acid.svg) no-repeat left center; background-size:contain; }
-.icon.waterFlow { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-water.svg) no-repeat left center; background-size:contain; }
-.icon.partiallyDetectable { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-partiallyDetectable.svg) no-repeat left center; background-size:contain; }
-.icon.fullyDetectable { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-fullyDetectable.svg) no-repeat left center; background-size:contain; }
+.icon.phb .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-phb.svg) no-repeat left center; background-size:contain; }
+.icon.stainless .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-stainless.svg) no-repeat left center; background-size:contain; }
+.icon.alcalics .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-alcalic.svg) no-repeat left center; background-size:contain; }
+.icon.acids .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-acid.svg) no-repeat left center; background-size:contain; }
+.icon.waterFlow .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-water.svg) no-repeat left center; background-size:contain; }
+.icon.partiallyDetectable .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-partiallyDetectable.svg) no-repeat left center; background-size:contain; }
+.icon.fullyDetectable .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-fullyDetectable.svg) no-repeat left center; background-size:contain; }
 
 /*Text spacing*/
 
@@ -246,7 +248,7 @@ button.strikethrough.active, a.strikethrough:hover { text-decoration:none !impor
 ol { list-style-position:inside; }
 
 /*Link styles*/
-header.black nav a:hover { border-bottom:0.05rem dashed #000; }
+header.black nav .categories a:hover { border-bottom:0.05rem dashed #000; }
 .blue.hoverUnderline a:hover, .blue.hoverUnderline a:visited, nav a.active, nav a.open, .blue.alwaysUnderline a:link, .blue.alwaysUnderline a:visited, .blue.alwaysUnderline a:hover, .blue.alwaysUnderline a:active, button.direct:not(.active):hover span { text-decoration:none; border-bottom:0.08rem solid #3267ed !important; }
 .white.hoverUnderline a:hover, .white.hoverUnderline a:visited, button.direct.active span { text-decoration:none; border-bottom:0.05rem solid #fff !important; }
 .noUnderline, .noUnderline a:link, .noUnderline a:visited, .noUnderline a:hover, .noUnderline a:active, .hoverUnderline a:link, .hoverUnderline a:visited { text-decoration:none; border-bottom:none; }

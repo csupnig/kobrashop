@@ -27,7 +27,7 @@
     'special' => 'spezielle',
     'usages' => 'Anwendungen',
     'dirt' => 'Verschmutzungen',
-    'surfaces' => 'Oberflächen',
+    'surface' => 'Oberflächen',
     'sweeping1' => 'feine',
     'sweeping1h' => 'fein',
     'sweeping2' => 'mittlere',

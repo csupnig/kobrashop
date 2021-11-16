@@ -1,3 +1,14 @@
+<?php //Split filter string into array
+$currentFilter = explode(";", $filter);
+$properties = ["phb", "stainless", "alcalics", "acids", "waterFlow", "partiallyDetectable", "fullyDetectable"];
+$filterTypes = ["category", "sweeping1", "sweeping2", "sweeping3", "sweeping4", "brushing1", "brushing2", "brushing3", "brushing4", "surface1", "surface2", "surface3", "surface4", "phb", "stainless", "alcalics", "acids", "waterFlow", "partiallyDetectable", "fullyDetectable", "color1", "color2", "color3", "color4", "color5", "color6", "color7", "color8", "color9", "color11", "color12"];
+$newFilter = [];
+
+foreach ($currentFilter as $filterItem) {
+  foreach ($filterTypes as $filterType) {
+    if (strpos($filterItem, $filterType."=") !== false) $newFilter[$filterType] = str_replace($filterType."=", "", $filterItem);
+  }
+} ?>
 <header id="header" class="width100 inlineBlock smallHPadding verySmallVPadding black relative">
     <a class="width20 floatLeft noUnderline" href="<?= $site->url() ?>"><img class="logo width100" src="/assets/images/logo-shop-black.png" alt="<?= $site->name()->html() ?>"/></a>
     <nav class="primary floatLeft noUnderline">
@@ -19,7 +30,7 @@
           <?php $categories = $site->children()->filterBy("intendedTemplate", "productcategory")->listed();
           foreach ($categories as $category) { ?>
             <li class="hoverUnderline dashedUnderline">
-              <a href="" data-category="<?= $category->slug() ?>"><?= $category->name()->html() ?></a>
+              <a href="<?= $site->url() ?>&category=<?= $category->slug() ?>" data-category="<?= $category->slug() ?>"><?= $category->name()->html() ?></a>
               <?php $subcategories = $category->children()->filterBy("intendedTemplate", "productcategory")->listed();
               $scCount = $subcategories->count();
               if ($scCount > 0) { 
@@ -39,44 +50,37 @@
         <div class="usage width100">
           <h2><?= t("filterProductsBy"); ?> <?= t("dirtAndSurface"); ?></h2>
           <div class="width50 floatLeft verySmallTopPadding">
-            <div class="icon dirt sweeping1 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples1"); ?></div></div>
-            <div class="icon dirt sweeping2 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples2"); ?></div></div>
-            <div class="icon dirt sweeping3 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples3"); ?></div></div>
-            <div class="icon dirt sweeping4 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("sweepingExamples4"); ?></div></div>
+            <?php for ($usageNumber = 1; $usageNumber <= 4; $usageNumber++) { 
+              snippet("link-usage", ["usageNumber" => $usageNumber, "newFilter" => $newFilter, "icon" => "dirt", "subIcon" => "sweeping"]);
+            } ?>
             <div class="labels"><span class="small floatLeft"><?= t("sweeping1h") ?></span><span class="small floatRight"><?= t("sweeping4h") ?></span></div>
           </div>
           <div class="width50 floatLeft verySmallTopPadding">
-            <div class="icon dirt brushing1 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples1"); ?></div></div>
-            <div class="icon dirt brushing2 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples2"); ?></div></div>
-            <div class="icon dirt brushing3 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples3"); ?></div></div>
-            <div class="icon dirt brushing4 floatLeft relative"><div class="tooltip leftArrow black absolute"><?= t("for")." ".t("dirt")." ".t("brushingExamples4"); ?></div></div>
+            <?php for ($usageNumber = 1; $usageNumber <= 4; $usageNumber++) { 
+              snippet("link-usage", ["usageNumber" => $usageNumber, "newFilter" => $newFilter, "icon" => "dirt", "subIcon" => "brushing"]);
+            } ?>
             <div class="labels"><span class="small floatLeft"><?= t("brushing1h") ?></span><span class="small floatRight"><?= t("brushing4h") ?></span></div>
           </div>
           <div class="width50 floatLeft verySmallTopPadding">
-            <div class="icon surface surface1 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
-            <div class="icon surface surface2 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
-            <div class="icon surface surface3 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
-            <div class="icon surface surface4 floatLeft relative"><div class="tooltip rightArrow black absolute"><?= t("for")." ".t("surfaces")." ".t("surfaceExamples1"); ?></div></div>
+            <?php for ($usageNumber = 1; $usageNumber <= 4; $usageNumber++) { 
+              snippet("link-usage", ["usageNumber" => $usageNumber, "newFilter" => $newFilter, "icon" => "surface", "subIcon" => "surface"]);
+            } ?>
             <div class="labels"><span class="small floatLeft"><?= t("surface1h") ?></span><span class="small floatRight"><?= t("surface4h") ?></span></div>
           </div>
         </div>
         <div class="width100 floatLeft smallTopPadding">
           <div class="properties width50 floatLeft">
             <h2 class="verySmallBottomPadding"><?= t("properties"); ?></h2>
-            <div class="icon phb inlineBlock tinyLeftMargin relative"><div class="tooltip rightArrow black absolute"><?= t("phb") ?></div></div>
-            <div class="icon stainless inlineBlock tinyLeftMargin relative"><div class="tooltip rightArrow black absolute"><?= t("stainless") ?></div></div>
-            <div class="icon alcalics inlineBlock tinyLeftMargin relative"><div class="tooltip rightArrow black absolute"><?= t("alcalics") ?></div></div>
-            <div class="icon acids inlineBlock tinyLeftMargin relative"><div class="tooltip rightArrow black absolute"><?= t("acids") ?></div></div>
-            <div class="icon waterFlow inlineBlock tinyLeftMargin relative"><div class="tooltip rightArrow black absolute"><?= t("waterFlow") ?></div></div>
-            <div class="icon partiallyDetectable inlineBlock tinyLeftMargin relative"><div class="tooltip rightArrow black absolute"><?= t("partiallyDetectable") ?></div></div>
-            <div class="icon fullyDetectable inlineBlock tinyLeftMargin relative"><div class="tooltip rightArrow black absolute"><?= t("fullyDetectable") ?></div></div>
+            <?php foreach ($properties as $property) {
+              snippet("link-property", ["property" => $property, "newFilter" => $newFilter]);
+            } ?>
           </div>
           <div class="colors width40 floatLeft">
             <h2><?= t("color"); ?></h2>
             <?php for ($buttonNumber = 1; $buttonNumber <= 12; $buttonNumber++) {
-              if ($buttonNumber != 10) { ?>
-                <button class="circle color<?= $buttonNumber ?> floatLeft tinyRightMargin tinyBottomMargin"><?= $buttonNumber ?></button>
-              <?php }
+              if ($buttonNumber != 10) {
+                snippet("link-color", ["buttonNumber" => $buttonNumber, "newFilter" => $newFilter]);
+              }
             } ?>
           </div>
         </div>
