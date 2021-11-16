@@ -15,6 +15,8 @@
     'products' => 'Products',
     'discount' => 'Discount',
     'shipping' => 'Shipping',
+      'initcheckout' => 'Next - calculate shipping cost',
+      'checkout' => 'Submit order',
     'productSearch' => 'Product search',
     'properties' => 'properties',
     'total' => 'Total amount',

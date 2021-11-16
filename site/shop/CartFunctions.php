@@ -43,6 +43,11 @@ class CartFunctions
         ];
     }
 
+    public static function initCheckout() {
+
+        return '';
+    }
+
     public static function handleCartDiscount($cart) {
         if ($cart->count() > 0) {
             $cart->remove('discount');

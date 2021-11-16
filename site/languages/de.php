@@ -15,6 +15,8 @@
     'products' => 'Produkte',
     'discount' => 'Rabatt',
     'shipping' => 'Versandkosten',
+    'initcheckout' => 'Weiter zu den Versandkosten',
+    'checkout' => 'Kostenpflichtig bestellen',
     'productSearch' => 'Produktsuche',
     'properties' => 'Eigenschaften',
     'total' => 'Gesamtsumme',

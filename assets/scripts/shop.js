@@ -193,6 +193,7 @@ class Checkout {
       this.renderOverview(response);
       this.hideOverlays();
       this.showOverview();
+      $('#checkout_form input[name="address_encoded"]').val(JSON.stringify(address));
     });
   }
 
