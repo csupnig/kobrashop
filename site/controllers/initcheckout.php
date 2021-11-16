@@ -48,8 +48,8 @@ if (kirby()->request()->method() === 'POST') {
             'payment_method_types' => ['card', 'sofort'],
             'line_items' => $lineItems,
             'mode' => 'payment',
-            'success_url' => 'http://localhost/success',
-            'cancel_url' => 'http://localhost/cancel',
+            'success_url' => option('ww.merx.stripe.success.url'),
+            'cancel_url' => option('ww.merx.stripe.cancel.url'),
         ];
 
       $session = \Stripe\Checkout\Session::create($stripeData);
