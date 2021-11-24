@@ -1,0 +1,59 @@
+Items:
+
+- 
+  id: besen/universalbesen/123456/2
+  quantity: 2
+  price: 15
+  tax: 0
+  color: "2"
+  title: Universalbesen
+  articleid: "123456"
+  taxrate: 0
+  sum: 30
+  sumtax: 0
+- 
+  id: shipping
+  quantity: 1
+  price: 20
+  tax: 0
+  title: Shipping
+  taxrate: 0
+  sum: 20
+  sumtax: 0
+- 
+  id: discount
+  quantity: 1
+  price: -7.5
+  tax: 0
+  title: Discount
+  taxrate: 0
+  sum: -7.5
+  sumtax: "-0"
+
+----
+
+Name: 
+
+----
+
+Email: 
+
+----
+
+Paymentmethod: custom
+
+----
+
+Paymentcomplete: true
+
+----
+
+Stripesessionid: cs_test_b134kWJVcmU7388dLePTGYzKPwE3Bn4JCsyn41i3DipHT1LrwDco542tfg
+
+----
+
+Invoicedate: 2021-11-16T17:16:23+00:00
+
+----
+
+Payeddate: 2021-11-16T17:53:46+00:00

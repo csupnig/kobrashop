@@ -12,6 +12,8 @@ return [
     'ww.merx.stripe.test.secret_key' => StripeConfig::getTestSKey(),
     'ww.merx.stripe.live.publishable_key' => StripeConfig::getPKey(),
     'ww.merx.stripe.live.secret_key' => StripeConfig::getSKey(),
+    'ww.merx.stripe.test.webhook_secret' => StripeConfig::getTestWebhookSecret(),
+    'ww.merx.stripe.live.webhook_secret' => StripeConfig::getWebhookSecret(),
   'ww.merx.gateways' => [
     'empty-gateway' => [],
   ],
