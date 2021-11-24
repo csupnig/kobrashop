@@ -1,5 +1,4 @@
 <?php
-$link = $page->url()."?filter=";
 $linkItem = "color".$buttonNumber;
 $linkItemFound = false;
 $filterItems = array_keys($newFilter);

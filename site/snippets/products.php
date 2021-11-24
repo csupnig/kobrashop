@@ -42,14 +42,14 @@
       <?php } ?>
       <div class="overlay width100 absolute left bottom centeredText verySmallPadding backgroundColor<?= $productColor ?>">
         <div class="dimensions">
-          <?php snippet("productdimensions", ["product" => $product, "temperature" => false]); ?>
+          <?php snippet("icons-productdimensions", ["product" => $product, "temperature" => false]); ?>
         </div>
         <div class="details <?= $productBackground ?>">
           <div class="usage">
-            <?php snippet("productusage", ["product" => $product]); ?>
+            <?php snippet("icons-productusage", ["product" => $product]); ?>
           </div>
           <div class="properties absolute bottom right verySmallPadding">
-            <?php snippet("productproperties", ["product" => $product]); ?>
+            <?php snippet("icons-productproperties", ["product" => $product]); ?>
           </div>
         </div>
       </div>
@@ -57,13 +57,3 @@
   </a>
   <?php } ?>
 </section>
-
-<?php /*
-<form action="<?= url('add') ?>" method="post">
-  <h3><?= $item->title() ?></h3>
-  Price: <?= formatPrice($item->price()->toFloat()) ?><br>
-  Tax: <?= formatPrice(calculateTax($item->price()->toFloat(), $item->tax()->toFloat())) ?><br>
-  <input type="hidden" name="id" value="<?= $item->id() ?>">
-  <input type="number" name="quantity" value="1" min="1">
-  <button>add to cart</button>
-</form> */ ?>
