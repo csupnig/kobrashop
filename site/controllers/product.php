@@ -34,7 +34,7 @@
   return [
     "productBackground" => $productBackground,
     "productColors" => $productColors,
-    "newFilter" => $newFilter,
-    "properties" => $properties
+    "productColor" => $productColor,
+    "variantMap" => $variantMap
   ];
 }; ?>
