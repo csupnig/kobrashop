@@ -1,5 +1,4 @@
 <?php
-$link = $page->url()."?filter=";
 $linkItem = $property;
 $linkItemFound = false;
 $filterItems = array_keys($newFilter);

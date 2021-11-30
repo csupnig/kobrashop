@@ -50,15 +50,15 @@ else if ($page->usage() == "brushing") $productBackground = $brushingUsages[0]; 
       </div>
       <div class="usage width25 floatLeft smallLeftPadding">
         <h3 class="smallBottomMargin verySmallRightPadding centeredText"><?= t("fieldOfApplication") ?></h3>
-        <?php snippet("productusage", ["product" => $page]); ?>
+        <?php snippet("icons-productusage", ["product" => $page]); ?>
       </div>
     </div>
     <div class="width100 floatLeft">
       <div class="width75 floatLeft centeredText">
-        <?php snippet("productdimensions", ["product" => $page, "temperature" => true]); ?>
+        <?php snippet("icons-productdimensions", ["product" => $page, "temperature" => true]); ?>
       </div>
       <div class="properties width25 floatLeft smallLeftPadding verySmallTopPadding centeredText">
-        <?php snippet("productproperties", ["product" => $page]); ?>
+        <?php snippet("icons-productproperties", ["product" => $page]); ?>
       </div>
     </div>
     <div class="controls flex width100 floatLeft topMargin">

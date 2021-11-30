@@ -77,6 +77,6 @@ foreach ($product->surfaces() as $surface) {
         echo t("to")." ".t($highestSurfaceGrade);
       } ?>
     </span>
-    <span><br/><?= t("surfaces") ?></span>
+    <span><br/><?= t("surface") ?></span>
   </div>
 </div>

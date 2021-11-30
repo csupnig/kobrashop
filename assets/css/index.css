@@ -174,6 +174,7 @@ body { transition: background-color 0.75s ease; }
 
 header .overlay { top:9rem; }
 header .overlay .labels { width:15.5rem; }
+header .usage .disabled { pointer-events:none; opacity:0.25; }
 
 section.products .product { width:50rem; height:25rem; }
 section.products .product .overlay .details { display:none; }
