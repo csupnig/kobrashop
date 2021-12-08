@@ -6,8 +6,8 @@ require_once __DIR__."/stripe.config.php";
 
 return [
   'debug' => true,
-    'ww.merx.stripe.success.url' => 'http://localhost/success',
-    'ww.merx.stripe.cancel.url' => 'http://localhost/cancel',
+    'ww.merx.stripe.success.url' => 'https://dev1.millertwitchell.com/success',
+    'ww.merx.stripe.cancel.url' => 'https://dev1.millertwitchell.com/cancel',
     'ww.merx.stripe.test.publishable_key' => StripeConfig::getTestPKey(),
     'ww.merx.stripe.test.secret_key' => StripeConfig::getTestSKey(),
     'ww.merx.stripe.live.publishable_key' => StripeConfig::getPKey(),
