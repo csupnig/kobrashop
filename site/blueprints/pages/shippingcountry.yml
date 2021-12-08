@@ -28,73 +28,73 @@ columns:
             type: headline
 
           shipping3:
-            label: Shipping (3kg)
+            label: Cost (3kg)
             type: text
             width: 1/3
             required: true
 
           shipping5:
-            label: Shipping (5kg)
+            label: Cost (5kg)
             type: text
             width: 1/3
             required: true
 
           shipping10:
-            label: Shipping (10kg)
+            label: Cost (10kg)
             type: text
             width: 1/3
             required: true
 
           shipping15:
-            label: Shipping (15kg)
+            label: Cost (15kg)
             type: text
             width: 1/3
             required: true
 
           shipping20:
-            label: Shipping (20kg)
+            label: Cost (20kg)
             type: text
             width: 1/3
             required: true
 
           shipping25:
-            label: Shipping (25kg)
+            label: Cost (25kg)
             type: text
             width: 1/3
             required: true
 
           shipping30:
-            label: Shipping (30kg)
+            label: Cost (30kg)
             type: text
             width: 1/3
             required: true
 
           shipping40:
-            label: Shipping (40kg)
+            label: Cost (40kg)
             type: text
             width: 1/3
             required: true
 
           shipping50:
-            label: Shipping (50kg)
+            label: Cost (50kg)
             type: text
             width: 1/3
             required: true
 
           shipping60:
-            label: Shipping (60kg)
+            label: Cost (60kg)
             type: text
             width: 1/3
             required: true
 
           shipping70:
-            label: Shipping (70kg)
+            label: Cost (70kg)
             type: text
             width: 1/3
             required: true
 
           shippingExtra:
-            label: Shipping (for every kg over 70kg)
+            label: Cost (for every kg over 70kg)
             type: text
             width: 1/3
             required: true
