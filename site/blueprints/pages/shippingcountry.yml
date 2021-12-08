@@ -1,0 +1,100 @@
+title: Product
+
+columns:
+  - width: 1/3
+    sections:
+      info:
+        headline: Please note
+        type: info
+        text: This page cannot contain any further pages or files.
+
+  - width: 2/3
+    sections:
+      settings:
+        type: fields
+        fields:
+          settingsSectionHeadline:
+            label: General
+            type: headline
+
+          name:
+            label: Country name
+            type:  text
+            width: 2/3
+            required: true
+
+          shippingSectionHeadline:
+            label: Shipping
+            type: headline
+
+          shipping3:
+            label: Shipping (3kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping5:
+            label: Shipping (5kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping10:
+            label: Shipping (10kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping15:
+            label: Shipping (15kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping20:
+            label: Shipping (20kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping25:
+            label: Shipping (25kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping30:
+            label: Shipping (30kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping40:
+            label: Shipping (40kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping50:
+            label: Shipping (50kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping60:
+            label: Shipping (60kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shipping70:
+            label: Shipping (70kg)
+            type: text
+            width: 1/3
+            required: true
+
+          shippingExtra:
+            label: Shipping (for every extra kg over 70kg)
+            type: text
+            width: 1/3
+            required: true

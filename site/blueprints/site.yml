@@ -10,6 +10,13 @@ columns:
           - productcategory
         sortable: true
 
+      shippingCountries:
+        headline: Shipping countries
+        type: pages
+        templates:
+          - shippingcountry
+        sortable: true
+
       pages:
         headline: Pages
         type: pages

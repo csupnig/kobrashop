@@ -40,6 +40,15 @@ columns:
             width: 1/3
             required: true
 
+          tax:
+            label: Tax
+            type: select
+            options:
+              20: 20%
+            default: 20
+            width: 1/3
+            required: true
+
           packagingUnit:
             label: Packaging unit
             type: text
@@ -49,6 +58,12 @@ columns:
           dimensionsheadline:
             label: Colors & dimensions
             type: headline
+
+          weight:
+            label: Weight (g)
+            type: text
+            width: 1/3
+            required: true
 
           line1:
             type: line
