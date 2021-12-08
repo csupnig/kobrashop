@@ -25,7 +25,7 @@
     }
   }
 
-  // pass $articles and $pagination to the template
+  //Pass variables back to template
   return [
     "link" => $link,
     "category" => $category,
