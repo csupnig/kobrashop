@@ -24,7 +24,7 @@ columns:
             required: true
 
           shippingSectionHeadline:
-            label: Shipping
+            label: Shipping cost
             type: headline
 
           shipping3:
@@ -94,7 +94,7 @@ columns:
             required: true
 
           shippingExtra:
-            label: Shipping (for every extra kg over 70kg)
+            label: Shipping (for every kg over 70kg)
             type: text
             width: 1/3
             required: true
