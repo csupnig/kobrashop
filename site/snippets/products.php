@@ -1,5 +1,42 @@
 <section class="products inlineBlock width100">
-  <?php $products = $site->index()->filterBy("intendedTemplate", "product")->listed();
+  <?php //Fetch all products
+  if ($category == "") $products = $site->index()->filterBy("intendedTemplate", "product")->listed();
+  else $products = $site->index()->filterBy("intendedTemplate", "productcategory")->find($category)->index()->filterBy("intendedTemplate", "product")->listed();
+
+  //Filter products
+  $filterCount = count($filterArray);
+  if ($filterCount > 0) {
+    $products = $products->filter(function($child) use ($filterArray, $filterCount) {
+
+      //Get available colors
+      $productVariants = $child->children()->filterBy("intendedTemplate", "productvariant")->listed();
+      $productColors = [];
+      foreach ($productVariants as $productVariant) {
+        $colorNumber = $productVariant->title()->html();
+        if (!in_array($colorNumber, $productColors)) $productColors [] = "color".$colorNumber;
+      }
+
+      //Assemble usages, properties and colors
+      $productProperties = array_merge($child->sweeping()->split(), $child->brushing()->split(), $child->surfaces()->split(), $child->properties()->split(), $productColors);
+
+      $showProduct = true;
+      if ($filterArray[count($filterArray)-1] == "") array_pop($filterArray);
+      //Cycle through all properties in filter
+      foreach ($filterArray as $filterItem) {
+        $propertyFound = false;
+        //Cycle through all properties in product
+        foreach ($productProperties as $property) {
+          if ($property == $filterItem ) {
+            //If property has been found in product, display product
+            $propertyFound = true;
+          } 
+        }
+        if ($propertyFound == false) $showProduct = false;
+      }
+      if ($showProduct == true) return $child;
+    });
+  }
+  
   foreach ($products as $product) {
     //Fetch available product variants
     $productVariants = $product->children()->filterBy("intendedTemplate", "productvariant")->listed();

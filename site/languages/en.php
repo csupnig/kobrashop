@@ -15,8 +15,8 @@
     'products' => 'Products',
     'discount' => 'Discount',
     'shipping' => 'Shipping',
-      'initcheckout' => 'Next - calculate shipping cost',
-      'checkout' => 'Submit order',
+    'initcheckout' => 'Next - calculate shipping cost',
+    'checkout' => 'Submit order',
     'productSearch' => 'Product search',
     'properties' => 'properties',
     'total' => 'Total amount',
@@ -63,6 +63,7 @@
     'alcalics' => 'Suitable for alcalic solutions',
     'acids' => 'Suitable for acids',
     'waterFlow' => 'Water-flow function',
+    'resin' => 'Resin-set bristles',
     'partiallyDetectable' => 'Detectable filaments',
     'fullyDetectable' => 'Fully dectable'
   ]

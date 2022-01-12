@@ -18,17 +18,24 @@
       <nav class="overlay width100 left smallPadding absolute backgroundColor<?= $productColor ?>">
         <div class="width50 floatLeft rightBorder">
           <ul class="categories blankList">
-            <?php $categories = $site->children()->filterBy("intendedTemplate", "productcategory")->listed();
-            foreach ($categories as $category) { ?>
+            <?php $mainCategories = $site->children()->filterBy("intendedTemplate", "productcategory")->listed();
+            foreach ($mainCategories as $mainCategory) { 
+              //Assemble main category link
+              $link = $page->url()."?category=".$mainCategory->slug();
+              if ($filter != "") $link .= "&filter=".$filter; ?>
+
               <li class="hoverUnderline dashedUnderline">
-                <a href="<?= $site->url() ?>?category=<?= $category->slug() ?>" data-category="<?= $category->slug() ?>"><?= $category->name()->html() ?></a>
-                <?php $subcategories = $category->children()->filterBy("intendedTemplate", "productcategory")->listed();
+                <a href="<?= $link ?>" data-category="<?= $mainCategory->slug() ?>"><?= $mainCategory->name()->html() ?></a>
+                <?php $subcategories = $mainCategory->children()->filterBy("intendedTemplate", "productcategory")->listed();
                 $scCount = $subcategories->count();
-                if ($scCount > 0) { 
+                if ($scCount > 0) {
                   $scNumber = 1; ?>
                   <ul class="subcategories blankList verySmallLeftPadding microVPadding">
-                  <?php foreach ($subcategories as $subcategory) { ?>
-                    <li class="inlineBlock"><a href="" data-category="<?= $subcategory->slug() ?>"><?= $subcategory->name()->html() ?></a><?php if ($scNumber < $scCount) echo ","; ?></li>
+                  <?php foreach ($subcategories as $subcategory) {
+                    //Assemble subcategory link
+                    $link = $page->url()."?category=".$subcategory->slug();
+                    if ($filter != "") $link .= "&filter=".$filter; ?>
+                    <li class="inlineBlock"><a href="<?= $link ?>" data-category="<?= $subcategory->slug() ?>"><?= $subcategory->name()->html() ?></a><?php if ($scNumber < $scCount) echo ","; ?></li>
                     <?php $scNumber++;
                   } ?>
                   </ul>
@@ -44,26 +51,26 @@
             $sweepingStatus = "enabled";
             $brushingStatus = "enabled";
             for ($i = 1; $i<=4; $i++) {
-              if (array_key_exists("sweeping".$i, $newFilter)) $brushingStatus = "disabled";
+              if (array_key_exists("sweeping".$i, $filterArray)) $brushingStatus = "disabled";
             }
             for ($i = 1; $i<=4; $i++) {
-              if (array_key_exists("brushing".$i, $newFilter)) $sweepingStatus = "disabled";
+              if (array_key_exists("brushing".$i, $filterArray)) $sweepingStatus = "disabled";
             } ?>
             <div class="width50 floatLeft verySmallTopPadding <?= $sweepingStatus ?>">
               <?php for ($usageNumber = 1; $usageNumber <= 4; $usageNumber++) { 
-                snippet("link-usage", ["link" => $link, "usageNumber" => $usageNumber, "newFilter" => $newFilter, "icon" => "dirt", "subIcon" => "sweeping"]);
+                snippet("link-usage", ["category" => $category, "usageNumber" => $usageNumber, "filter" => $filter, "icon" => "dirt", "subIcon" => "sweeping"]);
               } ?>
               <div class="labels"><span class="small floatLeft"><?= t("sweeping1h") ?></span><span class="small floatRight"><?= t("sweeping4h") ?></span></div>
             </div>
             <div class="width50 floatLeft verySmallTopPadding <?= $brushingStatus ?>">
               <?php for ($usageNumber = 1; $usageNumber <= 4; $usageNumber++) { 
-                snippet("link-usage", ["link" => $link, "usageNumber" => $usageNumber, "newFilter" => $newFilter, "icon" => "dirt", "subIcon" => "brushing"]);
+                snippet("link-usage", ["category" => $category, "usageNumber" => $usageNumber, "filter" => $filter, "icon" => "dirt", "subIcon" => "brushing"]);
               } ?>
               <div class="labels"><span class="small floatLeft"><?= t("brushing1h") ?></span><span class="small floatRight"><?= t("brushing4h") ?></span></div>
             </div>
             <div class="width50 floatLeft verySmallTopPadding">
               <?php for ($usageNumber = 1; $usageNumber <= 4; $usageNumber++) { 
-                snippet("link-usage", ["link" => $link, "usageNumber" => $usageNumber, "newFilter" => $newFilter, "icon" => "surface", "subIcon" => "surface"]);
+                snippet("link-usage", ["category" => $category, "usageNumber" => $usageNumber, "filter" => $filter, "icon" => "surface", "subIcon" => "surface"]);
               } ?>
               <div class="labels"><span class="small floatLeft"><?= t("surface1h") ?></span><span class="small floatRight"><?= t("surface4h") ?></span></div>
             </div>
@@ -72,14 +79,14 @@
             <div class="properties width50 floatLeft">
               <h2 class="verySmallBottomPadding"><?= t("properties"); ?></h2>
               <?php foreach ($properties as $property) {
-                snippet("link-property", ["link" => $link, "property" => $property, "newFilter" => $newFilter]);
+                snippet("link-property", ["category" => $category, "filter" => $filter, "property" => $property]);
               } ?>
             </div>
             <div class="colors width40 floatLeft">
               <h2><?= t("color"); ?></h2>
-              <?php for ($buttonNumber = 1; $buttonNumber <= 12; $buttonNumber++) {
-                if ($buttonNumber != 10) {
-                  snippet("link-color", ["link" => $link, "buttonNumber" => $buttonNumber, "newFilter" => $newFilter]);
+              <?php for ($colorNumber = 1; $colorNumber <= 12; $colorNumber++) {
+                if ($colorNumber != 10) {
+                  snippet("link-color", ["category" => $category, "colorNumber" => $colorNumber, "filter" => $filter]);
                 }
               } ?>
             </div>

@@ -85,6 +85,7 @@ input.quantity { width:6rem; height:100%; background:none; }
 .icon.alcalics .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-alcalic.svg) no-repeat left center; background-size:contain; }
 .icon.acids .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-acid.svg) no-repeat left center; background-size:contain; }
 .icon.waterFlow .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-water.svg) no-repeat left center; background-size:contain; }
+.icon.resin .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-resin.svg) no-repeat left center; background-size:contain; }
 .icon.partiallyDetectable .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-partiallyDetectable.svg) no-repeat left center; background-size:contain; }
 .icon.fullyDetectable .image { height:1.75rem; padding-left:1.75rem; background:url(/assets/images/icon-fullyDetectable.svg) no-repeat left center; background-size:contain; }
 

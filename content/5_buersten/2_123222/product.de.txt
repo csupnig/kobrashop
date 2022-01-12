@@ -14,7 +14,15 @@ Price: 10
 
 ----
 
+Tax: 20%
+
+----
+
 Packagingunit: 1
+
+----
+
+Weight: 100
 
 ----
 
@@ -62,7 +70,7 @@ Surfaces:
 
 ----
 
-Properties: 
+Properties: phb, alcalics
 
 ----
 

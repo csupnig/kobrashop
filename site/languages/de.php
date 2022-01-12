@@ -63,6 +63,7 @@
     'alcalics' => 'Geeignet für alkalische Lösungen',
     'acids' => 'Geeignet für Säuren',
     'waterFlow' => 'Wasser-Durchfluss Funktion',
+    'resin' => 'Resin-geklebte Borsten',
     'partiallyDetectable' => 'Detektierbare Borsten',
     'fullyDetectable' => 'Volldetektierbar'
   ]
