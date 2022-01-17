@@ -1,0 +1,53 @@
+Title: Austria
+
+----
+
+Name: Österreich
+
+----
+
+Shipping3: 3.5
+
+----
+
+Shipping5: 5
+
+----
+
+Shipping10: 10
+
+----
+
+Shipping15: 15
+
+----
+
+Shipping20: 15.5
+
+----
+
+Shipping25: 16.5
+
+----
+
+Shipping30: 17
+
+----
+
+Shipping40: 18
+
+----
+
+Shipping50: 19
+
+----
+
+Shipping60: 20
+
+----
+
+Shipping70: 20.5
+
+----
+
+Shippingextra: 0.5

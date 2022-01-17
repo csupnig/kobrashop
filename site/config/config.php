@@ -6,6 +6,7 @@ require_once __DIR__."/stripe.config.php";
 
 return [
   'debug' => true,
+  'mailchimp.api.key' => '32d2a476acf0effbe47f9dcbd766a338-us16',
     'ww.merx.stripe.success.url' => 'https://dev1.millertwitchell.com/success',
     'ww.merx.stripe.cancel.url' => 'https://dev1.millertwitchell.com/cancel',
     'ww.merx.stripe.test.publishable_key' => StripeConfig::getTestPKey(),

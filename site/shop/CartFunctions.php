@@ -85,12 +85,59 @@ class CartFunctions
             $cart->remove('shipping');
 
             $kirby = kirby();
+            $site = $kirby->site();
             $user = $kirby->user();
             if (isset($user)) {
-                $cart->add(['id' => 'shipping', 'price' => 20]);
+                $shippingPage = $site->index()->filterBy("intendedTemplate", "shippingcountry")->findBy('title', 'Austria');
+
+                $weight = 0;
+                foreach ($cart->data() as $item) {
+                    if ($item['id'] !== 'shipping' && $item['id'] !== 'discount') {
+                        $page = page($item['id']);
+                        $product = $page->parent();
+                        $weight += $item['quantity'] * $product->weight()->toInt();
+                    }
+                }
+
+                $shippingprice = self::getShippingPrice($weight, $shippingPage);
+
+                $cart->add(['id' => 'shipping', 'price' => $shippingprice]);
 
             }
         }
+    }
+
+    public static function getShippingPrice($weightInGramms, $shippingpage) {
+        if ($weightInGramms <= 3000) {
+            return floatval($shippingpage->shipping3()->toString());
+        } else if ($weightInGramms <= 5000) {
+            return floatval($shippingpage->shipping5()->toString());
+        } else if ($weightInGramms <= 10000) {
+          return floatval($shippingpage->shipping10()->toString());
+        } else if ($weightInGramms <= 15000) {
+          return floatval($shippingpage->shipping15()->toString());
+        } else if ($weightInGramms <= 20000) {
+          return floatval($shippingpage->shipping20()->toString());
+        } else if ($weightInGramms <= 25000) {
+          return floatval($shippingpage->shipping25()->toString());
+        } else if ($weightInGramms <= 30000) {
+            return floatval($shippingpage->shipping30()->toString());
+      } else if ($weightInGramms <= 40000) {
+        return floatval($shippingpage->shipping40()->toString());
+      } else if ($weightInGramms <= 50000) {
+       return floatval($shippingpage->shipping50()->toString());
+      } else if ($weightInGramms <= 60000) {
+       return floatval($shippingpage->shipping60()->toString());
+      } else if ($weightInGramms <= 70000) {
+       return floatval($shippingpage->shipping70()->toString());
+      } else {
+        // TODO calculate
+        $shipping70 = floatval($shippingpage->shipping70()->toString());
+        $shippingextra = floatval($shippingpage->shippingextra()->toString());
+        $restweight = $weightInGramms - 70000;
+        return $shipping70 + ceil($restweight / 1000) * $shippingextra;
+      }
+
     }
 
     public static function removeShipping($cart) {
@@ -153,6 +200,7 @@ class CartFunctions
 
     public static function getCart() {
         header('Content-type: application/json');
+
         return json_encode(array("items" => array_values(cart()->toArray()), "sum" => cart()->getSum(), "tax" => cart()->getTax()));
     }
 }
