@@ -85,7 +85,8 @@ if (kirby()->request()->method() === 'POST') {
 
       merx()->initializePayment([
           'paymentMethod' => 'stripe_custom',
-          'stripeSessionId' => $session->id
+          'stripeSessionId' => $session->id,
+          'email' => $kirby->user()->email()
       ]);
 
       $orderPage = merx()->completePayment();

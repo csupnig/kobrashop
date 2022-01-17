@@ -1,6 +1,5 @@
 site/sessions
 site/accounts/*
-content/orders/**/order.txt
-public/media/*
+
 stripe.config.php
 */**/stripe.config.php
