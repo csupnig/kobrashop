@@ -1,3 +1,4 @@
+<h2 class="bold verySmallHPadding verySmallVPadding"><?= t("cart") ?></h2>
 <div id="cartcontainer" class="">
 
 </div>
@@ -51,5 +52,4 @@
   <span class="floatLeft"><?= t("vat") ?></span><span class="floatRight">{{formatCurrency tax}}</span><br/><br/>
   <span class="floatLeft bold"><?= t("total") ?></span><span class="floatRight bold large">{{formatCurrency sum}}</span>
 </div>
-
 </script>
