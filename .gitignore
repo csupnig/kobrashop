@@ -3,3 +3,5 @@ site/accounts/*
 
 stripe.config.php
 */**/stripe.config.php
+mailchimp.config.php
+*/**/mailchimp.config.php

@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__."/MailchimpFunctions.php";
 
 class AccountFunctions
 {
@@ -60,6 +61,12 @@ class AccountFunctions
                     'addresses' => json_encode(get('addresses'))
                 ]
             ]);
+
+            if (get('news_subscription') == 'true') {
+                $company = "".get('billing_company');
+                $usermail = get('email');
+                MailchimpFunctions::registerUser(get('billing_first_name'), get('billing_last_name'), $company, $usermail);
+            }
 
             return json_encode($user);
 
