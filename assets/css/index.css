@@ -22,8 +22,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 /*Site-specific small & extra small paddings*/
 .microVPadding { padding-top:0.5rem; padding-bottom:0.5rem; }
 .microTopPadding { padding-top:0.75rem; }
+.microHPadding { padding-left:0.5rem; padding-right:0.5rem; }
+.tinyPadding { padding:1rem; }
 .tinyTopPadding { padding-top:1rem; }
+.tinyBottomPadding { padding-bottom:1rem; }
 .tinyLeftPadding { padding-left:1rem; }
+.tinyRightPadding { padding-right:1rem; }
 .verySmallPadding { padding:1.5rem; }
 .verySmallHPadding { padding-left:1.5rem; padding-right:1.5rem; }
 .verySmallVPadding { padding-top:1.5rem; padding-bottom:1.5rem; }
@@ -48,6 +52,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 .verySmallMargin { margin:1.5rem; }
 .verySmallLeftMargin { margin-left:1.5rem; }
 .verySmallHMargin { margin-left:1.5rem; margin-right:1.5rem; }
+.smallTopMargin { margin-top:3rem; }
 .smallBottomMargin { margin-bottom:3rem; }
 .smallLeftMargin { margin-left:3rem; }
 
@@ -60,6 +65,8 @@ button.addToCart { width:6rem; height:100%; background:url(/assets/images/icon-c
 button.close { width:1.25rem; height:1.25rem; background:url(/assets/images/icon-close-black.svg) no-repeat center center; background-size:contain; }
 input.search { height:3rem; padding-left:3rem; background:url(/assets/images/icon-search-black.svg) no-repeat left center; background-size:2rem; }
 input.quantity { width:6rem; height:100%; background:none; }
+.overlay .address-container select { }
+.overlay .address-container input, .overlay .address-container select { height:3.5rem; border:0.06rem solid #000; }
 
 .icon.dirt, .icon.surface { width:3.5rem; height:3.5rem; margin:0.4rem 0.2rem; }
 .icon .image { width:100%; height:100%; }
@@ -110,7 +117,7 @@ button.color2 { background-color:#2e3192; } /*blue*/
 button.color3 { background-color:#ef3e23; } /*red*/
 button.color4 { background-color:#ffd400; } /*yellow*/
 button.color5 { background-color:#00ad66; } /*green*/
-button.color6 { background-color:#000000; } /*black*/
+button.color6, .blackBackground { background-color:#000000; } /*black*/
 button.color7 { background-color:#ffa020; } /*orange*/
 button.color8 { background-color:#9b65aa; } /*purple*/
 button.color9 { background-color:#ff9ac1; } /*pink*/
@@ -136,7 +143,7 @@ button.color12 { background-color:#7F523E; } /*brown*/
 .border.black { border:0.07rem solid #000; }
 .border.color1 { border:0.07rem solid #ede7da; } /*white*/
 .border.color2 { border:0.07rem solid #2e3192; } /*blue*/
-.border.color3 { border:0.07rem solid #ef3e23; } /*red*/
+.border.color3{ border:0.07rem solid #ef3e23; } /*red*/
 .border.color4 { border:0.07rem solid #ffd400; } /*yellow*/
 .border.color5 { border:0.07rem solid #00ad66; } /*green*/
 .border.color6 { border:0.07rem solid #000000; } /*black*/
@@ -190,12 +197,18 @@ section.product .controls .pcs { margin-top:1.7rem; }
 section.product .productPicture { display:none; }
 body.backgroundColor1 .productPicture.color1, body.backgroundColor2 .productPicture.color2, body.backgroundColor3 .productPicture.color3, body.backgroundColor4 .productPicture.color4, body.backgroundColor5 .productPicture.color5, body.backgroundColor6 .productPicture.color6, body.backgroundColor7 .productPicture.color7, body.backgroundColor8 .productPicture.color8, body.backgroundColor9 .productPicture.color9, body.backgroundColor11 .productPicture.color11, body.backgroundColor12 .productPicture.color12 { display:block; }
 
+/*Overlay*/
+
 .cart input[type=number] { width:7rem; background:none; }
 .cart tr:nth-child(even) { background-color:#f4f4f4; }
 .cart td.product-name { width:23rem; }
 .cart .circle { width:1.7rem; height:1.7rem; padding-top:0.2rem; }
 
-/* FORM VALIDATION*/
+.overlay .address-container .select-address, .overlay .address-container .street, .overlay button.address-save-confirm { width:91%; height:3rem; }
+.overlay a.continue { bottom:1rem; }
+.overlay button.continue { width:43rem; height:3rem; }
+
+/*Form validation*/
 
 form.error input:invalid { border: 1px solid red; }
 form.error select:invalid { border: 1px solid red; }
@@ -204,34 +217,37 @@ form.error select:invalid { border: 1px solid red; }
 
 /*Default types*/
 nav { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
-span, .tooltip { font:1.3rem/1.5rem 'Geomanist-Light', sans-serif; }
+span, .tooltip, button.save, button.continue { font:1.3rem/1.5rem 'Geomanist-Light', sans-serif; }
 span.bold { font:1.3rem/1.5rem 'Geomanist-Bold', sans-serif; }
 span.small, button.circle { font:1rem/1.3rem 'Geomanist-Light', sans-serif; }
 span.small.bold { font:1rem/1.3rem 'Geomanist-Bold', sans-serif; }
 span.large.bold { font:1.7rem/2.1rem 'Geomanist-Bold', sans-serif; }
 span.veryLarge { font:3rem/3.6rem 'Geomanist-Light', sans-serif; }
 span.veryLarge.bold { font:3rem/3.6rem 'Geomanist-Bold', sans-serif; }
-span.huge.bold, input.quantity { font:4.5rem/4.5rem 'Geomanist-Bold', sans-serif; }
+span.huge.bold, input.quantity { font:4.5rem/4.5rem 'Geomanist-Bold', sans-serif !important; }
 header ul { font:1.6rem/2rem 'Geomanist-Light', sans-serif; }
 header ul ul { font:1.6rem/2rem 'Geomanist-ExtraLight', sans-serif; }
 button.quantity span { font:2rem/1rem 'Geomanist-Bold', sans-serif; }
 button.quantity.large span, input[type=number] { font:3rem/1.5rem 'Geomanist-Bold', sans-serif; }
+button.address-add, button.address-delete-confirm { font:2.5rem/3.5rem 'Geomanist-Bold', sans-serif; }
 input.search { font:1.9rem/3rem 'Geomanist-Light', sans-serif; }
+.overlay input, .overlay select { font:1.3rem/2rem 'Geomanist-Light', sans-serif; }
 h1 { font:2.6rem/3.4rem 'Geomanist-Bold', sans-serif; }
 h2 { font:1.6rem/2.2rem 'Geomanist-Light', sans-serif; }
+h2.bold { font:1.6rem/2.2rem 'Geomanist-Bold', sans-serif; }
 h3 { font:2.2rem/3.1rem 'Geomanist-Bold', sans-serif; }
 h4, h3.small { font:1.4rem/1.4rem 'Geomanist-Bold', sans-serif; }
 h5 { font:1.4rem/1.4rem 'Geomanist-Light', sans-serif; }
 
 /*Modifiers*/
-.controls span.huge.bold { line-height:6rem; }
+.controls span.huge.bold { line-height:6rem !important; }
 
 /*Type colors*/
 .black, .black a, input.black::placeholder, .backgroundColor1, .backgroundColor3, .backgroundColor4, .backgroundColor5, .backgroundColor7, .backgroundColor8, .backgroundColor9, .backgroundColor11 { color:#000; }
 .white, .white a, /*.backgroundColor2, .backgroundColor6, .backgroundColor12,*/ button.color2, button.color6, button.color12 { color:#fff; }
 span.color1, /*button.color1,*/ input.color1 { color:#ede7da; } /*white*/
 span.color2, /*button.color2,*/ input.color2 { color:#2e3192; } /*blue*/
-span.color3, /*button.color3,*/ input.color3 { color:#ef3e23; } /*red*/
+span.color3, /*button.color3,*/ input.color3, .red { color:#ef3e23; } /*red*/
 span.color4, /*button.color4,*/ input.color4 { color:#ffd400; } /*yellow*/
 span.color5, /*button.color5,*/ input.color5 { color:#00ad66; } /*green*/
 span.color6, /*button.color6,*/ input.color6 { color:#000000; } /*black*/
