@@ -113,7 +113,7 @@ columns:
               bristles: true
 
           maxTemperature:
-            label: Max. temperature (°)
+            label: Max. temperature (°C)
             type: text
             width: 1/3
 
@@ -186,4 +186,12 @@ columns:
               partiallyDetectable: Detectable filaments
               fullyDetectable: Fully detectable
             columns: 2
+
+          descriptionheadline:
+            label: Description
+            type: headline
+
+          description:
+            label: Description
+            type: textarea
 

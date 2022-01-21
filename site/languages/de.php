@@ -20,6 +20,7 @@
     'initcheckout' => 'Weiter zu den Versandkosten',
     'invoiceAddress' => 'Rechnungsadresse',
     'lastName' => 'Nachname',
+    'logout' => 'Ausloggen',
     'pcs.' => 'Stk.',
     'phoneNumber' => 'Telefonnummer',
     'privateCustomer' => 'Privatkunde',

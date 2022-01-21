@@ -13,6 +13,7 @@ $(document).ready(function () {
 
 
 	if ($("body.product").length > 0) {
+		//Handle control bar colors
 		$(".controls button.colorSelector").click(function(){
 			//Get current color body
 			newColor = $(this).data("color");
@@ -22,6 +23,33 @@ $(document).ready(function () {
 			$("body").data("color", newColor);
 			$("body, .border." + oldColor + ", span." + oldColor + ", input." + oldColor + ", .addToCart." + oldColor).removeClass(oldColor).addClass("color" + newColor);
       		$('#productform [name="color"]').val(newColor);
+		});
+
+		//Set up control bar position variables
+		controlHeight = $(".controls").outerHeight() + $(window).width()*0.03;
+		controlOffset = $(".controls").offset().top;
+		
+		//Set up control bar position
+		windowHeight = $(window).height();
+		if ((controlOffset + controlHeight) > (windowHeight + $(window).scrollTop())) {
+			$(".controls").addClass("floating");
+		}
+
+		//Redefine control bar position variables on resize
+		$(window).resize(function() {
+			controlHeight = $(".controls").outerHeight() + $(window).width()*0.03;
+			controlOffset = $(".controls").offset().top;
+			windowHeight = $(window).height();
+		})
+
+		//Toggle control bar position on scroll
+		$(document).scroll(function() {
+			if ((controlOffset + controlHeight) > (windowHeight + $(window).scrollTop())) {
+				$(".controls").addClass("floating");
+			} else {
+				$(".controls").removeClass("floating");
+			}
+			console.log((controlOffset + controlHeight) - (windowHeight + $(window).scrollTop()))
 		});
 	}
 

@@ -29,32 +29,37 @@
         <?php snippet("icons-productproperties", ["product" => $page]); ?>
       </div>
     </div>
-    <div class="controls flex width100 floatLeft topMargin">
-      <div class="filler flexGrow height100 floatLeft border color<?= $productColor; ?> <?= $productBackground ?>"></div>
-      <div class="buttons height100 floatLeft tinyLeftMargin">
-        <form id="productform" class="productToCart floatRight height100" action="<?= url('add') ?>" method="post">
-          <input type="hidden" name="url" value="<?= $page->url() ?>">
-          <input type="hidden" name="color" value="<?= $productColor ?>">
-          <input type="hidden" name="name" value="<?= $page->name() ?>">
-          <input type="hidden" name="articleid" value="<?= $page->articleId() ?>">
-          <button class="addToCart black color<?= $productColor; ?> floatRight tinyLeftMargin">
-          </button>
-          <div class="quantity floatRight tinyLeftMargin border color<?= $productColor; ?>">
-            <div class="floatLeft tinyLeftPadding tinyTopPadding centeredText">
-              <button class="quantity increase large"><span class="<?= $productColor; ?>">+</span></button><br/>
-              <button class="quantity decrease large"><span class="<?= $productColor; ?>">-</span></button>
+    <div class="width75 floatLeft smallVPadding">
+      <span class="large"><?= $page->description()->kirbyText() ?></span>
+    </div>
+    <div class="controls width100 flex floatLeft backgroundColor<?= $productColor ?>">
+
+        <div class="filler flexGrow height100 floatLeft border color<?= $productColor; ?> <?= $productBackground ?>"></div>
+        <div class="buttons height100 floatLeft tinyLeftMargin">
+          <form id="productform" class="productToCart floatRight height100" action="<?= url('add') ?>" method="post">
+            <input type="hidden" name="url" value="<?= $page->url() ?>">
+            <input type="hidden" name="color" value="<?= $productColor ?>">
+            <input type="hidden" name="name" value="<?= $page->name() ?>">
+            <input type="hidden" name="articleid" value="<?= $page->articleId() ?>">
+            <button class="addToCart black color<?= $productColor; ?> floatRight tinyLeftMargin">
+            </button>
+            <div class="quantity floatRight tinyLeftMargin border color<?= $productColor; ?>">
+              <div class="floatLeft tinyLeftPadding tinyTopPadding centeredText">
+                <button class="quantity increase large"><span class="<?= $productColor; ?>">+</span></button><br/>
+                <button class="quantity decrease large"><span class="<?= $productColor; ?>">-</span></button>
+              </div>
+              <div class="floatLeft smallLeftMargin">
+                <input class="quantity <?= $productColor; ?> rightText" type="number" name="quantity" value="1" min="1">
+              </div>
+              <span class="pcs veryLarge <?= $productColor; ?> floatLeft bold tinyLeftMargin"><?= t("pcs.") ?></span>
+              <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
             </div>
-            <div class="floatLeft smallLeftMargin">
-              <input class="quantity <?= $productColor; ?> rightText" type="number" name="quantity" value="1" min="1">
-            </div>
-            <span class="pcs veryLarge <?= $productColor; ?> floatLeft bold tinyLeftMargin"><?= t("pcs.") ?></span>
-            <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
-          </div>
-        </form>
-        <?php foreach ($productColors as $productColor) { ?>
-          <button class="colorSelector floatRight height100 color<?= $productColor; ?>" data-color="<?= $productColor; ?>"></button>
-        <?php } ?>
-      </div>
+          </form>
+          <?php foreach ($productColors as $productColor) { ?>
+            <button class="colorSelector floatRight height100 color<?= $productColor; ?>" data-color="<?= $productColor; ?>"></button>
+          <?php } ?>
+        </div>
+
     </div>
   </section>
   <?php /*snippet("products", ["product" => $page]);*/ ?>

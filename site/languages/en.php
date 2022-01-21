@@ -20,6 +20,7 @@
     'initcheckout' => 'Next - calculate shipping cost',
     'invoiceAddress' => 'Invoice address',
     'lastName' => 'Last name',
+    'logout' => 'Log out',
     'pcs.' => 'pcs.',
     'phoneNumber' => 'Phone number',
     'privateCustomer' => 'Private customer',

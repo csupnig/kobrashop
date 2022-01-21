@@ -1,4 +1,4 @@
-<div class="overlay account width33 height100 fixed top right verySmallPadding whiteBackground">
+<div class="overlay account width50 height100 fixed top right verySmallPadding whiteBackground">
 	<button class="close floatRight"></button>
 
 
@@ -10,9 +10,7 @@
 
   <script id="accounttemplate" type="text/x-handlebars">
     {{#if loggedin}}
-      <h1>Loggedin</h1>
-      <a href="#" class="logout">Logout</a>
-    {{else}}
+      <h2 class="bold inline"><?= t("account") ?></h2><h2 class="black inline">&nbsp;<a href="#" class="logout">(<?= t("logout") ?>)</a></h2>
 
 
 
