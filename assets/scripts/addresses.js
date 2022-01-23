@@ -62,7 +62,9 @@ class Addresses {
       this.render(this.account);
     });
     const template = $('#addressestemplate').html();
-
+    if (!template) {
+      return;
+    }
     this.template = TemplateEngine.getInstance().precompileTemplate(template);
     this.refresh();
   }
