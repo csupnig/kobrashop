@@ -80,7 +80,7 @@ class CartFunctions
         }
     }
 
-    public static function handleCartShipping($cart, $country) {
+    public static function handleCartShipping($cart) {
         if ($cart->count() > 0) {
             $cart->remove('shipping');
 
@@ -149,7 +149,7 @@ class CartFunctions
     public static function generateCheckoutOverview() {
 
 
-        CartFunctions::handleCartShipping(cart(), $country);
+        CartFunctions::handleCartShipping(cart());
 
         return self::getCart();
     }

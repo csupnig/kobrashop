@@ -17,6 +17,11 @@ class Cart {
     $('#overlay-cart .close').click(() => {
       this.hide();
     });
+    $('#openaccount_from_cart').click(($event) => {
+      this.hide();
+      Account.getInstance().show();
+      $event.preventDefault();
+    });
     const $cartcontainer = $('#cartcontainer');
     $cartcontainer.on('click', '.increase', (event) => {
       const id = this.getProductIdFromEventTarget(event);

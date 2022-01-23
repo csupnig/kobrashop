@@ -2,6 +2,7 @@
 	<button class="close floatRight mfp-close verySmallMargin"></button>
 
   <?php snippet('cart', ['cart' => merx()->cart()]); ?>
+  <?php if (null !== kirby()->user()) {?>
   <div class="cart-main-address">
   <?php snippet('addresses', []); ?>
   </div>
@@ -15,6 +16,11 @@
   <a class="continue fixed width100 verySmallPadding whiteBackground" href="/" id="checkout_link">
     <button class="continue blackBackground white"><?= t("initcheckout") ?></button>
   </a>
+  <?php } else { ?>
+    <a class="continue fixed width100 verySmallPadding whiteBackground" id="openaccount_from_cart">
+      <button class="continue blackBackground white"><?= t("gotaccount") ?></button>
+    </a>
+  <?php } ?>
 </div>
 <div id="overlay-checkoutoverview" class="overlay checkoutoverview width50 height100 fixed top right whiteBackground overlay-content">
   <button class="close floatRight mfp-close verySmallMargin"></button>
