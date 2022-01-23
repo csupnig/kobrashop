@@ -179,7 +179,7 @@ body .overlay.active, section.products .product .overlay { display:block; }
 
 /*=================================== Templates ===================================*/
 
-body { transition: background-color 0.75s ease; }
+body, section.product .controls { transition: background-color 0.75s ease; }
 
 header .overlay { top:9rem; }
 header .overlay .labels { width:15.5rem; }

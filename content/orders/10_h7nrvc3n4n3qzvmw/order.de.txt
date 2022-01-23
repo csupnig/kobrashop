@@ -1,0 +1,42 @@
+Paymentmethod: stripe_custom
+
+----
+
+Stripesessionid: cs_test_b1Yb2y6166e8RA79uAkQrzOUpzLMmAfcwoddhjveaaBDTy7hqsMxY1xNMH
+
+----
+
+Email: michael.stumpf@liwest.at
+
+----
+
+Items:
+
+- 
+  id: besen/universalbesen/123456/2
+  quantity: 1
+  price: 15
+  tax: 0
+  color: "2"
+  title: Universalbesen
+  articleid: "123456"
+  taxrate: 0
+  sum: 15
+  sumtax: 0
+- 
+  id: shipping
+  quantity: 1
+  price: 3.5
+  tax: 0
+  title: Shipping
+  taxrate: 0
+  sum: 3.5
+  sumtax: 0
+
+----
+
+Invoicedate: 2022-01-23T11:03:16+00:00
+
+----
+
+Paymentcomplete: false
