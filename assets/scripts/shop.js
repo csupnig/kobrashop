@@ -52,6 +52,7 @@ class Cart {
   add(product) {
     Http.post('/cart', product).then((response) => {
       this.render(response);
+      $('.header-cart-button-container').removeClass('hidden');
       this.show();
     });
   }

@@ -20,9 +20,9 @@
   <button class="close floatRight mfp-close verySmallMargin"></button>
 
   <?php snippet('checkoutoverview', ['cart' => merx()->cart()]); ?>
-  <form id="checkout_form" name="checkout" method="post" action="<?=url('initcheckout') ?>">
+  <form id="checkout_form" class="verySmallHPadding" name="checkout" method="post" action="<?=url('initcheckout') ?>">
     <input type="hidden" name="address_encoded">
     <input type="hidden" name="delivery_address_encoded">
-    <button type="submit"><?= t("checkout") ?></button>
+    <button type="submit" class="button continue tinyTopMargin blackBackground white"><?= t("checkout") ?></button>
   </form>
 </div>
