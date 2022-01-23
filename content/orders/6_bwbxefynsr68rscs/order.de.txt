@@ -1,15 +1,15 @@
 Items:
 
 - 
-  id: besen/universalbesen/123456/2
-  quantity: 2
-  price: 15
+  id: buersten/123222/2
+  quantity: 1
+  price: 10
   tax: 0
   color: "2"
-  title: Universalbesen
-  articleid: "123456"
+  title: Bürste
+  articleid: "123222"
   taxrate: 0
-  sum: 30
+  sum: 10
   sumtax: 0
 - 
   id: shipping
@@ -23,11 +23,11 @@ Items:
 - 
   id: discount
   quantity: 1
-  price: -7.5
+  price: -4.5
   tax: 0
   title: Discount
   taxrate: 0
-  sum: -7.5
+  sum: -4.5
   sumtax: "-0"
 
 ----
@@ -40,7 +40,7 @@ Email:
 
 ----
 
-Paymentmethod: custom
+Paymentmethod: stripe_custom
 
 ----
 
@@ -48,12 +48,12 @@ Paymentcomplete: true
 
 ----
 
-Stripesessionid: cs_test_b134kWJVcmU7388dLePTGYzKPwE3Bn4JCsyn41i3DipHT1LrwDco542tfg
+Stripesessionid: cs_test_b18WL3y6dDO8CQ0eGjNVO03ahQNs1LAggAxsb4hYc8Zz2GS3yn8Mb26vH1
 
 ----
 
-Invoicedate: 2021-11-16T17:16:23+00:00
+Invoicedate: 2021-12-08T16:04:51+01:00
 
 ----
 
-Payeddate: 2021-11-16T17:53:46+00:00
+Payeddate: 2021-12-08T17:06:09+01:00

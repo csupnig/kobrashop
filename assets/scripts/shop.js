@@ -203,8 +203,44 @@ class Checkout {
 
 }
 
+class Orders {
+
+  static _instance = undefined;
+  static getInstance() {
+    if (!Orders._instance) {
+      Orders._instance = new Orders();
+    }
+    return Orders._instance;
+  }
+
+  template = undefined;
+
+  bind() {
+
+    const template = $('#orderstemplate').html();
+
+    this.template = TemplateEngine.getInstance().precompileTemplate(template);
+
+    this.fetchOrders();
+  }
+
+  fetchOrders() {
+    Http.get('/user/orders').then((response) => {
+      if (response && response.orders) {
+        this.renderOrders({items : response.orders});
+      }
+    });
+  }
+
+  renderOrders(orders) {
+    $('.order-container').html(this.template(orders));
+  }
+
+}
+
 $(document).ready(() => {
     Product.getInstance().bind();
     Cart.getInstance().bind();
     Checkout.getInstance().bind();
+    Orders.getInstance().bind();
 });

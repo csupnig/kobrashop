@@ -1,0 +1,51 @@
+Paymentmethod: stripe_custom
+
+----
+
+Stripesessionid: cs_test_b1M881UPIK8aOqY0eXJnv8P1UHoutqcNAd54hApiOWcNJ8u6X8xLJYOBPY
+
+----
+
+Email: test@supnig.com
+
+----
+
+Items:
+
+- 
+  id: buersten/123222/2
+  quantity: 2
+  price: 10
+  tax: 0
+  color: "2"
+  title: Bürste
+  articleid: "123222"
+  taxrate: 0
+  sum: 20
+  sumtax: 0
+- 
+  id: shipping
+  quantity: 1
+  price: 20
+  tax: 0
+  title: Shipping
+  taxrate: 0
+  sum: 20
+  sumtax: 0
+- 
+  id: discount
+  quantity: 1
+  price: -4
+  tax: 0
+  title: Discount
+  taxrate: 0
+  sum: -4
+  sumtax: "-0"
+
+----
+
+Invoicedate: 2021-12-23T09:56:00+01:00
+
+----
+
+Paymentcomplete: false

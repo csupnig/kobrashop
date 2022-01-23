@@ -2,6 +2,7 @@
 use Kirby\Exception\Exception;
 require_once __DIR__."/../shop/CartFunctions.php";
 require_once __DIR__."/../shop/AccountFunctions.php";
+require_once __DIR__."/../shop/OrderFunctions.php";
 require_once __DIR__."/stripe.config.php";
 require_once __DIR__."/mailchimp.config.php";
 
@@ -62,5 +63,6 @@ return [
   'routes' => array_merge(
         CartFunctions::getRoutes(),
         AccountFunctions::getRoutes(),
+        OrderFunctions::getRoutes(),
   []),
 ];

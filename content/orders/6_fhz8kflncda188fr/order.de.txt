@@ -1,0 +1,62 @@
+Paymentmethod: stripe_custom
+
+----
+
+Stripesessionid: cs_test_b1JjLlm9gf2XSoi0ohX47mYhXZ0ifQ3xyZFoSjaC3Jz8z5F0Ltn8nc2Ryp
+
+----
+
+Email: firmentest@supnig.com
+
+----
+
+Items:
+
+- 
+  id: buersten/123222/2
+  quantity: 2
+  price: 10
+  tax: 0
+  color: "2"
+  title: Bürste
+  articleid: "123222"
+  taxrate: 0
+  sum: 20
+  sumtax: 0
+- 
+  id: besen/universalbesen/123456/2
+  quantity: 71
+  price: 15
+  tax: 0
+  color: "2"
+  title: Universalbesen
+  articleid: "123456"
+  taxrate: 0
+  sum: 1065
+  sumtax: 0
+- 
+  id: shipping
+  quantity: 1
+  price: 21.5
+  tax: 0
+  title: Shipping
+  taxrate: 0
+  sum: 21.5
+  sumtax: 0
+- 
+  id: discount
+  quantity: 1
+  price: -165.975
+  tax: 0
+  title: Discount
+  taxrate: 0
+  sum: -165.975
+  sumtax: "-0"
+
+----
+
+Invoicedate: 2022-01-20T11:49:20+00:00
+
+----
+
+Paymentcomplete: false

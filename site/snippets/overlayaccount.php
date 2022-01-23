@@ -8,12 +8,14 @@
 
   <div class="address-container"></div>
 
+  <div class="order-container"></div>
+
   <script id="accounttemplate" type="text/x-handlebars">
     {{#if loggedin}}
       <h2 class="bold inline"><?= t("account") ?></h2><h2 class="black inline">&nbsp;<a href="#" class="logout">(<?= t("logout") ?>)</a></h2>
 
 
-
+    {{else}}
 	<div class="col-1">
 
 
@@ -123,5 +125,12 @@
 
     {{/if}}
 
+</script>
+<script id="orderstemplate" type="text/x-handlebars">
+  <ul>
+  {{#each items}}
+    <li>{{this.id}}</li>
+  {{/each}}
+  </ul>
 </script>
 </div>
