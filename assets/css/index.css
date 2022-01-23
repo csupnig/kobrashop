@@ -205,10 +205,11 @@ body.backgroundColor1 .productPicture.color1, body.backgroundColor2 .productPict
 .cart tr:nth-child(even) { background-color:#f4f4f4; }
 .cart td.product-name { width:23rem; }
 .cart .circle { width:1.7rem; height:1.7rem; padding-top:0.2rem; }
-
+.overlay.cart {overflow-y: scroll; padding-bottom: 70px;}
 .overlay .address-container .select-address, .overlay .address-container .street, .overlay button.address-save-confirm { width:91%; height:3rem; }
 .overlay a.continue { bottom:1rem; }
 .overlay button.continue { width:43rem; height:3rem; }
+.delivery-address-header {cursor: pointer;}
 
 /*Form validation*/
 

@@ -19,6 +19,8 @@
     'ifDifferent' => 'falls abweichend',
     'initcheckout' => 'Weiter zu den Versandkosten',
     'invoiceAddress' => 'Rechnungsadresse',
+    'deliveryAddress' => 'Lieferadresse',
+    'deliveryAddressIfDifferent' => 'Falls abweichend',
     'lastName' => 'Nachname',
     'logout' => 'Ausloggen',
     'pcs.' => 'Stk.',

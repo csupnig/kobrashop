@@ -48,13 +48,13 @@
 
 			<div class="fields-address fields">
 
-        <select class="account_type hidden" name="reg_account_type">
+        <select class="account_type" name="reg_account_type">
             <option value="Privatkunde" selected="">Privatkunde</option>
             <option value="Firma">Firma</option>
         </select>
 
         <p class="form-row">
-            <input type="text" class="input-text billing_company" name="billing_company" placeholder="Firma" value=""><input type="text" class="input-text billing_uid hidden" name="billing_uid" placeholder="UID" value="" autocomplete="uid">
+            <input type="text" class="input-text billing_company" name="billing_company" placeholder="Firma" value=""><input type="text" class="input-text billing_uid" name="billing_uid" placeholder="UID" value="" autocomplete="uid">
         </p>
 
         <p class="form-row">

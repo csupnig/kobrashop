@@ -24,7 +24,9 @@ class Addresses {
 
 
     const $addresses = $(this.mainselector);
-
+    $('.delivery-address-header').on('click', ($event) => {
+        $('.address-container.delivery-address').toggleClass('hidden');
+    });
     $addresses.on('click', '.address-save-confirm', ($event) => {
       this.saveAddress($event);
     });
@@ -39,7 +41,6 @@ class Addresses {
         this.account.addresses.push(this.selectedAddress)
       }
       const address = Utils.formToJson($($event.currentTarget).parents(this.mainselector).find('form[name="address"]'));
-      console.log(address.reg_account_type, $($event.currentTarget).val());
       if (address.reg_account_type === 'Firma') {
         this.selectedAddress.isprivate = false;
         this.selectedAddress.iscompany = true;
@@ -47,7 +48,7 @@ class Addresses {
         this.selectedAddress.isprivate = true;
         this.selectedAddress.iscompany = false;
       }
-      this.render(this.account);
+      this.render(this.account, $($event.currentTarget).parents(this.mainselector));
     });
     $addresses.on('click', '.address-delete', () => {
       this.deleteAddress = true;
@@ -87,27 +88,39 @@ class Addresses {
   }
 
   selectAddress($event) {
-
     this.deleteAddress = false;
     if (!Utils.hasValue(this.account) || !Utils.hasValue(this.account.addresses)) {
       return;
     }
     const selectedId = this.getSelectedId($event);
     this.selectedAddress = this.account.addresses.find(a => a.id === selectedId);
-    this.render(this.account);
+    this.render(this.account, $($event.currentTarget).parents(this.mainselector));
   }
 
   getCartAddress() {
-    return Utils.formToJson($('#overlay-cart').find('form[name="address"]'));
+    return Utils.formToJson($('#overlay-cart .cart-main-address').find('form[name="address"]'));
   }
 
   isCartAddressValid() {
-    let form = $('#overlay-cart').find('form[name="address"]')[0];
+    let form = $('#overlay-cart .cart-main-address').find('form[name="address"]')[0];
     return form.checkValidity();
   }
 
   setCartFormError() {
-    $('#overlay-cart').find('form[name="address"]').addClass('error');
+    $('#overlay-cart .cart-main-address').find('form[name="address"]').addClass('error');
+  }
+
+  getDeliveryAddress() {
+    return Utils.formToJson($('#overlay-cart .delivery-address').find('form[name="address"]'));
+  }
+
+  isDeliveryAddressValid() {
+    let form = $('#overlay-cart .delivery-address').find('form[name="address"]')[0];
+    return form.checkValidity();
+  }
+
+  setDeliveryFormError() {
+    $('#overlay-cart .delivery-address').find('form[name="address"]').addClass('error');
   }
 
   saveAddress($event) {
@@ -151,14 +164,17 @@ class Addresses {
     });
   }
 
-  render(account) {
+  render(account, target) {
     account.selectedAddress = this.selectedAddress;
     account.nextid = account.addresses ? account.addresses.length : 0;
     account.createnew = !this.selectedAddress;
     account.deleteAddress = Utils.hasValue(this.selectedAddress) && this.deleteAddress;
     account.showDelete = Utils.hasValue(this.selectedAddress) && !this.deleteAddress;
     account.showNew = !account.deleteAddress && Utils.hasValue(this.selectedAddress);
-    $(this.mainselector).html(this.template(account));
+    if (!target) {
+      target = $(this.mainselector);
+    }
+    target.html(this.template(account));
   }
 
 }

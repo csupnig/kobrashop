@@ -86,6 +86,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 .scaleDown { object-fit:scale-down; }
 .doubleColumns { column-count:2; }
 *:disabled { opacity:0.3; cursor:default; }
+.hidden {display:none;}
 
 /*=================================== Universal Snippets ===================================*/
 
