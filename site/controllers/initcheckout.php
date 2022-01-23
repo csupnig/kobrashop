@@ -91,8 +91,6 @@ if (kirby()->request()->method() === 'POST') {
           'email' => $kirby->user()->email()
       ]);
 
-      $orderPage = merx()->completePayment();
-
       // TODO initialize payment to create virtual order page
       // TODO complete payment to create final order page
       // TODO set session id to order page content
