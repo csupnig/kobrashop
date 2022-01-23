@@ -21,6 +21,7 @@
     'invoiceAddress' => 'Rechnungsadresse',
     'deliveryAddress' => 'Lieferadresse',
     'deliveryAddressIfDifferent' => 'Falls abweichend',
+    'gotaccount'=>'Einloggen oder registrieren',
     'lastName' => 'Nachname',
     'logout' => 'Ausloggen',
     'pcs.' => 'Stk.',
