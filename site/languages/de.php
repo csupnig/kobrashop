@@ -8,7 +8,7 @@
     'account' => 'Konto',
     'businessCustomer' => 'Firma',
     'cart' => 'Warenkorb',
-    'checkout' => 'Kostenpflichtig bestellen',
+    'checkout' => 'Bestätigen & kostenpflichtig bestellen',
     'city' => 'Stadt',
     'color' => 'Farbe',
     'dirtAndSurface' => 'Verschmutzung & Oberfläche',
