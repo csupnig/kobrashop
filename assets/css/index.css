@@ -210,7 +210,7 @@ body.backgroundColor1 .productPicture.color1, body.backgroundColor2 .productPict
 .overlay a.continue { bottom:1rem; }
 .overlay button.continue { width:41.5rem; height:3rem; }
 .delivery-address-header {cursor: pointer;}
-
+.delivery-address .billing_uid {display:none;}
 /*Form validation*/
 
 form.error input:invalid { border: 1px solid red; }
