@@ -148,7 +148,7 @@ class CartFunctions
 
     public static function generateCheckoutOverview() {
 
-        $country = get('billing_country');
+
         CartFunctions::handleCartShipping(cart(), $country);
 
         return self::getCart();

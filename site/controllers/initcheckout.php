@@ -44,6 +44,8 @@ if (kirby()->request()->method() === 'POST') {
             ]);
         }
 
+        // TODO add address_encoded & delivery_address_encoded to order
+
       // Accepting a stripe payment
       // https://stripe.com/docs/payments/accept-a-payment?integration=elements
 

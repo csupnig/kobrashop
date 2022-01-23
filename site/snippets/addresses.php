@@ -28,7 +28,7 @@
         </select>
         {{#if selectedAddress.iscompany}}
         <p class="form-row">
-            <input type="text" class="input-text billing_company width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_company" placeholder="<?= t("businessCustomer") ?>" value="{{selectedAddress.billing_company}}" required><input type="text" class="input-text billing_uid width45 tinyBottomMargin tinyRightMargin microHPadding hidden" name="billing_uid" placeholder="<?= t("vatId") ?>" value="{{selectedAddress.billing_uid}}" autocomplete="uid" required>
+            <input type="text" class="input-text billing_company width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_company" placeholder="<?= t("businessCustomer") ?>" value="{{selectedAddress.billing_company}}" required><input type="text" class="input-text billing_uid width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_uid" placeholder="<?= t("vatId") ?>" value="{{selectedAddress.billing_uid}}" autocomplete="uid" required>
         </p>
         {{/if}}
         <p class="form-row">

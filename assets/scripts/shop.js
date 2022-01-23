@@ -164,12 +164,28 @@ class Checkout {
     });
     var $form = $('#checkout_form');
     $('#checkout_link').click((event) => {
+
       var address = Addresses.getInstance().getCartAddress();
-      if (Addresses.getInstance().isCartAddressValid()) {
-        console.log('SUBMIT TO overview');
-        this.fetchOverview(address);
-      } else {
+      var deliveryAddress = Addresses.getInstance().getDeliveryAddress();
+
+      var valid = true;
+
+      if (!Addresses.getInstance().isCartAddressValid()) {
+        valid = false;
         Addresses.getInstance().setCartFormError();
+      }
+
+      if ($('.delivery-address').hasClass('hidden')) {
+        deliveryAddress = {};
+      } else {
+        if (!Addresses.getInstance().isDeliveryAddressValid()) {
+          valid = false;
+          Addresses.getInstance().setDeliveryFormError();
+        }
+      }
+
+      if (valid) {
+        this.fetchOverview(address, deliveryAddress);
       }
 
       event.preventDefault();
@@ -188,12 +204,17 @@ class Checkout {
     $("div.overlay").removeClass("active");
   }
 
-  fetchOverview(address) {
-    Http.post('/checkoutoverview', address).then((response) => {
+  fetchOverview(address, deliveryAddress) {
+
+    Http.post('/checkoutoverview', {
+      address,
+      deliveryAddress
+    }).then((response) => {
       this.renderOverview(response);
       this.hideOverlays();
       this.showOverview();
       $('#checkout_form input[name="address_encoded"]').val(JSON.stringify(address));
+      $('#checkout_form input[name="delivery_address_encoded"]').val(JSON.stringify(deliveryAddress));
     });
   }
 
