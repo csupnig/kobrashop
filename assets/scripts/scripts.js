@@ -28,7 +28,7 @@ $(document).ready(function () {
 		//Set up control bar position variables
 		controlHeight = $(".controls").outerHeight() + $(window).width()*0.03;
 		controlOffset = $(".controls").offset().top;
-		
+
 		//Set up control bar position
 		windowHeight = $(window).height();
 		if ((controlOffset + controlHeight) > (windowHeight + $(window).scrollTop())) {
@@ -49,7 +49,7 @@ $(document).ready(function () {
 			} else {
 				$(".controls").removeClass("floating");
 			}
-			console.log((controlOffset + controlHeight) - (windowHeight + $(window).scrollTop()))
+			//console.log((controlOffset + controlHeight) - (windowHeight + $(window).scrollTop()))
 		});
 	}
 

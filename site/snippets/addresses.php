@@ -21,14 +21,11 @@
     {{/if}}
 </div>
 <div class="width100 verySmallBottomPadding">
-
   <form name="address" class="fields-address fields">
-
         <select class="account_type width45 tinyBottomMargin tinyRightMargin microHPadding" name="reg_account_type">
             <option value="Privatkunde" {{#if selectedAddress.isprivate}}selected=""{{/if}}><?= t("privateCustomer") ?></option>
             <option value="Firma" {{#if selectedAddress.iscompany}}selected=""{{/if}}><?= t("businessCustomer") ?></option>
         </select>
-
         {{#if selectedAddress.iscompany}}
         <p class="form-row">
             <input type="text" class="input-text billing_company width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_company" placeholder="<?= t("businessCustomer") ?>" value="{{selectedAddress.billing_company}}" required><input type="text" class="input-text billing_uid width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_uid" placeholder="<?= t("vatId") ?>" value="{{selectedAddress.billing_uid}}" autocomplete="uid" required>
@@ -37,12 +34,10 @@
         <p class="form-row">
             <input type="text" class="input-text input-required width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_first_name" placeholder="<?= t("firstName") ?>" value="{{selectedAddress.billing_first_name}}"><input type="text" class="input-text input-required billing_last_name width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_last_name" placeholder="<?= t("lastName") ?>" value="{{selectedAddress.billing_last_name}}">
         </p>
-
         <p class="form-row">
             <input type="text" class="input-text input-required street tinyBottomMargin microHPadding" name="billing_address_1" placeholder="<?= t("street") ?>" value="{{selectedAddress.billing_address_1}}" required>
             <input type="text" class="input-text input-required width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_postcode" placeholder="<?= t("zipCode") ?>" value="{{selectedAddress.billing_postcode}}" required><input type="text" class="input-text input-required billing_city width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_city" placeholder="<?= t("city") ?>" value="{{selectedAddress.billing_city}}" required>
         </p>
-
         <p class="form-row">
             <select class="country_select billing_country width45 tinyBottomMargin tinyRightMargin" name="billing_country" required>
                 <option value="AT" {{#ifEquals selectedAddress.billing_country "AT"}} selected=""{{/ifEquals}}>Österreich</option>
@@ -73,13 +68,10 @@
                 <option value="ES" {{#ifEquals selectedAddress.billing_country "ES"}} selected=""{{/ifEquals}}>Spanien</option>
                 <option value="SE" {{#ifEquals selectedAddress.billing_country "SE"}} selected=""{{/ifEquals}}>Schweden</option>
                 <option value="GB" {{#ifEquals selectedAddress.billing_country "GB"}} selected=""{{/ifEquals}}>United Kingdom</option>
-        </select><input type="text" class="input-text input-required width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_phone" placeholder="<?= t("phoneNumber") ?>" value="{{selectedAddress.billing_phone}}">
+            </select><input type="text" class="input-text input-required width45 tinyBottomMargin tinyRightMargin microHPadding" name="billing_phone" placeholder="<?= t("phoneNumber") ?>" value="{{selectedAddress.billing_phone}}">
         </p>
-
     <button type="button" class="button save address-save-confirm tinyTopMargin blackBackground white"><?= t("saveAddress") ?></button>
-
 	</div>
-
 </div>
 
 {{else}}
