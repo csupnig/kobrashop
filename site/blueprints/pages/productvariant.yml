@@ -28,8 +28,21 @@ columns:
             required: true
             translate: false
 
+          uneditableheadline:
+            label: Information based on product 
+            type: headline
+            help: Uneditable in product varant
+
           price:
             label: Price
+            type: text
+            width: 1/3
+            required: true
+            disabled: true
+            translate: false
+
+          taxvalue:
+            label: Tax value
             type: text
             width: 1/3
             required: true

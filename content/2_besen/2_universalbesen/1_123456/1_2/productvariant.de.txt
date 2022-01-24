@@ -9,3 +9,7 @@ Picture:
 ----
 
 Price: 15
+
+----
+
+Taxvalue: 3
