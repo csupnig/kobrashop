@@ -112,6 +112,16 @@ class AccountFunctions
         return self::getAccount();
     }
 
+    public static function isCompanyCustomer() {
+            $kirby = kirby();
+            if ($kirby && $kirby->user() !== null) {
+                $user = $kirby->user();
+                $firma = $user->business() !== null && $user->business()->toString() == 'true';
+                return $firma;
+            }
+            return false;
+    }
+
     public static function getAccount() {
         header('Content-type: application/json');
         $user = kirby()->user();

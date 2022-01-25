@@ -1,6 +1,7 @@
 <?php
 use Stripe\Stripe;
 require 'vendor/autoload.php';
+require_once __DIR__."/AccountFunctions.php";
 
 class CartFunctions
 {
@@ -200,7 +201,13 @@ class CartFunctions
 
     public static function getCart() {
         header('Content-type: application/json');
-
-        return json_encode(array("items" => array_values(cart()->toArray()), "sum" => cart()->getSum(), "tax" => cart()->getTax()));
+        $sumNet = cart()->getSum();
+        $sumTax = cart()->getTax();
+        $sumTotal = $sumNet + $sumTax;
+        $retail = !AccountFunctions::isCompanyCustomer();
+        if (!$retail) {
+            $sumTotal = $sumNet;
+        }
+        return json_encode(array("items" => array_values(cart()->toArray()), "sum" => $sumNet, "tax" => $sumTax, "total" => $sumTotal, "retail" => $retail));
     }
 }

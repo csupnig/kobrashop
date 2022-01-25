@@ -1,7 +1,13 @@
+<?php
+require_once __DIR__."/../shop/ProductFunctions.php";
+require_once __DIR__."/../shop/AccountFunctions.php";
+?>
 <section class="products inlineBlock width100">
   <?php //Fetch all products
   if ($category == "") $products = $site->index()->filterBy("intendedTemplate", "product")->listed();
   else $products = $site->index()->filterBy("intendedTemplate", "productcategory")->find($category)->index()->filterBy("intendedTemplate", "product")->listed();
+
+  $isCompanyCustomer = AccountFunctions::isCompanyCustomer();
 
   //Filter products
   $filterCount = count($filterArray);
@@ -43,8 +49,10 @@
 
     //Remove multiple entries for identical colors
     $productColors = [];
+    $displayPrice = 0;
     foreach ($productVariants as $productVariant) {
       $colorNumber = $productVariant->title()->html();
+      $displayPrice = $isCompanyCustomer ? ProductFunctions::getNetPrice($productVariant) : ProductFunctions::getGrossPrice($productVariant);
       if (!in_array($colorNumber, $productColors)) $productColors [] = $colorNumber;
     }
 
@@ -62,6 +70,7 @@
     foreach ($product->brushing()->split() as $brushingUsage) {
       $brushingUsages [] = $brushingUsage;
     }
+
     if ($product->usage() == "special") $productBackground = "special";
     else if ($product->usage() == "liquids") $productbackground = "liquids";
     else if ($product->usage() == "sweeping") $productBackground = $sweepingUsages[0];
@@ -73,7 +82,7 @@
         <h4 class="productName"><?= $product->name() ?></h4>
         <h5 class="productId tinyTopMargin"><?= $product->articleId() ?></h5>
       </div>
-      <span class="price floatRight"><?= formatPrice($product->price()->toFloat()) ?></span>
+      <span class="price floatRight"><?= formatPrice($displayPrice) ?></span>
       <?php if ($cover = $productPicture->toFile()) { ?>
         <img class="width100 cover" src="<?= $cover->url() ?>"/>
       <?php } ?>

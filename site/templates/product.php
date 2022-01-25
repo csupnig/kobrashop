@@ -1,4 +1,16 @@
-<?php snippet("head"); ?>
+<?php
+require_once __DIR__."/../shop/ProductFunctions.php";
+require_once __DIR__."/../shop/AccountFunctions.php";
+snippet("head");
+$isCompanyCustomer = AccountFunctions::isCompanyCustomer();
+
+$displayPrice =  0;
+$productVariants = $page->children()->filterBy("intendedTemplate", "productvariant")->listed();
+foreach ($productVariants as $productVariant) {
+     $displayPrice = $isCompanyCustomer ? ProductFunctions::getNetPrice($productVariant) : ProductFunctions::getGrossPrice($productVariant);
+}
+
+?>
 <body class="product backgroundColor<?= $productColor ?>" data-color="<?= $productColor ?>">
 <script>
   var productVariants = '<?=json_encode($variantMap) ?>';
@@ -10,6 +22,7 @@
         <h1 class="productName"><?= $page->name() ?></h1>
         <h2 class="productId"><?= $page->articleId() ?></h2>
         <?php foreach ($productColors as $pictureColor) {
+
           $productPicture = $page->find($pictureColor)->picture();
           if ($picture = $productPicture->toFile()) { ?>
             <img class="productPicture width100 cover color<?= $pictureColor ?>" src="<?= $picture->url() ?>"/>
@@ -52,7 +65,8 @@
                 <input class="quantity <?= $productColor; ?> rightText" type="number" name="quantity" value="1" min="1">
               </div>
               <span class="pcs veryLarge <?= $productColor; ?> floatLeft bold tinyLeftMargin"><?= t("pcs.") ?></span>
-              <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $page->price()->html() ?>€</span>
+
+              <span class="price huge <?= $productColor; ?> floatLeft bold rightText verySmallRightPadding"><?= $displayPrice ?>€</span>
             </div>
           </form>
           <?php foreach ($productColors as $productColor) { ?>

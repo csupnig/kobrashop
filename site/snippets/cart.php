@@ -47,7 +47,9 @@
   </tbody>
 </table>
 <div class="width100 rightText verySmallHPadding smallVPadding">
+  {{#if retail}}
   <span class="floatLeft"><?= t("vat") ?></span><span class="floatRight">{{formatCurrency tax}}</span><br/><br/>
-  <span class="floatLeft bold"><?= t("total") ?></span><span class="floatRight bold large">{{formatCurrency sum}}</span>
+  {{/if}}
+  <span class="floatLeft bold"><?= t("total") ?></span><span class="floatRight bold large">{{formatCurrency total}}</span>
 </div>
 </script>
