@@ -38,7 +38,7 @@ return [
       if ($page->intendedTemplate() == "productvariant") {
         $page->update([
           "price" => $page->parent()->price(),
-          "taxvalue" => $page->parent()->price()->toFloat()*$page->parent()->tax()->toFloat()
+          "tax" => $page->parent()->price()->toFloat()*$page->parent()->tax()->toFloat()
         ]); 
       }
     },
@@ -48,13 +48,13 @@ return [
         foreach ($newPage->children()->filterBy("intendedTemplate", "productvariant") as $productvariant) {
           $productvariant->update([
               "price" => $newPage->price(),
-              "taxvalue" => $newPage->price()->toFloat()*$newPage->tax()->toFloat()
+              "tax" => $newPage->price()->toFloat()*$newPage->tax()->toFloat()
             ]);
         }
         foreach ($newPage->drafts()->filterBy("intendedTemplate", "productvariant") as $productvariant) {
           $productvariant->update([
               "price" => $newPage->price(),
-              "taxvalue" => $newPage->price()->toFloat()*$newPage->tax()->toFloat()
+              "tax" => $newPage->price()->toFloat()*$newPage->tax()->toFloat()
             ]);
         }
       }       

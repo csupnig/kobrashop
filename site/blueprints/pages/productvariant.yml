@@ -29,7 +29,7 @@ columns:
             translate: false
 
           uneditableheadline:
-            label: Information based on product 
+            label: Information based on product
             type: headline
             help: Uneditable in product varant
 
@@ -41,7 +41,7 @@ columns:
             disabled: true
             translate: false
 
-          taxvalue:
+          tax:
             label: Tax value
             type: text
             width: 1/3

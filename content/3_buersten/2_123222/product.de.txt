@@ -10,11 +10,11 @@ Articleid: 123222
 
 ----
 
-Price: 10
+Price: 100
 
 ----
 
-Tax: 20%
+Tax: 0.2
 
 ----
 
@@ -71,6 +71,10 @@ Surfaces:
 ----
 
 Properties: phb, alcalics
+
+----
+
+Description: 
 
 ----
 

@@ -8,8 +8,12 @@ Picture:
 
 ----
 
-Price: 15
+Price: 120
 
 ----
 
-Taxvalue: 3
+Tax: 24
+
+----
+
+Taxvalue: 30
