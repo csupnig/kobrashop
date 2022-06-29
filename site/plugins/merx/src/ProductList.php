@@ -79,7 +79,7 @@ class ProductList extends Collection
      * @param string $key
      * @param array $value
      */
-    public function __set(string $key, $value)
+    public function __set(string $key, $value)/*: self*/
     {
         if (!isset($value['id'])) {
             $value['id'] = $key;
