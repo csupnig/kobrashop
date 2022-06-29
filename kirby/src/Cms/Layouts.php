@@ -12,12 +12,12 @@ use Throwable;
  * @package   Kirby Cms
  * @author    Bastian Allgeier <bastian@getkirby.com>
  * @link      https://getkirby.com
- * @copyright Bastian Allgeier GmbH
+ * @copyright Bastian Allgeier
  * @license   https://getkirby.com/license
  */
 class Layouts extends Items
 {
-    const ITEM_CLASS = '\Kirby\Cms\Layout';
+    public const ITEM_CLASS = '\Kirby\Cms\Layout';
 
     public static function factory(array $items = null, array $params = [])
     {
@@ -42,6 +42,18 @@ class Layouts extends Items
     }
 
     /**
+     * Checks if a given block type exists in the layouts collection
+     * @since 3.6.0
+     *
+     * @param string $type
+     * @return bool
+     */
+    public function hasBlockType(string $type): bool
+    {
+        return $this->toBlocks()->hasType($type);
+    }
+
+    /**
      * Parse layouts data
      *
      * @param array|string $input
@@ -62,5 +74,29 @@ class Layouts extends Items
         }
 
         return $input;
+    }
+
+    /**
+     * Converts layouts to blocks
+     * @since 3.6.0
+     *
+     * @param bool $includeHidden Sets whether to include hidden blocks
+     * @return \Kirby\Cms\Blocks
+     */
+    public function toBlocks(bool $includeHidden = false)
+    {
+        $blocks = [];
+
+        if ($this->isNotEmpty() === true) {
+            foreach ($this->data() as $layout) {
+                foreach ($layout->columns() as $column) {
+                    foreach ($column->blocks($includeHidden) as $block) {
+                        $blocks[] = $block->toArray();
+                    }
+                }
+            }
+        }
+
+        return Blocks::factory($blocks);
     }
 }

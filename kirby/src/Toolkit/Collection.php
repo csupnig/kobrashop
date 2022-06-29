@@ -14,7 +14,7 @@ use Exception;
  * @package   Kirby Toolkit
  * @author    Bastian Allgeier <bastian@getkirby.com>
  * @link      https://getkirby.com
- * @copyright Bastian Allgeier GmbH
+ * @copyright Bastian Allgeier
  * @license   https://opensource.org/licenses/MIT
  */
 class Collection extends Iterator implements Countable
@@ -287,12 +287,7 @@ class Collection extends Iterator implements Countable
         }
 
         // get the filter from the filters array
-        $filter = static::$filters[$operator] ?? null;
-
-        // return an unfiltered list if the filter does not exist
-        if ($filter === null) {
-            return $this;
-        }
+        $filter = static::$filters[$operator];
 
         if (is_array($filter) === true) {
             $collection = clone $this;

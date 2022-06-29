@@ -12,7 +12,7 @@ use Throwable;
  * @package   Kirby Http
  * @author    Bastian Allgeier <bastian@getkirby.com>
  * @link      https://getkirby.com
- * @copyright Bastian Allgeier GmbH
+ * @copyright Bastian Allgeier
  * @license   https://opensource.org/licenses/MIT
  */
 class Uri
@@ -144,10 +144,10 @@ class Uri
 
         // parse the path and extract params
         if (empty($props['path']) === false) {
-            $extract         = Params::extract($props['path']);
-            $props['params'] = $props['params'] ?? $extract['params'];
-            $props['path']   = $extract['path'];
-            $props['slash']  = $props['slash'] ?? $extract['slash'];
+            $extract           = Params::extract($props['path']);
+            $props['params'] ??= $extract['params'];
+            $props['path']     = $extract['path'];
+            $props['slash']  ??= $extract['slash'];
         }
 
         $this->setProperties($this->props = $props);
@@ -237,7 +237,7 @@ class Uri
 
     /**
      * @param array $props
-     * @param bool $forwarded
+     * @param bool $forwarded Deprecated! Todo: remove in 3.7.0
      * @return static
      */
     public static function current(array $props = [], bool $forwarded = false)
@@ -246,16 +246,13 @@ class Uri
             return static::$current;
         }
 
-        $uri = Server::get('REQUEST_URI');
-        $uri = preg_replace('!^(http|https)\:\/\/' . Server::get('HTTP_HOST') . '!', '', $uri);
-        $uri = parse_url('http://getkirby.com' . $uri);
-
+        $uri = Server::requestUri();
         $url = new static(array_merge([
             'scheme' => Server::https() === true ? 'https' : 'http',
-            'host'   => Server::host($forwarded),
-            'port'   => Server::port($forwarded),
-            'path'   => $uri['path'] ?? null,
-            'query'  => $uri['query'] ?? null,
+            'host'   => Server::host(),
+            'port'   => Server::port(),
+            'path'   => $uri['path'],
+            'query'  => $uri['query'],
         ], $props));
 
         return $url;
@@ -331,34 +328,16 @@ class Uri
      * or any other executed script.
      *
      * @param array $props
-     * @param bool $forwarded
+     * @param bool $forwarded Deprecated! Todo: remove in 3.7.0
      * @return string
      */
     public static function index(array $props = [], bool $forwarded = false)
     {
-        if (Server::cli() === true) {
-            $path = null;
-        } else {
-            $path = Server::get('SCRIPT_NAME');
-            // replace Windows backslashes
-            $path = str_replace('\\', '/', $path);
-            // remove the script
-            $path = dirname($path);
-            // replace those fucking backslashes again
-            $path = str_replace('\\', '/', $path);
-            // remove the leading and trailing slashes
-            $path = trim($path, '/');
-        }
-
-        if ($path === '.') {
-            $path = null;
-        }
-
         return static::current(array_merge($props, [
-            'path'     => $path,
+            'path'     => Server::scriptPath(),
             'query'    => null,
             'fragment' => null,
-        ]), $forwarded);
+        ]));
     }
 
 
