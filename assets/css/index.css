@@ -102,16 +102,16 @@ input.quantity { width:6rem; height:100%; background:none; }
 /*Background colors & patterns*/
 .whiteBackground, .backgroundColor0 { background-color:#fff; } /*Unset*/
 .whiteBackground.transparentBackground { background-color:#ffffff50; }
-.backgroundColor1 { background-color:#448de9; } /*white*/
+.backgroundColor1 { background-color:#5f8ac7; } /*white*/
 .backgroundColor2 { background-color:#ffd400; } /*blue*/
 .backgroundColor3 { background-color:#2e3192; } /*red*/
 .backgroundColor4 { background-color:#00ad66; } /*yellow*/
-.backgroundColor5 { background-color:#ff9ac1; } /*green*/
+.backgroundColor5 { background-color:#fd9ec4; } /*green*/
 .backgroundColor6 { background-color:#ede7da; } /*black*/
-.backgroundColor7 { background-color:#9bdbdb; } /*orange*/
-.backgroundColor8 { background-color:#ffa020; } /*purple*/
-.backgroundColor9 { background-color:#ef3e23; } /*pink*/
-.backgroundColor11 { background-color:#9b65aa; } /*grey*/
+.backgroundColor7 { background-color:#845aa6; } /*orange*/
+.backgroundColor8 { background-color:#faa627; } /*purple*/
+.backgroundColor9 { background-color:#a6dfdf; } /*pink*/
+.backgroundColor11 { background-color:#ef3e23; } /*grey*/
 .backgroundColor12 { background-color:#59caec; } /*brown*/
 button.color1, .circle.color1 { background-color:#ede7da; } /*white*/
 button.color2, .circle.color2 { background-color:#2e3192; } /*blue*/

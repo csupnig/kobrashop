@@ -1,0 +1,77 @@
+Title: 211212
+
+----
+
+Name: Feinstaubbesen
+
+----
+
+Articleid: 211212
+
+----
+
+Price: 20
+
+----
+
+Tax: 0.2
+
+----
+
+Packagingunit: 6
+
+----
+
+Weight: 1000
+
+----
+
+Dimensions: true
+
+----
+
+Length: 500
+
+----
+
+Width: 50
+
+----
+
+Bristles: true
+
+----
+
+Bristlelength: 55
+
+----
+
+Bristlewidth: 0.25
+
+----
+
+Maxtemperature: 100
+
+----
+
+Usage: sweeping
+
+----
+
+Sweeping: sweeping1, sweeping2
+
+----
+
+Brushing: 
+
+----
+
+Surfaces: 
+
+----
+
+Properties: phb
+
+----
+
+Description: 

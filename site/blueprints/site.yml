@@ -17,6 +17,12 @@ columns:
           - shippingcountry
         sortable: true
 
+      orders:
+        headline: Orders
+        type: pages
+        templates:
+          - orders
+
       pages:
         headline: Pages
         type: pages
