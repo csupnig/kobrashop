@@ -28,6 +28,7 @@
   <?php snippet('checkoutoverview', ['cart' => merx()->cart()]); ?>
   <form id="checkout_form" class="verySmallHPadding" name="checkout" method="post" action="<?=url('initcheckout') ?>">
     <input type="hidden" name="address_encoded">
+    <input type="hidden" name="paymentmethod" value="stripe_custom">
     <input type="hidden" name="delivery_address_encoded">
     <button type="submit" class="button continue tinyTopMargin blackBackground white"><?= t("checkout") ?></button>
   </form>

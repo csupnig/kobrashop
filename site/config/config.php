@@ -20,6 +20,7 @@ return [
     'ww.merx.stripe.live.webhook_secret' => StripeConfig::getWebhookSecret(),
   'ww.merx.gateways' => [
     'empty-gateway' => [],
+    'stripe_custom' => []
   ],
   'hooks' => [
     'ww.merx.cart' => function ($cart) {

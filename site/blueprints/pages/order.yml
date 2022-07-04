@@ -22,6 +22,4 @@ tabs:
             type: text
           email:
             type: email
-  payment:
-    sections:
-      payment-method: sections/payment-method
+
