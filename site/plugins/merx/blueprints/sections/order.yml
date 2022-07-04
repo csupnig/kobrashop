@@ -33,3 +33,10 @@ fields:
       Sum: {{ page.formattedSum }}<br>
       Invoice Date: {{ page.invoiceDate }}<br>
       Payed Date: {{ page.payedDate }}<br>
+  addresses:
+      label: Adressen
+      type: info
+      width: 1/1
+      text: >
+          <strong>Adresse:</strong><br/> {< page.address >}<br><br>
+          <strong>Lieferadresse:</strong><br/> {< page.delivery_address >}

@@ -5,6 +5,7 @@ use Stripe\Stripe;
 use Wagnerwagner\Merx\Gateways;
 
 require_once __DIR__."/../shop/CartFunctions.php";
+require_once __DIR__."/../shop/AccountFunctions.php";
 require 'vendor/autoload.php';
 
 // Provide custom payment method
@@ -87,27 +88,11 @@ if (kirby()->request()->method() === 'POST') {
 
       $address = '';
       $address_encoded = get('address_encoded');
-      if (isset($address_encoded)) {
-            $tmpAddress = json_decode($address_encoded);
-            $address .= $tmpAddress['reg_account_type'].'\n';
-            $address .= $tmpAddress['billing_first_name'].' '.$tmpAddress['billing_last_name'].'\n';
-            $address .= $tmpAddress['billing_address_1'].'\n';
-            $address .= $tmpAddress['billing_postcode'].' '.$tmpAddress['billing_city'].'\n';
-            $address .= $tmpAddress['billing_country'].'\n';
-            $address .= $tmpAddress['billing_phone'].'\n';
-      }
+      $address = AccountFunctions::getStringAddress($address_encoded);
 
-    $delivery_address = '';
-    $daddress_encoded = get('delivery_address_encoded');
-    if (isset($daddress_encoded)) {
-          $tmpAddress = json_decode($daddress_encoded);
-          $delivery_address .= $tmpAddress['reg_account_type'].'\n';
-          $delivery_address .= $tmpAddress['billing_first_name'].' '.$tmpAddress['billing_last_name'].'\n';
-          $delivery_address .= $tmpAddress['billing_address_1'].'\n';
-          $delivery_address .= $tmpAddress['billing_postcode'].' '.$tmpAddress['billing_city'].'\n';
-          $delivery_address .= $tmpAddress['billing_country'].'\n';
-          $delivery_address .= $tmpAddress['billing_phone'].'\n';
-    }
+      $delivery_address = '';
+      $daddress_encoded = get('delivery_address_encoded');
+      $delivery_address = AccountFunctions::getStringAddress($daddress_encoded);
 
       merx()->initializePayment([
           'paymentMethod' => 'stripe_custom',

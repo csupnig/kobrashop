@@ -133,4 +133,27 @@ class AccountFunctions
         }
         return json_encode(array("loggedin" => isset($user), "role" => $role, "addresses" => $addresses));
     }
+
+    public static function getStringAddress($addressJSON) {
+            $delivery_address = '';
+            $daddress_encoded = $addressJSON;
+            if (isset($daddress_encoded)) {
+                  $tmpAddress = json_decode($daddress_encoded, true);
+                  $delivery_address .= self::getSaddressField($tmpAddress,'reg_account_type').'<br/>';
+                  $delivery_address .= self::getSaddressField($tmpAddress,'billing_first_name').' '.self::getSaddressField($tmpAddress,'billing_last_name').'<br/>';
+                  $delivery_address .= self::getSaddressField($tmpAddress,'billing_address_1').'<br/>';
+                  $delivery_address .= self::getSaddressField($tmpAddress,'billing_postcode').' '.self::getSaddressField($tmpAddress,'billing_city').'<br/>';
+                  $delivery_address .= self::getSaddressField($tmpAddress,'billing_country').'<br/>';
+                  $delivery_address .= self::getSaddressField($tmpAddress,'billing_phone').'<br/>';
+            }
+
+            return $delivery_address;
+    }
+
+    private static function getSAddressField($arr, $fielname) {
+        if (isset($arr) && isset($arr[$fielname])) {
+            return $arr[$fielname];
+        }
+        return '';
+    }
 }
