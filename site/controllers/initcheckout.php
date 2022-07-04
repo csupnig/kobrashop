@@ -85,10 +85,37 @@ if (kirby()->request()->method() === 'POST') {
 
       $session = \Stripe\Checkout\Session::create($stripeData);
 
+      $address = '';
+      $address_encoded = get('address_encoded');
+      if (isset($address_encoded)) {
+            $tmpAddress = json_decode($address_encoded);
+            $address .= $tmpAddress['reg_account_type'].'\n';
+            $address .= $tmpAddress['billing_first_name'].' '.$tmpAddress['billing_last_name'].'\n';
+            $address .= $tmpAddress['billing_address_1'].'\n';
+            $address .= $tmpAddress['billing_postcode'].' '.$tmpAddress['billing_city'].'\n';
+            $address .= $tmpAddress['billing_country'].'\n';
+            $address .= $tmpAddress['billing_phone'].'\n';
+      }
+
+    $delivery_address = '';
+    $daddress_encoded = get('delivery_address_encoded');
+    if (isset($daddress_encoded)) {
+          $tmpAddress = json_decode($daddress_encoded);
+          $delivery_address .= $tmpAddress['reg_account_type'].'\n';
+          $delivery_address .= $tmpAddress['billing_first_name'].' '.$tmpAddress['billing_last_name'].'\n';
+          $delivery_address .= $tmpAddress['billing_address_1'].'\n';
+          $delivery_address .= $tmpAddress['billing_postcode'].' '.$tmpAddress['billing_city'].'\n';
+          $delivery_address .= $tmpAddress['billing_country'].'\n';
+          $delivery_address .= $tmpAddress['billing_phone'].'\n';
+    }
+
       merx()->initializePayment([
           'paymentMethod' => 'stripe_custom',
           'stripeSessionId' => $session->id,
-          'email' => $kirby->user()->email()
+          'email' => $kirby->user()->email(),
+          'orderDate' => date('c'),
+          'address' => $address,
+          'delivery_address' => $delivery_address
       ]);
 
       // TODO initialize payment to create virtual order page

@@ -28,7 +28,8 @@ class OrderFunctions
               return $p->email()->text() == $usermail;
             });
             foreach ($orderPages as $order) {
-                array_push($orders, array("id" => $order->id(), "name" => $order->name(), "url"=>$order->url(), "invoiceNumber" => $order->invoiceNumber()));
+
+                array_push($orders, array("id" => $order->id(), "name" => $order->name(), "url"=>$order->url(), "invoiceNumber" => $order->invoiceNumber(), "date" => $order->invoicedate()->toDate("d.m.Y")));
             }
         }
         return json_encode(array("orders" => $orders));

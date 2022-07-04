@@ -1,0 +1,38 @@
+Paymentmethod: stripe_custom
+
+----
+
+Stripesessionid: cs_test_b1wccsC6MgAVtRkTiprbK4U9svEDj9HAohjyu5oqVjSed3wvvvImbKU7JH
+
+----
+
+Email: christopher+kobra@supnig.com
+
+----
+
+Items:
+
+- 
+  id: besen/universalbesen/123456/1
+  quantity: 1
+  price: 15
+  tax: 0.436893203883
+  color: "1"
+  title: Universalbesen
+  articleid: "123456"
+  taxrate: 3
+  sum: 15
+  sumtax: "0.436893203883"
+- 
+  id: shipping
+  quantity: 1
+  price: 5
+  tax: 0
+  title: Shipping
+  taxrate: 0
+  sum: 5
+  sumtax: 0
+
+----
+
+Invoicedate: 2022-07-04T12:57:00+02:00

@@ -127,9 +127,10 @@
 
 </script>
 <script id="orderstemplate" type="text/x-handlebars">
+  <h2>Meine Bestellungen</h2>
   <ul>
   {{#each items}}
-    <li>{{this.id}}</li>
+    <li>{{this.invoiceNumber}} - {{this.date}}</li>
   {{/each}}
   </ul>
 </script>
